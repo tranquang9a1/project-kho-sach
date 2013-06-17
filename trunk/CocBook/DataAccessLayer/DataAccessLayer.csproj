@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1FE320E1-B45A-4ABF-BD52-78F809FEDCCD}</ProjectGuid>
+    <ProjectGuid>{636C78A6-A295-4802-9EF8-0FE2C6590C31}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CocBook</RootNamespace>
-    <AssemblyName>CocBook</AssemblyName>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -46,80 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1LoginForm.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1LoginForm.Designer.cs">
-      <DependentUpon>1LoginForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="2MainMenuForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="2MainMenuForm.Designer.cs">
-      <DependentUpon>2MainMenuForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="3BookManangeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="3BookManangeForm.Designer.cs">
-      <DependentUpon>3BookManangeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="3_1BookDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="3_1BookDetail.Designer.cs">
-      <DependentUpon>3_1BookDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="4ViewMainStore.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="4ViewMainStore.Designer.cs">
-      <DependentUpon>4ViewMainStore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="5ConsignManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="5ConsignManage.Designer.cs">
-      <DependentUpon>5ConsignManage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="5_1AddConsignDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="5_1AddConsignDetail.Designer.cs">
-      <DependentUpon>5_1AddConsignDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BillDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BillDetail.Designer.cs">
-      <DependentUpon>BillDetail.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="1LoginForm.resx">
-      <DependentUpon>1LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="2MainMenuForm.resx">
-      <DependentUpon>2MainMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="3BookManangeForm.resx">
-      <DependentUpon>3BookManangeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="3_1BookDetail.resx">
-      <DependentUpon>3_1BookDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="4ViewMainStore.resx">
-      <DependentUpon>4ViewMainStore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="5ConsignManage.resx">
-      <DependentUpon>5ConsignManage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="5_1AddConsignDetail.resx">
-      <DependentUpon>5_1AddConsignDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BillDetail.resx">
-      <DependentUpon>BillDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,7 +62,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -139,9 +72,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
