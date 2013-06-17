@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4996bca2-3d19-4c63-87ff-b9046bea2601" name="Giang@GIANGHHTSE60894 2013-06-17 21:34:56" runUser="GIANGHHTSE60894\Giang" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0d9a15f0-ff93-4e20-be0b-0405bb767491">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Giang_GIANGHHTSE60894 2013-06-17 21_34_56">
+      <DeploymentItem filename="F:\FPT\Semester 4\C# &amp; Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-06-17T21:34:56.0585124+07:00" queuing="2013-06-17T21:34:56.1035386+07:00" start="2013-06-17T21:34:56.1380107+07:00" finish="2013-06-17T21:34:56.8254695+07:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DeletePublisherByIDTest" storage="f:\fpt\semester 4\c# &amp; dot net\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="133fdd62-66f2-5d4a-9781-991e26dee1f5">
+      <Execution id="cb04c13f-ad54-456e-a337-e23a2546d8b4" />
+      <TestMethod codeBase="F:/FPT/Semester 4/C# &amp; Dot Net/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeletePublisherByIDTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="133fdd62-66f2-5d4a-9781-991e26dee1f5" executionId="cb04c13f-ad54-456e-a337-e23a2546d8b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="cb04c13f-ad54-456e-a337-e23a2546d8b4" testId="133fdd62-66f2-5d4a-9781-991e26dee1f5" testName="DeletePublisherByIDTest" computerName="GIANGHHTSE60894" duration="00:00:00.1007380" startTime="2013-06-17T21:34:56.1510198+07:00" endTime="2013-06-17T21:34:56.7604262+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb04c13f-ad54-456e-a337-e23a2546d8b4">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;True&gt;. Actual:&lt;False&gt;. </Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.DeletePublisherByIDTest() in F:\FPT\Semester 4\C# &amp; Dot Net\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 106
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

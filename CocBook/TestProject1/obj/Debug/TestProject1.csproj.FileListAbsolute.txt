@@ -1,0 +1,7 @@
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\bin\Debug\TestProject1.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\bin\Debug\TestProject1.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.pdb

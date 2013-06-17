@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccessLayer.cs.DTO
 {
-    class Publisher
+    public class Publisher
     {
         public int PublisherID { get; set; }
         public string PublisherName { get; set; }

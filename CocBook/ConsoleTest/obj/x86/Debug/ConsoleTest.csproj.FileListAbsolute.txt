@@ -1,0 +1,7 @@
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\bin\Debug\ConsoleTest.exe
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\bin\Debug\ConsoleTest.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\bin\Debug\DataAccessLayer.cs.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\bin\Debug\DataAccessLayer.cs.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\obj\x86\Debug\ConsoleTest.csprojResolveAssemblyReference.cache
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\obj\x86\Debug\ConsoleTest.exe
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\ConsoleTest\obj\x86\Debug\ConsoleTest.pdb

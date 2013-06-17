@@ -8,20 +8,22 @@ using System.Data.SqlClient;
 
 namespace DataAccessLayer.cs.DAL
 {
-    class PublisherDAL
+    public class PublisherDAL
     {
         public bool CreatePulisher(Publisher publisher)
         {
             try
             {
                 // ConnectionString to DB
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                /*ConnectionString Error
+                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
+                */
+                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
 
                 //Insert Command
-                SqlCommand cmd = new SqlCommand("Insert into Publisher values (@PublisherID,@Name)", con);
-                cmd.Parameters.AddWithValue("PublisherID", publisher.PublisherID);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Publisher(PulisherName) VALUES (@Name)", con);
                 cmd.Parameters.AddWithValue("Name", publisher.PublisherName);
                 //
                 con.Open();
@@ -41,8 +43,11 @@ namespace DataAccessLayer.cs.DAL
             try
             {
                 // ConnectionString to DB
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                /*ConnectionString Error
+                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
+                */
+                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
                 //Update Command
                 SqlCommand cmd = new SqlCommand("Update Publisher Set PublishserName = @name where PublishserID = @id", con);
@@ -65,8 +70,11 @@ namespace DataAccessLayer.cs.DAL
             try
             {
                 // ConnectionString to DB
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                /*ConnectionString Error
+                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
+                */
+                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
 
                 //Delete Command
@@ -87,8 +95,11 @@ namespace DataAccessLayer.cs.DAL
         public List<Publisher> GetAllProduct()
         {
             // ConnectionString to DB
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            /*ConnectionString Error
+            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
+            */
+            SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             // View all Command
             SqlCommand cmd = new SqlCommand("Select * from Publisher", con);
@@ -113,8 +124,11 @@ namespace DataAccessLayer.cs.DAL
         {
 
             // ConnectionString to DB
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            /*ConnectionString Error
+            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
+            */
+            SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             SqlCommand cmd = new SqlCommand("Select * from Publisher where PublisherId = @id", con);
             cmd.Parameters.AddWithValue("id", id);
