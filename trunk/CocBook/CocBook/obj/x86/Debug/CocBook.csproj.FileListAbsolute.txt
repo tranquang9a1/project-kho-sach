@@ -6,3 +6,5 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\Co
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+D:\ProjectCocBook\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+D:\ProjectCocBook\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
