@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="28a7db6b-4031-4375-a552-d7195e871b5d" name="Giang@GIANGHHTSE60894 2013-06-17 21:31:54" runUser="GIANGHHTSE60894\Giang" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0d9a15f0-ff93-4e20-be0b-0405bb767491">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Giang_GIANGHHTSE60894 2013-06-17 21_31_54">
+      <DeploymentItem filename="F:\FPT\Semester 4\C# &amp; Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-06-17T21:31:54.4057502+07:00" queuing="2013-06-17T21:31:54.4557266+07:00" start="2013-06-17T21:31:54.4777447+07:00" finish="2013-06-17T21:31:57.0638788+07:00" />
+  <ResultSummary outcome="Inconclusive">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CreatePulisherTest" storage="f:\fpt\semester 4\c# &amp; dot net\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="29aec3e9-7ebc-fd77-fff0-d960863e2a23">
+      <Execution id="6a27b051-7846-48fa-8a2d-7659d1052479" />
+      <TestMethod codeBase="F:/FPT/Semester 4/C# &amp; Dot Net/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreatePulisherTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="29aec3e9-7ebc-fd77-fff0-d960863e2a23" executionId="6a27b051-7846-48fa-8a2d-7659d1052479" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="6a27b051-7846-48fa-8a2d-7659d1052479" testId="29aec3e9-7ebc-fd77-fff0-d960863e2a23" testName="CreatePulisherTest" computerName="GIANGHHTSE60894" duration="00:00:00.2100976" startTime="2013-06-17T21:31:54.5308403+07:00" endTime="2013-06-17T21:31:55.4841314+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6a27b051-7846-48fa-8a2d-7659d1052479">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.CreatePulisherTest() in F:\FPT\Semester 4\C# &amp; Dot Net\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 93
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

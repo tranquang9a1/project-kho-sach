@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAL\IEDetailDAL.cs" />
     <Compile Include="DAL\PublisherDAL.cs" />
+    <Compile Include="DTO\IEDetail.cs" />
     <Compile Include="DTO\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

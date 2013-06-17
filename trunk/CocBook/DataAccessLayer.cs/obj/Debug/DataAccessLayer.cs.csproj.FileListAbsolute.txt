@@ -1,0 +1,5 @@
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll.config
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
