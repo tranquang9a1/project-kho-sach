@@ -1,0 +1,8 @@
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.exe
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.pdb
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Form1.resources
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Form2.resources
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
