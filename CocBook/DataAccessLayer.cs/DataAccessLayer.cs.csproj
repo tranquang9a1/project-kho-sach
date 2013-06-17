@@ -42,10 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DAL\BookDAL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\BookStoreDALcs.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
     <Compile Include="DAL\IEDAL.cs" />
     <Compile Include="DAL\IEDetailDAL.cs" />
     <Compile Include="DAL\PublisherDAL.cs" />
+    <Compile Include="DTO\Book.cs" />
+    <Compile Include="DTO\BookStore.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\IE.cs" />
     <Compile Include="DTO\IEDetail.cs" />

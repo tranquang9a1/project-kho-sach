@@ -83,9 +83,8 @@ namespace TestProject1
         public void CreatePulisherTest()
         {
             PublisherDAL target = new PublisherDAL(); // TODO: Initialize to an appropriate value
-            Publisher publisher = new Publisher(); // TODO: Initialize to an appropriate value
-            publisher.PublisherName = "Kim Đồng";
-            bool expected = true; // TODO: Initialize to an appropriate value
+            Publisher publisher = null; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
             actual = target.CreatePulisher(publisher);
             Assert.AreEqual(expected, actual);
@@ -99,8 +98,8 @@ namespace TestProject1
         public void DeletePublisherByIDTest()
         {
             PublisherDAL target = new PublisherDAL(); // TODO: Initialize to an appropriate value
-            int id = 9; // TODO: Initialize to an appropriate value
-            bool expected = true; // TODO: Initialize to an appropriate value
+            int id = 0; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
             actual = target.DeletePublisherByID(id);
             Assert.AreEqual(expected, actual);
@@ -114,12 +113,7 @@ namespace TestProject1
         public void GetAllProductTest()
         {
             PublisherDAL target = new PublisherDAL(); // TODO: Initialize to an appropriate value
-            List<Publisher> test = new List<Publisher>();
-            Publisher pu = new Publisher();
-            pu.PublisherID = 10;
-            pu.PublisherName = "Kim Đồng";
-            test.Add(pu);
-            List<Publisher> expected = test; // TODO: Initialize to an appropriate value            
+            List<Publisher> expected = null; // TODO: Initialize to an appropriate value
             List<Publisher> actual;
             actual = target.GetAllProduct();
             Assert.AreEqual(expected, actual);
