@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E931C7F5-CA57-4079-BF01-B2AF56A289BA}</ProjectGuid>
+    <ProjectGuid>{47BCB7C0-B88C-4449-A2D9-6363177BF3B2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataAccessLayer</RootNamespace>
@@ -42,16 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DAL\CustomerDAL.cs" />
-    <Compile Include="DAL\IEDAL.cs" />
-    <Compile Include="DTO\IE.cs" />
-    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DAL\BookDAL.cs" />
+    <Compile Include="DTO\Book.cs" />
+    <Compile Include="DTO\BookStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

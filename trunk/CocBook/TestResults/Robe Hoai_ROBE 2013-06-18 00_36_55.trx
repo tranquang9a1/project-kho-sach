@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="12425efa-e563-4b9e-a67e-fa12082cb1c9" name="Robe Hoai@ROBE 2013-06-18 00:36:55" runUser="ROBE\Robe Hoai" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0d9a15f0-ff93-4e20-be0b-0405bb767491">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Robe Hoai_ROBE 2013-06-18 00_36_55">
+      <DeploymentItem filename="D:\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-06-18T00:36:55.0036530+07:00" queuing="2013-06-18T00:36:55.3088555+07:00" start="2013-06-18T00:36:55.3558867+07:00" finish="2013-06-18T00:36:57.9326093+07:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" error="0" failed="2" timeout="0" aborted="0" inconclusive="4" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="UpdateIEDetailTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="9eaed637-d5d8-11a7-3c43-30f297b8b082">
+      <Execution id="926eb66d-8c3d-4a18-8f45-f7c043d67e96" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdateIEDetailTest" />
+    </UnitTest>
+    <UnitTest name="IEDetailDALConstructorTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="5d210738-82e1-a051-0d1f-d31f9a188b69">
+      <Execution id="d1970065-58f8-4da5-82f4-d9cb07086dfc" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IEDetailDALConstructorTest" />
+    </UnitTest>
+    <UnitTest name="GetPublisherByCheckNoAndISBNTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="444d534a-860f-ceb3-1d23-cc230ebe96aa">
+      <Execution id="5fc5a418-14f7-48eb-a57f-fc2f92481e36" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPublisherByCheckNoAndISBNTest" />
+    </UnitTest>
+    <UnitTest name="GetAllProductTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="a21e0e88-7967-ecf5-2492-fcdd1ab6fc9f">
+      <Execution id="adc9569b-5cb1-4941-83c8-e78e7753b60f" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAllProductTest" />
+    </UnitTest>
+    <UnitTest name="DeletePublisherByCheckNoAndISBNTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="9d39b6c1-1551-1613-9b37-307697c6db7f">
+      <Execution id="72d5a20a-cd5f-42c0-baa1-efdf082286a7" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeletePublisherByCheckNoAndISBNTest" />
+    </UnitTest>
+    <UnitTest name="CreateIEDetailTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="67d800a0-e94e-85d5-5183-41f6b4137907">
+      <Execution id="3de3354b-65c4-494c-8a2b-5b7c3a722f74" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.IEDetailDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateIEDetailTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="444d534a-860f-ceb3-1d23-cc230ebe96aa" executionId="5fc5a418-14f7-48eb-a57f-fc2f92481e36" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5d210738-82e1-a051-0d1f-d31f9a188b69" executionId="d1970065-58f8-4da5-82f4-d9cb07086dfc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67d800a0-e94e-85d5-5183-41f6b4137907" executionId="3de3354b-65c4-494c-8a2b-5b7c3a722f74" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d39b6c1-1551-1613-9b37-307697c6db7f" executionId="72d5a20a-cd5f-42c0-baa1-efdf082286a7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9eaed637-d5d8-11a7-3c43-30f297b8b082" executionId="926eb66d-8c3d-4a18-8f45-f7c043d67e96" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a21e0e88-7967-ecf5-2492-fcdd1ab6fc9f" executionId="adc9569b-5cb1-4941-83c8-e78e7753b60f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="5fc5a418-14f7-48eb-a57f-fc2f92481e36" testId="444d534a-860f-ceb3-1d23-cc230ebe96aa" testName="GetPublisherByCheckNoAndISBNTest" computerName="ROBE" duration="00:00:00.6901906" startTime="2013-06-18T00:36:55.3628911+07:00" endTime="2013-06-18T00:36:56.3195302+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5fc5a418-14f7-48eb-a57f-fc2f92481e36">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;DataAccessLayer.cs.DTO.IEDetail&gt;. </Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.GetPublisherByCheckNoAndISBNTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 136
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d1970065-58f8-4da5-82f4-d9cb07086dfc" testId="5d210738-82e1-a051-0d1f-d31f9a188b69" testName="IEDetailDALConstructorTest" computerName="ROBE" duration="00:00:00.0009076" startTime="2013-06-18T00:36:56.3215364+07:00" endTime="2013-06-18T00:36:56.3275360+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d1970065-58f8-4da5-82f4-d9cb07086dfc">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.IEDetailDALConstructorTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 76
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3de3354b-65c4-494c-8a2b-5b7c3a722f74" testId="67d800a0-e94e-85d5-5183-41f6b4137907" testName="CreateIEDetailTest" computerName="ROBE" duration="00:00:00.0019379" startTime="2013-06-18T00:36:56.3305386+07:00" endTime="2013-06-18T00:36:56.3365422+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3de3354b-65c4-494c-8a2b-5b7c3a722f74">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.CreateIEDetailTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 91
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="72d5a20a-cd5f-42c0-baa1-efdf082286a7" testId="9d39b6c1-1551-1613-9b37-307697c6db7f" testName="DeletePublisherByCheckNoAndISBNTest" computerName="ROBE" duration="00:00:00.0034538" startTime="2013-06-18T00:36:56.3395449+07:00" endTime="2013-06-18T00:36:56.3475511+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="72d5a20a-cd5f-42c0-baa1-efdf082286a7">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.DeletePublisherByCheckNoAndISBNTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 107
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="926eb66d-8c3d-4a18-8f45-f7c043d67e96" testId="9eaed637-d5d8-11a7-3c43-30f297b8b082" testName="UpdateIEDetailTest" computerName="ROBE" duration="00:00:00.0014172" startTime="2013-06-18T00:36:56.3505533+07:00" endTime="2013-06-18T00:36:56.3555551+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="926eb66d-8c3d-4a18-8f45-f7c043d67e96">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.UpdateIEDetailTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 152
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="adc9569b-5cb1-4941-83c8-e78e7753b60f" testId="a21e0e88-7967-ecf5-2492-fcdd1ab6fc9f" testName="GetAllProductTest" computerName="ROBE" duration="00:00:00.0405189" startTime="2013-06-18T00:36:56.3575574+07:00" endTime="2013-06-18T00:36:56.4025859+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="adc9569b-5cb1-4941-83c8-e78e7753b60f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;System.Collections.Generic.List`1[DataAccessLayer.cs.DTO.IEDetail]&gt;. </Message>
+          <StackTrace>   at TestProject1.IEDetailDALTest.GetAllProductTest() in D:\project-kho-sach\CocBook\TestProject1\IEDetailDALTest.cs:line 120
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

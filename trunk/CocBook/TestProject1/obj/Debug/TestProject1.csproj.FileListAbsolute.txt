@@ -5,3 +5,10 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\bin\Debug\D
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.dll
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.pdb
+D:\project-kho-sach\CocBook\TestProject1\bin\Debug\TestProject1.dll
+D:\project-kho-sach\CocBook\TestProject1\bin\Debug\TestProject1.pdb
+D:\project-kho-sach\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.dll
+D:\project-kho-sach\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.pdb
+D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.dll
+D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.pdb

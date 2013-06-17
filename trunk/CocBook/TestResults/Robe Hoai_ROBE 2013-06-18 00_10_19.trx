@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="08ccf184-eeba-4276-8e12-38db6f5df789" name="Robe Hoai@ROBE 2013-06-18 00:10:19" runUser="ROBE\Robe Hoai" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0d9a15f0-ff93-4e20-be0b-0405bb767491">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Robe Hoai_ROBE 2013-06-18 00_10_19">
+      <DeploymentItem filename="D:\project-kho-sach\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-06-18T00:10:19.0558449+07:00" queuing="2013-06-18T00:10:21.8316978+07:00" start="2013-06-18T00:10:21.9627829+07:00" finish="2013-06-18T00:10:24.0661885+07:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" error="0" failed="3" timeout="0" aborted="0" inconclusive="3" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DeletePublisherByIDTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="133fdd62-66f2-5d4a-9781-991e26dee1f5">
+      <Execution id="4e0d6d92-8fda-4b2a-a0ca-8aaf0e1d2d4c" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeletePublisherByIDTest" />
+    </UnitTest>
+    <UnitTest name="UpdatePublisherTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="4369f361-f645-ef47-7b93-d89d5da6804c">
+      <Execution id="d03137a6-ddcb-4c03-8746-53a4292669e7" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UpdatePublisherTest" />
+    </UnitTest>
+    <UnitTest name="GetPublisherByIdTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="1945f399-c7f6-d129-a009-b76f235fce84">
+      <Execution id="1343c64d-b128-48f1-92bb-983501ec8de2" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetPublisherByIdTest" />
+    </UnitTest>
+    <UnitTest name="GetAllProductTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="a05aea42-178d-3620-feba-00780cd4f023">
+      <Execution id="edb04146-ed2d-48f0-b9f2-9525d68efadc" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetAllProductTest" />
+    </UnitTest>
+    <UnitTest name="PublisherDALConstructorTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="b99d4ea0-22b6-e7c5-2f5e-317132b25431">
+      <Execution id="4b4fa3f0-6c7a-4b34-a848-cf6100159e92" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="PublisherDALConstructorTest" />
+    </UnitTest>
+    <UnitTest name="CreatePulisherTest" storage="d:\project-kho-sach\cocbook\testproject1\bin\debug\testproject1.dll" id="29aec3e9-7ebc-fd77-fff0-d960863e2a23">
+      <Execution id="d331e3e1-5a52-4170-8268-c34700a7c692" />
+      <TestMethod codeBase="D:/project-kho-sach/CocBook/TestProject1/bin/Debug/TestProject1.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.PublisherDALTest, TestProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreatePulisherTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="133fdd62-66f2-5d4a-9781-991e26dee1f5" executionId="4e0d6d92-8fda-4b2a-a0ca-8aaf0e1d2d4c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1945f399-c7f6-d129-a009-b76f235fce84" executionId="1343c64d-b128-48f1-92bb-983501ec8de2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29aec3e9-7ebc-fd77-fff0-d960863e2a23" executionId="d331e3e1-5a52-4170-8268-c34700a7c692" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4369f361-f645-ef47-7b93-d89d5da6804c" executionId="d03137a6-ddcb-4c03-8746-53a4292669e7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a05aea42-178d-3620-feba-00780cd4f023" executionId="edb04146-ed2d-48f0-b9f2-9525d68efadc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b99d4ea0-22b6-e7c5-2f5e-317132b25431" executionId="4b4fa3f0-6c7a-4b34-a848-cf6100159e92" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4e0d6d92-8fda-4b2a-a0ca-8aaf0e1d2d4c" testId="133fdd62-66f2-5d4a-9781-991e26dee1f5" testName="DeletePublisherByIDTest" computerName="ROBE" duration="00:00:00.8789411" startTime="2013-06-18T00:10:22.0888668+07:00" endTime="2013-06-18T00:10:23.7199597+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e0d6d92-8fda-4b2a-a0ca-8aaf0e1d2d4c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;True&gt;. Actual:&lt;False&gt;. </Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.DeletePublisherByIDTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 106
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1343c64d-b128-48f1-92bb-983501ec8de2" testId="1945f399-c7f6-d129-a009-b76f235fce84" testName="GetPublisherByIdTest" computerName="ROBE" duration="00:00:00.0067193" startTime="2013-06-18T00:10:23.7249611+07:00" endTime="2013-06-18T00:10:23.7379691+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1343c64d-b128-48f1-92bb-983501ec8de2">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;(null)&gt;. Actual:&lt;DataAccessLayer.cs.DTO.Publisher&gt;. </Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.GetPublisherByIdTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 140
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d331e3e1-5a52-4170-8268-c34700a7c692" testId="29aec3e9-7ebc-fd77-fff0-d960863e2a23" testName="CreatePulisherTest" computerName="ROBE" duration="00:00:00.0638852" startTime="2013-06-18T00:10:23.7399704+07:00" endTime="2013-06-18T00:10:23.8110226+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d331e3e1-5a52-4170-8268-c34700a7c692">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.CreatePulisherTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 92
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d03137a6-ddcb-4c03-8746-53a4292669e7" testId="4369f361-f645-ef47-7b93-d89d5da6804c" testName="UpdatePublisherTest" computerName="ROBE" duration="00:00:00.0022472" startTime="2013-06-18T00:10:23.8190248+07:00" endTime="2013-06-18T00:10:23.8300356+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d03137a6-ddcb-4c03-8746-53a4292669e7">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. Verify the correctness of this test method.</Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.UpdatePublisherTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 156
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="edb04146-ed2d-48f0-b9f2-9525d68efadc" testId="a05aea42-178d-3620-feba-00780cd4f023" testName="GetAllProductTest" computerName="ROBE" duration="00:00:00.1110883" startTime="2013-06-18T00:10:23.8350347+07:00" endTime="2013-06-18T00:10:23.9531127+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edb04146-ed2d-48f0-b9f2-9525d68efadc">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject1.PublisherDALTest.GetAllProductTest threw exception: 
+System.IndexOutOfRangeException: PublisherName</Message>
+          <StackTrace>    at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DataAccessLayer.cs.DAL.PublisherDAL.GetAllProduct() in F:\FPT\Semester 4\C# &amp; Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\DAL\PublisherDAL.cs:line 117
+   at TestProject1.PublisherDALTest.GetAllProductTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 124
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4b4fa3f0-6c7a-4b34-a848-cf6100159e92" testId="b99d4ea0-22b6-e7c5-2f5e-317132b25431" testName="PublisherDALConstructorTest" computerName="ROBE" duration="00:00:00.0009013" startTime="2013-06-18T00:10:23.9551158+07:00" endTime="2013-06-18T00:10:23.9611180+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4b4fa3f0-6c7a-4b34-a848-cf6100159e92">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. TODO: Implement code to verify target</Message>
+          <StackTrace>   at TestProject1.PublisherDALTest.PublisherDALConstructorTest() in D:\project-kho-sach\CocBook\TestProject1\PublisherDALTest.cs:line 76
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

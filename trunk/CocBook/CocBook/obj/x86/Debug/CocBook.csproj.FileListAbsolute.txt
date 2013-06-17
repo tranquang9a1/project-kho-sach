@@ -5,6 +5,18 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\Co
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+<<<<<<< .mine
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.exe
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.pdb
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Form2.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BookManangeForm.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook._3_1BookDetail.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
+=======
 D:\ProjectCocBook\CocBook\CocBook\obj\x86\Debug\CocBook.exe
 D:\ProjectCocBook\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
@@ -14,3 +26,9 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\Co
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.ConsignManage.resources
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook._5_1AddConsignChoice.resources
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
+>>>>>>> .r10
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook._4ViewMainStore.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.ConsignManage.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook._5_1AddConsignChoice.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources

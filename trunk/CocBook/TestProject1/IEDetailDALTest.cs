@@ -67,31 +67,26 @@ namespace TestProject1
 
 
         /// <summary>
-        ///A test for GetPublisherByCheckNoAndISBN
+        ///A test for IEDetailDAL Constructor
         ///</summary>
         [TestMethod()]
-        public void GetPublisherByCheckNoAndISBNTest()
+        public void IEDetailDALConstructorTest()
         {
-            IEDetailDAL target = new IEDetailDAL(); // TODO: Initialize to an appropriate value
-            int no = 0; // TODO: Initialize to an appropriate value
-            string isbn = string.Empty; // TODO: Initialize to an appropriate value
-            IEDetail expected = null; // TODO: Initialize to an appropriate value
-            IEDetail actual;
-            actual = target.GetPublisherByCheckNoAndISBN(no, isbn);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            IEDetailDAL target = new IEDetailDAL();
+            Assert.Inconclusive("TODO: Implement code to verify target");
         }
 
         /// <summary>
-        ///A test for GetAllProduct
+        ///A test for CreateIEDetail
         ///</summary>
         [TestMethod()]
-        public void GetAllProductTest()
+        public void CreateIEDetailTest()
         {
             IEDetailDAL target = new IEDetailDAL(); // TODO: Initialize to an appropriate value
-            List<IEDetail> expected = null; // TODO: Initialize to an appropriate value
-            List<IEDetail> actual;
-            actual = target.GetAllProduct();
+            IEDetail iedetail = null; // TODO: Initialize to an appropriate value
+            bool expected = false; // TODO: Initialize to an appropriate value
+            bool actual;
+            actual = target.CreateIEDetail(iedetail);
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
@@ -113,28 +108,33 @@ namespace TestProject1
         }
 
         /// <summary>
-        ///A test for CreateIEDetail
+        ///A test for GetAllProduct
         ///</summary>
         [TestMethod()]
-        public void CreateIEDetailTest()
+        public void GetAllProductTest()
         {
             IEDetailDAL target = new IEDetailDAL(); // TODO: Initialize to an appropriate value
-            IEDetail iedetail = null; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.CreateIEDetail(iedetail);
+            List<IEDetail> expected = null; // TODO: Initialize to an appropriate value
+            List<IEDetail> actual;
+            actual = target.GetAllProduct();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
-        ///A test for IEDetailDAL Constructor
+        ///A test for GetPublisherByCheckNoAndISBN
         ///</summary>
         [TestMethod()]
-        public void IEDetailDALConstructorTest()
+        public void GetPublisherByCheckNoAndISBNTest()
         {
-            IEDetailDAL target = new IEDetailDAL();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            IEDetailDAL target = new IEDetailDAL(); // TODO: Initialize to an appropriate value
+            int no = 0; // TODO: Initialize to an appropriate value
+            string isbn = string.Empty; // TODO: Initialize to an appropriate value
+            IEDetail expected = null; // TODO: Initialize to an appropriate value
+            IEDetail actual;
+            actual = target.GetPublisherByCheckNoAndISBN(no, isbn);
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
