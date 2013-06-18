@@ -47,13 +47,13 @@
     </Compile>
     <Compile Include="DAL\BookStoreDALcs.cs" />
     <Compile Include="DAL\CustomerDAL.cs" />
-    <Compile Include="DAL\IEDAL.cs" />
+    <Compile Include="DAL\ImportExportDAL.cs" />
     <Compile Include="DAL\IEDetailDAL.cs" />
     <Compile Include="DAL\PublisherDAL.cs" />
     <Compile Include="DTO\Book.cs" />
     <Compile Include="DTO\BookStore.cs" />
     <Compile Include="DTO\Customer.cs" />
-    <Compile Include="DTO\IE.cs" />
+    <Compile Include="DTO\ImportExport.cs" />
     <Compile Include="DTO\IEDetail.cs" />
     <Compile Include="DTO\Publisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

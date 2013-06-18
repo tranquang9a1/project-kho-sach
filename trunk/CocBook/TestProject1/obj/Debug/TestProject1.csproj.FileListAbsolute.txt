@@ -12,3 +12,10 @@ D:\project-kho-sach\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.pdb
 D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
 D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.dll
 D:\project-kho-sach\CocBook\TestProject1\obj\Debug\TestProject1.pdb
+D:\ProjectCocBook\CocBook\TestProject1\bin\Debug\TestProject1.dll
+D:\ProjectCocBook\CocBook\TestProject1\bin\Debug\TestProject1.pdb
+D:\ProjectCocBook\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.dll
+D:\ProjectCocBook\CocBook\TestProject1\bin\Debug\DataAccessLayer.cs.pdb
+D:\ProjectCocBook\CocBook\TestProject1\obj\Debug\TestProject1.csprojResolveAssemblyReference.cache
+D:\ProjectCocBook\CocBook\TestProject1\obj\Debug\TestProject1.dll
+D:\ProjectCocBook\CocBook\TestProject1\obj\Debug\TestProject1.pdb

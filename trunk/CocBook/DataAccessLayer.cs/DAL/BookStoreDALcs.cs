@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace DataAccessLayer.cs.DAL
 {
-    class BookStoreDALcs
+    public class BookStoreDALcs
     {
         public bool CreateBookStore(BookStore bookstore)
         {

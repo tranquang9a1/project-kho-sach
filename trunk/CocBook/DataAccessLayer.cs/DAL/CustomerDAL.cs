@@ -8,17 +8,17 @@ using System.Configuration;
 
 namespace DataAccessLayer.cs.DAL
 {
-    class CustomerDAL
+    public class CustomerDAL
     {
         public bool CreateCustomer(Customer customer)
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Insert into Customer values (@ID, @Name, @Address, @Phone, @TaxNo)", con);
-                cmd.Parameters.AddWithValue("ID", customer.CustomerID);
-                cmd.Parameters.AddWithValue("Name", customer.CustomerName);
+                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
+                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+                SqlCommand cmd = new SqlCommand("Insert into Customer values (@CustomerID, @CustomerName, @Address, @Phone, @TaxNo)", con);
+                cmd.Parameters.AddWithValue("CustomerID", customer.CustomerID);
+                cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
                 cmd.Parameters.AddWithValue("TaxNo", customer.TaxNo);
@@ -39,8 +39,9 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
+                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
+                //SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerID = @ID", con);
                 cmd.Parameters.AddWithValue("ID", CustomerID);
                 con.Open();
@@ -59,14 +60,15 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Update Customer set CustomerName = @Name, Address = @Address, Phone = @Phone, TaxNo = @TaxNo where CustomerID = @ID", con);
-                cmd.Parameters.AddWithValue("Name", customer.CustomerName);
+                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
+                //SqlConnection con = new SqlConnection(cs);
+                SqlCommand cmd = new SqlCommand("Update Customer set CustomerName = @CustomerName, Address = @Address, Phone = @Phone, TaxNo = @TaxNo where CustomerID = @CustomerID", con);
+                cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
                 cmd.Parameters.AddWithValue("TaxNo", customer.TaxNo);
-                cmd.Parameters.AddWithValue("ID", customer.CustomerID);
+                cmd.Parameters.AddWithValue("CustomerID", customer.CustomerID);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
                 con.Close();
@@ -79,11 +81,11 @@ namespace DataAccessLayer.cs.DAL
             }
 
         }
-        public Customer GetCustomerbyID(int CustomerID)
+        public Customer GetCustomerbyID(string CustomerID)
         {
-
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
+            //SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Customer where CustomerID = @ID", con);
             cmd.Parameters.AddWithValue("ID", CustomerID);
             con.Open();
@@ -104,8 +106,9 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Customer> GetAllCustomer()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
+            //SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Customer", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();

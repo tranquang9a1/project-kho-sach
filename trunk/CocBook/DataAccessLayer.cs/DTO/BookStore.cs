@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccessLayer.cs.DTO
 {
-    class BookStore
+    public class BookStore
     {
         public int ISBN { get; set; }
         public int Quantity { get; set; }
