@@ -6,3 +6,9 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\DataAccessLayer.cs\obj\D
 D:\project-kho-sach\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
 D:\project-kho-sach\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
 D:\project-kho-sach\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll.config
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.pdb
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
+D:\ProjectCocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
