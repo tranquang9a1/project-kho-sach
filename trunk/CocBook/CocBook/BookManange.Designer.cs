@@ -1,6 +1,6 @@
 ﻿namespace CocBook
 {
-    partial class BookManange
+    partial class BookManage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.BookGridView = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.ISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Publisher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +53,33 @@
             this.BookGridView.Name = "BookGridView";
             this.BookGridView.Size = new System.Drawing.Size(662, 422);
             this.BookGridView.TabIndex = 0;
+            // 
+            // ISBN
+            // 
+            this.ISBN.HeaderText = "ISBN";
+            this.ISBN.Name = "ISBN";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Tên sách";
+            this.Name.Name = "Name";
+            this.Name.Width = 250;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Đơn vị tính";
+            this.Unit.Name = "Unit";
+            this.Unit.Width = 70;
+            // 
+            // Publisher
+            // 
+            this.Publisher.HeaderText = "Nhà xuất bản";
+            this.Publisher.Name = "Publisher";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Giá bìa";
+            this.Price.Name = "Price";
             // 
             // btnAdd
             // 
@@ -84,34 +111,7 @@
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // ISBN
-            // 
-            this.ISBN.HeaderText = "ISBN";
-            this.ISBN.Name = "ISBN";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Tên sách";
-            this.Name.Name = "Name";
-            this.Name.Width = 250;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Đơn vị tính";
-            this.Unit.Name = "Unit";
-            this.Unit.Width = 70;
-            // 
-            // Publisher
-            // 
-            this.Publisher.HeaderText = "Nhà xuất bản";
-            this.Publisher.Name = "Publisher";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Giá bìa";
-            this.Price.Name = "Price";
-            // 
-            // BookManange
+            // BookManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,7 +120,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.BookGridView);
-            this.Name = "BookManange";
+            this.Name.Name = "BookManange";
             this.Text = "Quản lí sách";
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).EndInit();
             this.ResumeLayout(false);

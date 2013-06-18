@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CocBook
 {
-    public partial class BookManange : Form
+    public partial class BookManage : Form
     {
-        public BookManange()
+        public BookManage()
         {
             InitializeComponent();
         }
