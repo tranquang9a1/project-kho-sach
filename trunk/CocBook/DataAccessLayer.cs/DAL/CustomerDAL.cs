@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataAccessLayer.DTO;
+using DataAccessLayer.cs.DTO;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace DataAccessLayer.DAL
+namespace DataAccessLayer.cs.DAL
 {
     public class CustomerDAL
     {
@@ -16,8 +16,7 @@ namespace DataAccessLayer.DAL
             {
                 //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
                 SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                SqlCommand cmd = new SqlCommand("Insert into Customer values (@CustomerID, @CustomerName, @Address, @Phone, @TaxNo)", con);
-                cmd.Parameters.AddWithValue("CustomerID", customer.CustomerID);
+                SqlCommand cmd = new SqlCommand("Insert into Customer values (@CustomerName, @Address, @Phone, @TaxNo)", con);
                 cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
@@ -35,15 +34,15 @@ namespace DataAccessLayer.DAL
 
 
         }
-        public bool DeleteCustomer(int CustomerID)
+        public bool DeleteCustomer(string CustomerName)
         {
             try
             {
                 SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
                 //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
                 //SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerID = @ID", con);
-                cmd.Parameters.AddWithValue("ID", CustomerID);
+                SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerName = @CustomerName", con);
+                cmd.Parameters.AddWithValue("CustomerName", CustomerName);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
                 con.Close();
@@ -63,12 +62,10 @@ namespace DataAccessLayer.DAL
                 SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
                 //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
                 //SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Update Customer set CustomerName = @CustomerName, Address = @Address, Phone = @Phone, TaxNo = @TaxNo where CustomerID = @CustomerID", con);
-                cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
+                SqlCommand cmd = new SqlCommand("UPDATE Customer SET Address = @Address, Phone = @Phone, TaxNo = @TaxNo WHERE CustomerName = @CustomerName", con);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
                 cmd.Parameters.AddWithValue("TaxNo", customer.TaxNo);
-                cmd.Parameters.AddWithValue("CustomerID", customer.CustomerID);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
                 con.Close();
@@ -81,13 +78,13 @@ namespace DataAccessLayer.DAL
             }
 
         }
-        public Customer GetCustomerbyID(string CustomerID)
+        public Customer GetCustomerbyID(string CustomerName)
         {
             SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
             //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
             //SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("Select * from Customer where CustomerID = @ID", con);
-            cmd.Parameters.AddWithValue("ID", CustomerID);
+            SqlCommand cmd = new SqlCommand("Select * from Customer where CustomerName = @CustomerName", con);
+            cmd.Parameters.AddWithValue("CustomerName", CustomerName);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
             Customer customer = new Customer();
@@ -98,7 +95,6 @@ namespace DataAccessLayer.DAL
                 customer.Address = (string)sdr["Address"];
                 customer.Phone = (string)sdr["Phone"];
                 customer.TaxNo = (string)sdr["TaxNo"];
-                customer.CustomerID = (string)sdr["CustomerID"];
                 return customer;
             }
             con.Close();
@@ -120,7 +116,6 @@ namespace DataAccessLayer.DAL
                 customer.Address = (string)sdr["Address"];
                 customer.Phone = (string)sdr["Phone"];
                 customer.TaxNo = (string)sdr["TaxNo"];
-                customer.CustomerID = (string)sdr["CustomerID"];
                 list.Add(customer);
             }
             con.Close();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
-using DataAccessLayer.DTO;
+using DataAccessLayer.cs.DTO;
 
-namespace DataAccessLayer.DAL
+namespace DataAccessLayer.cs.DAL
 {
     public class IEDetailDAL
     {
@@ -99,7 +99,7 @@ namespace DataAccessLayer.DAL
                 return false; ;
             }
         }
-        public List<IEDetail> GetAllProduct()
+        public List<IEDetail> GetAllIEDetail()
         {
             // ConnectionString to DB
             /*ConnectionString Error
@@ -130,7 +130,7 @@ namespace DataAccessLayer.DAL
             con.Close();
             return list;
         }
-        public IEDetail GetPublisherByCheckNoAndISBN(int no, string isbn)
+        public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
         {
 
             // ConnectionString to DB
