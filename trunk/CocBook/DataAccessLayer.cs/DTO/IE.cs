@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DataAccessLayer.cs.DTO
+namespace DataAccessLayer.DTO
 {
     class ImportExport
     {

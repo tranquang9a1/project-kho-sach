@@ -1,4 +1,4 @@
-﻿using DataAccessLayer.cs.DTO;
+﻿using DataAccessLayer.DTO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     public class IEDetailDAL
     {

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     public class PublisherDAL
     {
