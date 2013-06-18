@@ -50,7 +50,7 @@ namespace DataAccessLayer.cs.DAL
                 SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
                 //Update Command
-                SqlCommand cmd = new SqlCommand("Update Publisher Set PublishserName = @name where PublishserID = @id", con);
+                SqlCommand cmd = new SqlCommand("UPDATE Publisher SET PublisherName = @name WHERE PublisherID = @id", con);
                 cmd.Parameters.AddWithValue("name", publisher.PublisherName);
                 cmd.Parameters.AddWithValue("id", publisher.PublisherID);
                 //
@@ -92,7 +92,7 @@ namespace DataAccessLayer.cs.DAL
                 return false; ;
             }
         }
-        public List<Publisher> GetAllProduct()
+        public List<Publisher> GetAllPublisher()
         {
             // ConnectionString to DB
             /*ConnectionString Error
@@ -145,7 +145,6 @@ namespace DataAccessLayer.cs.DAL
             }
             con.Close();
             return publisher;
-
         }
     }
 }

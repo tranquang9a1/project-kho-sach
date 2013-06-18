@@ -7,7 +7,7 @@ using DataAccessLayer.cs.DTO;
 
 namespace DataAccessLayer.cs.DAL
 {
-    class IEDetailDAL
+    public class IEDetailDAL
     {
         public bool CreateIEDetail(IEDetail iedetail)
         {

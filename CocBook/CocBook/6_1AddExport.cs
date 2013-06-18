@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CocBook
 {
-    public partial class Export : Form
+    public partial class _5_1AddExport : Form
     {
-        public Export()
+        public _5_1AddExport()
         {
             InitializeComponent();
         }

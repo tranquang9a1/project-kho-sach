@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccessLayer.cs.DTO
 {
-    class IE
+    class ImportExport
     {
         public int CheckNo { get; set; }
         public DateTime Date { get; set; }

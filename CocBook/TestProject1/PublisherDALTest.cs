@@ -115,7 +115,7 @@ namespace TestProject1
             PublisherDAL target = new PublisherDAL(); // TODO: Initialize to an appropriate value
             List<Publisher> expected = null; // TODO: Initialize to an appropriate value
             List<Publisher> actual;
-            actual = target.GetAllProduct();
+            actual = target.GetAllPublisher();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }

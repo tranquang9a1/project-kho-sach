@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CocBook
 {
-    public partial class BillDetail : Form
+    public partial class txtName : Form
     {
-        public BillDetail()
+        public txtName()
         {
             
             InitializeComponent();
