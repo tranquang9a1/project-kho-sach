@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnRetailManage = new System.Windows.Forms.Button();
-            this.btnConsignManage = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
             this.txtBookManage = new System.Windows.Forms.Button();
             this.txtViewMainStore = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,8 +40,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnRetailManage);
-            this.groupBox1.Controls.Add(this.btnConsignManage);
+            this.groupBox1.Controls.Add(this.btnExport);
+            this.groupBox1.Controls.Add(this.btnImport);
             this.groupBox1.Controls.Add(this.txtBookManage);
             this.groupBox1.Controls.Add(this.txtViewMainStore);
             this.groupBox1.Location = new System.Drawing.Point(247, 29);
@@ -51,23 +51,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Công việc: ";
             // 
-            // btnRetailManage
+            // btnExport
             // 
-            this.btnRetailManage.Location = new System.Drawing.Point(25, 146);
-            this.btnRetailManage.Name = "btnRetailManage";
-            this.btnRetailManage.Size = new System.Drawing.Size(178, 23);
-            this.btnRetailManage.TabIndex = 3;
-            this.btnRetailManage.Text = "Quản lí bán lẻ";
-            this.btnRetailManage.UseVisualStyleBackColor = true;
+            this.btnExport.Location = new System.Drawing.Point(25, 146);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(178, 23);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "Quản lí xuất";
+            this.btnExport.UseVisualStyleBackColor = true;
             // 
-            // btnConsignManage
+            // btnImport
             // 
-            this.btnConsignManage.Location = new System.Drawing.Point(25, 102);
-            this.btnConsignManage.Name = "btnConsignManage";
-            this.btnConsignManage.Size = new System.Drawing.Size(178, 23);
-            this.btnConsignManage.TabIndex = 2;
-            this.btnConsignManage.Text = "Quản lí ký gửi";
-            this.btnConsignManage.UseVisualStyleBackColor = true;
+            this.btnImport.Location = new System.Drawing.Point(25, 102);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(178, 23);
+            this.btnImport.TabIndex = 2;
+            this.btnImport.Text = "Quản lí nhập";
+            this.btnImport.UseVisualStyleBackColor = true;
             // 
             // txtBookManage
             // 
@@ -121,7 +121,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button txtBookManage;
         private System.Windows.Forms.Button txtViewMainStore;
-        private System.Windows.Forms.Button btnRetailManage;
-        private System.Windows.Forms.Button btnConsignManage;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnImport;
     }
 }

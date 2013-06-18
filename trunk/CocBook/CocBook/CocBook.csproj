@@ -83,17 +83,29 @@
     <Compile Include="5ConsignManage.Designer.cs">
       <DependentUpon>5ConsignManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="5_1AddConsignDetail.cs">
+    <Compile Include="5_1AddImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="5_1AddConsignDetail.Designer.cs">
-      <DependentUpon>5_1AddConsignDetail.cs</DependentUpon>
+    <Compile Include="5_1AddImport.Designer.cs">
+      <DependentUpon>5_1AddImport.cs</DependentUpon>
     </Compile>
     <Compile Include="BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6_1AddExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6_1AddExport.Designer.cs">
+      <DependentUpon>6_1AddExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="6ConsignExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="6ConsignExport.Designer.cs">
+      <DependentUpon>6ConsignExport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,11 +127,17 @@
     <EmbeddedResource Include="5ConsignManage.resx">
       <DependentUpon>5ConsignManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="5_1AddConsignDetail.resx">
-      <DependentUpon>5_1AddConsignDetail.cs</DependentUpon>
+    <EmbeddedResource Include="5_1AddImport.resx">
+      <DependentUpon>5_1AddImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6_1AddExport.resx">
+      <DependentUpon>6_1AddExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="6ConsignExport.resx">
+      <DependentUpon>6ConsignExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

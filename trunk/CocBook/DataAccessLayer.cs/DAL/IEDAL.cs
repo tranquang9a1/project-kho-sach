@@ -10,7 +10,7 @@ namespace DataAccessLayer.cs.DAL
 {
     class IEDAL
     {
-        public bool CreateIE(IE ie)
+        public bool CreateIE(ImportExport ie)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace DataAccessLayer.cs.DAL
 
 
         }
-        public bool UpdateIE(IE ie)
+        public bool UpdateIE(ImportExport ie)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace DataAccessLayer.cs.DAL
                 return false;
             }
         }
-        public IE GetIEbyCheckNo(int No)
+        public ImportExport GetIEbyCheckNo(int No)
         {
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
@@ -86,7 +86,7 @@ namespace DataAccessLayer.cs.DAL
             cmd.Parameters.AddWithValue("No", No);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            IE ie = new IE();
+            ImportExport ie = new ImportExport();
             if (sdr.HasRows)
             {
                 sdr.Read();
@@ -100,17 +100,17 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return null;
         }
-        public List<IE> GetAllIE()
+        public List<ImportExport> GetAllIE()
         {
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Import/Export", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            List<IE> list = new List<IE>();
+            List<ImportExport> list = new List<ImportExport>();
             while (sdr.Read())
             {
-                IE ie = new IE();
+                ImportExport ie = new ImportExport();
 
                 ie.CheckNo = (int)sdr["CheckNo"];
                 ie.Date = (DateTime)sdr["Date"];

@@ -70,7 +70,7 @@
             this.btnView.Text = "Xem";
             this.btnView.UseVisualStyleBackColor = true;
             // 
-            // Import
+            // Export
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -79,8 +79,8 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAdd);
-            this.Name = "Import";
-            this.Text = "Quản lí nhập";
+            this.Name = "Export";
+            this.Text = "Quản lí xuất";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
