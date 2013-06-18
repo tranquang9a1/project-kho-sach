@@ -1,7 +1,7 @@
-﻿using DataAccessLayer.cs.DAL;
+﻿using DataAccessLayer.DAL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 using System.Collections.Generic;
 
 namespace TestProject1

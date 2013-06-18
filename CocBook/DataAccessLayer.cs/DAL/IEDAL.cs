@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 using System.Configuration;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     class IEDAL
     {

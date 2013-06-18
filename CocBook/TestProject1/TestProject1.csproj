@@ -58,9 +58,9 @@
     <Compile Include="PublisherTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer.cs\DataAccessLayer.cs.csproj">
+    <ProjectReference Include="..\DataAccessLayer.cs\DataAccessLayer.csproj">
       <Project>{F67D7753-5655-49D7-B090-15A2EB935650}</Project>
-      <Name>DataAccessLayer.cs</Name>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

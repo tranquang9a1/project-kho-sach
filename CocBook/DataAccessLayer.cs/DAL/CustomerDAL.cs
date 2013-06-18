@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     public class CustomerDAL
     {

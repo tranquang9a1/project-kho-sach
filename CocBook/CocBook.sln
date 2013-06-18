@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocBook", "CocBook\CocBook.csproj", "{1FE320E1-B45A-4ABF-BD52-78F809FEDCCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.cs", "DataAccessLayer.cs\DataAccessLayer.cs.csproj", "{F67D7753-5655-49D7-B090-15A2EB935650}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer.cs\DataAccessLayer.csproj", "{F67D7753-5655-49D7-B090-15A2EB935650}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{8327BB29-8D5B-482D-9BA0-1A12701FC261}"
 EndProject

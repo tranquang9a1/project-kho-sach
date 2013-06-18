@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DataAccessLayer.cs.DTO
+namespace DataAccessLayer.DTO
 {
-    public class Customer
+    public  class Customer
     {
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }

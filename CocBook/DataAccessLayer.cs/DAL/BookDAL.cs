@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataAccessLayer.cs.DTO;
+using DataAccessLayer.DTO;
 using System.Data.SqlClient;
+using System.Configuration;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     public class BookDAL
     {
@@ -13,8 +14,9 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
+
+                string cs = System.Configuration.ConfigurationManager.AppSettings["BookStoreCS"];
+                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
                 SqlCommand cmd = new SqlCommand("Insert into Book values (@ISBN, @Name, @PublisherID, @Unit, @Price)", con);
                 
                 cmd.Parameters.AddWithValue("ISBN", book.ISBNBook);
@@ -36,12 +38,13 @@ namespace DataAccessLayer.cs.DAL
 
 
         }
-        public bool DeleteBook(int ISBNBook)
+        public bool DeleteBook(string ISBNBook)
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
+              //  string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                //SqlConnection con = new SqlConnection(cs);
+                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
                 SqlCommand cmd = new SqlCommand("Delete from Book where ISBNBook = @ISBN", con);
                 cmd.Parameters.AddWithValue("ISBN", ISBNBook);
                 con.Open();
@@ -60,8 +63,9 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
+                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                //SqlConnection con = new SqlConnection(cs);
+                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
                 SqlCommand cmd = new SqlCommand("Update Book set BookName = @Name, PublisherID = @PublisherID, Unit = @Unit, Price = @Price where ISBNBook = @ISBN", con);
                 cmd.Parameters.AddWithValue("Name", book.BookName);
                 cmd.Parameters.AddWithValue("PublisherID", book.PublisherID);
@@ -81,11 +85,12 @@ namespace DataAccessLayer.cs.DAL
             }
 
         }
-        public Book GetBookbyISBN(int ISBNBook)
+        public Book GetBookbyISBN(string ISBNBook)
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
+            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            //SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
             SqlCommand cmd = new SqlCommand("Select * from Book where ISBNBook = @ISBN", con);
             cmd.Parameters.AddWithValue("ISBN", ISBNBook);
             con.Open();
@@ -107,8 +112,9 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Book> GetAllBook()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
+            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            //SqlConnection con = new SqlConnection(cs);
+            SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
             SqlCommand cmd = new SqlCommand("Select * from Book", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
