@@ -1,6 +1,6 @@
 ﻿namespace CocBook
 {
-    partial class txtName
+    partial class BillDetail
     {
         /// <summary>
         /// Required designer variable.

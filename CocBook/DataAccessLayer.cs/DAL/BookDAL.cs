@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DataAccessLayer.DTO;
+using DataAccessLayer.cs.DTO;
 using System.Data.SqlClient;
-using System.Configuration;
 
-namespace DataAccessLayer.DAL
+namespace DataAccessLayer.cs.DAL
 {
     public class BookDAL
     {
@@ -14,14 +13,13 @@ namespace DataAccessLayer.DAL
         {
             try
             {
-
-                string cs = System.Configuration.ConfigurationManager.AppSettings["BookStoreCS"];
-                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
-                SqlCommand cmd = new SqlCommand("Insert into Book values (@ISBN, @Name, @PublisherID, @Unit, @Price)", con);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+                SqlCommand cmd = new SqlCommand("Insert into Book values (@ISBN, @Name, @PublisherName, @Unit, @Price)", con);
                 
                 cmd.Parameters.AddWithValue("ISBN", book.ISBNBook);
                 cmd.Parameters.AddWithValue("Name", book.BookName);
-                cmd.Parameters.AddWithValue("PublisherID", book.PublisherID);
+                cmd.Parameters.AddWithValue("PublisherName", book.PublisherName);
                 cmd.Parameters.AddWithValue("Unit", book.Unit);
                 cmd.Parameters.AddWithValue("Price", book.Price);
 
@@ -38,13 +36,12 @@ namespace DataAccessLayer.DAL
 
 
         }
-        public bool DeleteBook(string ISBNBook)
+        public bool DeleteBook(int ISBNBook)
         {
             try
             {
-              //  string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
-                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from Book where ISBNBook = @ISBN", con);
                 cmd.Parameters.AddWithValue("ISBN", ISBNBook);
                 con.Open();
@@ -63,12 +60,11 @@ namespace DataAccessLayer.DAL
         {
             try
             {
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
-                SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
-                SqlCommand cmd = new SqlCommand("Update Book set BookName = @Name, PublisherID = @PublisherID, Unit = @Unit, Price = @Price where ISBNBook = @ISBN", con);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+                SqlCommand cmd = new SqlCommand("Update Book set BookName = @Name, PublisherName = @PublisherName, Unit = @Unit, Price = @Price where ISBNBook = @ISBN", con);
                 cmd.Parameters.AddWithValue("Name", book.BookName);
-                cmd.Parameters.AddWithValue("PublisherID", book.PublisherID);
+                cmd.Parameters.AddWithValue("PublisherName", book.PublisherName);
                 cmd.Parameters.AddWithValue("Unit", book.Unit);
                 cmd.Parameters.AddWithValue("Price", book.Price);
                 cmd.Parameters.AddWithValue("ISBN", book.ISBNBook);
@@ -85,12 +81,11 @@ namespace DataAccessLayer.DAL
             }
 
         }
-        public Book GetBookbyISBN(string ISBNBook)
+        public Book GetBookbyISBN(int ISBNBook)
         {
 
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
-            SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book where ISBNBook = @ISBN", con);
             cmd.Parameters.AddWithValue("ISBN", ISBNBook);
             con.Open();
@@ -102,7 +97,7 @@ namespace DataAccessLayer.DAL
                 sdr.Read();
                 book.ISBNBook = (string)sdr["ISBNBook"];
                 book.BookName = (string)sdr["BookName"];
-                book.PublisherID = (int)sdr["PublisherID"];
+                book.PublisherName = (string)sdr["PublisherName"];
                 book.Unit = (string)sdr["Unit"];
                 book.Price = (int)sdr["Price"];
                 return book;
@@ -112,9 +107,8 @@ namespace DataAccessLayer.DAL
         }
         public List<Book> GetAllBook()
         {
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
-            SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -124,7 +118,7 @@ namespace DataAccessLayer.DAL
                 Book book = new Book();
                 book.ISBNBook = (string)sdr["ISBNBook"];
                 book.BookName = (string)sdr["BookName"];
-                book.PublisherID = (int)sdr["PublisherID"];
+                book.PublisherName = (string)sdr["PublisherName"];
                 book.Unit = (string)sdr["Unit"];
                 book.Price = (int)sdr["Price"];
                 list.Add(book);
