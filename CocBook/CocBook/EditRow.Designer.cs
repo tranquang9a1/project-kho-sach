@@ -31,7 +31,7 @@
             this.btnChooseBook = new System.Windows.Forms.Button();
             this.txtISBNBook = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.btnChooseBook.TabIndex = 0;
             this.btnChooseBook.Text = "Chọn sách";
             this.btnChooseBook.UseVisualStyleBackColor = true;
+            this.btnChooseBook.Click += new System.EventHandler(this.btnChooseBook_Click);
             // 
             // txtISBNBook
             // 
@@ -63,12 +64,12 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Số lượng:";
             // 
-            // textBox1
+            // txtQuantity
             // 
-            this.textBox1.Location = new System.Drawing.Point(186, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtQuantity.Location = new System.Drawing.Point(186, 73);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(233, 20);
+            this.txtQuantity.TabIndex = 3;
             // 
             // label2
             // 
@@ -94,6 +95,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnExit
             // 
@@ -113,7 +115,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDiscount);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtISBNBook);
             this.Controls.Add(this.btnChooseBook);
@@ -129,7 +131,7 @@
         private System.Windows.Forms.Button btnChooseBook;
         private System.Windows.Forms.TextBox txtISBNBook;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Button btnSave;

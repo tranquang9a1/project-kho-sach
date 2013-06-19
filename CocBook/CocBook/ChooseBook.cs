@@ -13,7 +13,7 @@ namespace CocBook
 {
     public partial class ChooseBook : Form
     {
-        Book book = new Book();
+        public Book book = new Book();
         public ChooseBook()
         {
             InitializeComponent();

@@ -30,9 +30,9 @@
         {
             this.lbTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDay = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCheckNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,11 +40,11 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtAdd = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPay = new System.Windows.Forms.TextBox();
             this.txtStoreName = new System.Windows.Forms.TextBox();
             this.txtTaxNo = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -54,12 +54,20 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,16 +96,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Ngày: ";
             // 
-            // textBox1
+            // txtDay
             // 
-            this.textBox1.Location = new System.Drawing.Point(408, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtDay.Location = new System.Drawing.Point(408, 66);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.Size = new System.Drawing.Size(109, 20);
+            this.txtDay.TabIndex = 3;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtCheckNo);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -107,12 +115,12 @@
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 4;
             // 
-            // textBox2
+            // txtCheckNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(104, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(93, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtCheckNo.Location = new System.Drawing.Point(104, 4);
+            this.txtCheckNo.Name = "txtCheckNo";
+            this.txtCheckNo.Size = new System.Drawing.Size(93, 20);
+            this.txtCheckNo.TabIndex = 4;
             // 
             // label5
             // 
@@ -163,11 +171,11 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.txtPhone);
-            this.panel2.Controls.Add(this.txtAdd);
+            this.panel2.Controls.Add(this.txtAddress);
             this.panel2.Controls.Add(this.txtPay);
             this.panel2.Controls.Add(this.txtStoreName);
             this.panel2.Controls.Add(this.txtTaxNo);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.txtCustomerName);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
@@ -186,12 +194,12 @@
             this.txtPhone.Size = new System.Drawing.Size(212, 20);
             this.txtPhone.TabIndex = 4;
             // 
-            // txtAdd
+            // txtAddress
             // 
-            this.txtAdd.Location = new System.Drawing.Point(192, 36);
-            this.txtAdd.Name = "txtAdd";
-            this.txtAdd.Size = new System.Drawing.Size(212, 20);
-            this.txtAdd.TabIndex = 3;
+            this.txtAddress.Location = new System.Drawing.Point(192, 36);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(212, 20);
+            this.txtAddress.TabIndex = 3;
             // 
             // txtPay
             // 
@@ -214,12 +222,12 @@
             this.txtTaxNo.Size = new System.Drawing.Size(212, 20);
             this.txtTaxNo.TabIndex = 2;
             // 
-            // textBox3
+            // txtCustomerName
             // 
-            this.textBox3.Location = new System.Drawing.Point(192, 10);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(212, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtCustomerName.Location = new System.Drawing.Point(192, 10);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(212, 20);
+            this.txtCustomerName.TabIndex = 1;
             // 
             // label11
             // 
@@ -284,9 +292,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(82, 364);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RowID,
+            this.RowISBN,
+            this.RowBookName,
+            this.RowUnit,
+            this.RowQuantity,
+            this.RowPrice,
+            this.RowDiscount,
+            this.RowValue});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 365);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(770, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(939, 223);
             this.dataGridView1.TabIndex = 7;
             // 
             // pictureBox1
@@ -311,14 +328,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chi tiết";
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(32, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thêm dòng";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(226, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Xóa dòng";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -329,14 +346,15 @@
             this.button2.Text = "Sửa dòng";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button1
             // 
-            this.button3.Location = new System.Drawing.Point(226, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Xóa dòng";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(32, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Thêm dòng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -349,15 +367,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lựa chọn";
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(36, 42);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(170, 42);
@@ -367,18 +376,69 @@
             this.btnExport.Text = "Xuất Excel";
             this.btnExport.UseVisualStyleBackColor = true;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(36, 42);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // RowID
+            // 
+            this.RowID.HeaderText = "Stt";
+            this.RowID.Name = "RowID";
+            this.RowID.Width = 50;
+            // 
+            // RowISBN
+            // 
+            this.RowISBN.HeaderText = "Mã hàng";
+            this.RowISBN.Name = "RowISBN";
+            // 
+            // RowBookName
+            // 
+            this.RowBookName.HeaderText = "Tên sách";
+            this.RowBookName.Name = "RowBookName";
+            this.RowBookName.Width = 250;
+            // 
+            // RowUnit
+            // 
+            this.RowUnit.HeaderText = "Đơn vị tính";
+            this.RowUnit.Name = "RowUnit";
+            // 
+            // RowQuantity
+            // 
+            this.RowQuantity.HeaderText = "Số lượng";
+            this.RowQuantity.Name = "RowQuantity";
+            // 
+            // RowPrice
+            // 
+            this.RowPrice.HeaderText = "Giá bìa";
+            this.RowPrice.Name = "RowPrice";
+            // 
+            // RowDiscount
+            // 
+            this.RowDiscount.HeaderText = "Chiết khấu";
+            this.RowDiscount.Name = "RowDiscount";
+            // 
+            // RowValue
+            // 
+            this.RowValue.HeaderText = "Thành tiền";
+            this.RowValue.Name = "RowValue";
+            // 
             // BillDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 718);
+            this.ClientSize = new System.Drawing.Size(969, 718);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDay);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pictureBox1);
@@ -402,19 +462,19 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDay;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCheckNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtAdd;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtTaxNo;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -431,5 +491,13 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowISBN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowBookName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RowValue;
     }
 }
