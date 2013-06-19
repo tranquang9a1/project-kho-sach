@@ -25,14 +25,16 @@ namespace CocBook
             List<Book> list = BookDAL.GetAllBook();
 
             BookGridView.DataSource = list;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            BookDetail BookDetail = new BookDetail();
-            BookDetail.Add = true;
-            BookDetail.NotifyEvent += new NotifyLoadData(BookDetail_NotifyEvent);
-            BookDetail.Show(); 
+            BookDetail bookDetail = new BookDetail();
+            bookDetail.Add = true;
+            bookDetail.NotifyEvent += new NotifyLoadData(BookDetail_NotifyEvent);
+            bookDetail.Show();
+            
         }
 
         void BookDetail_NotifyEvent()
@@ -42,16 +44,17 @@ namespace CocBook
 
        private void btnEdit_Click(object sender, EventArgs e)
         {
-            BookDetail BookDetail = new BookDetail();
-            BookDetail.book = book;
-            BookDetail.Add = false;
-            BookDetail.LoadData();
-            BookDetail.NotifyEvent +=new NotifyLoadData(BookDetail_NotifyEvent);
-            BookDetail.Show();
+            BookDetail bookDetail = new BookDetail();
+            bookDetail.book = book;
+            bookDetail.Add = false;
+            bookDetail.LoadData();
+            bookDetail.NotifyEvent +=new NotifyLoadData(BookDetail_NotifyEvent);
+            bookDetail.Show();
         }
 
         private void BookGridView_Click(object sender, EventArgs e)
         {
+            
             book.ISBNBook = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
             book.BookName = BookGridView.SelectedRows[0].Cells[1].Value.ToString();
             book.PublisherName = BookGridView.SelectedRows[0].Cells[2].Value.ToString();

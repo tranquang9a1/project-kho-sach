@@ -65,7 +65,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(105, 142);
+            this.txtPrice.Location = new System.Drawing.Point(105, 146);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(164, 20);
             this.txtPrice.TabIndex = 9;
