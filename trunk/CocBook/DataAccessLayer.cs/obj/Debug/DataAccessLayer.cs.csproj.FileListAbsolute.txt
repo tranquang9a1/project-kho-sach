@@ -16,3 +16,9 @@ F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\DataAccessLayer.cs\bin\Debug
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
+D:\CocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll.config
+D:\CocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll
+D:\CocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.pdb
+D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
+D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
+D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache

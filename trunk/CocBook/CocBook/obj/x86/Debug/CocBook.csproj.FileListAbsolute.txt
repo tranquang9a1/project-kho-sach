@@ -51,3 +51,26 @@ F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBoo
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ChooseBook.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerManage.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.InfoDetail.resources
+D:\CocBook\CocBook\CocBook\bin\Debug\CocBook.exe.config
+D:\CocBook\CocBook\CocBook\bin\Debug\CocBook.exe
+D:\CocBook\CocBook\CocBook\bin\Debug\CocBook.pdb
+D:\CocBook\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.dll
+D:\CocBook\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.pdb
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.ChooseBook.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerDetail.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerManage.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.EditRow.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.InfoDetail.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.BookDetail.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.ViewStore.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.ImExManage.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.AddImport.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+D:\CocBook\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
