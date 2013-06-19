@@ -36,7 +36,7 @@ namespace DataAccessLayer.cs.DAL
 
 
         }
-        public bool DeleteBook(int ISBNBook)
+        public bool DeleteBook(string ISBNBook)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace DataAccessLayer.cs.DAL
             }
 
         }
-        public Book GetBookbyISBN(int ISBNBook)
+        public Book GetBookbyISBN(string ISBNBook)
         {
 
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;

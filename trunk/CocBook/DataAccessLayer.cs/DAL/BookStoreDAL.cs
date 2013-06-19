@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using DataAccessLayer.cs.DTO;
 using System.Data.SqlClient;
+using System.Configuration;
 
-namespace DataAccessLayer.cs.DAL
+namespace DataAccessLayer.DAL
 {
     public class BookStoreDAL
     {
@@ -82,6 +83,7 @@ namespace DataAccessLayer.cs.DAL
 
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
+           
             SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
             cmd.Parameters.AddWithValue("ISBN", ISBNBookStore);
             con.Open();
@@ -101,8 +103,11 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<BookStore> GetAllBookStore()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].Name;
+            Console.WriteLine(cs);
             SqlConnection con = new SqlConnection(cs);
+            
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
             SqlCommand cmd = new SqlCommand("Select * from BookStore", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();

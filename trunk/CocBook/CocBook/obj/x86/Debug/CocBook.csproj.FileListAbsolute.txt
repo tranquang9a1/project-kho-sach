@@ -12,3 +12,21 @@ F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\bin\Debug\CocBoo
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.pdb
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
 F:\FPT\Semester 4\C# & Dot Net\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.exe
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.pdb
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BookDetail.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.ViewStore.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.ImExManage.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.AddImport.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.dll
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.pdb
+D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.exe.config
