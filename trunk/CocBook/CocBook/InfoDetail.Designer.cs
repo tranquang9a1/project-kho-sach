@@ -31,13 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCheckNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtDay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbType = new System.Windows.Forms.ComboBox();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -65,21 +65,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ngày:";
             // 
-            // textBox1
+            // txtDay
             // 
-            this.textBox1.Location = new System.Drawing.Point(190, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 20);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 14);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Xuất / Nhập";
+            this.txtDay.Location = new System.Drawing.Point(190, 78);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.Size = new System.Drawing.Size(187, 20);
+            this.txtDay.TabIndex = 3;
             // 
             // label4
             // 
@@ -90,13 +81,17 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Loại:";
             // 
-            // comboBox1
+            // cbType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 140);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 22);
-            this.comboBox1.TabIndex = 6;
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Items.AddRange(new object[] {
+            "Kí gửi",
+            "Bán lẻ",
+            "Khác"});
+            this.cbType.Location = new System.Drawing.Point(190, 140);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(187, 22);
+            this.cbType.TabIndex = 6;
             // 
             // btnCustomer
             // 
@@ -106,6 +101,7 @@
             this.btnCustomer.TabIndex = 7;
             this.btnCustomer.Text = "Chọn khách hàng";
             this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnNext
             // 
@@ -115,26 +111,36 @@
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Tiếp";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // textBox2
+            // txtCustomerName
             // 
-            this.textBox2.Location = new System.Drawing.Point(190, 181);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtCustomerName.Location = new System.Drawing.Point(190, 181);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(187, 20);
+            this.txtCustomerName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(61, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 14);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Xuất / Nhập";
             // 
             // InfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 261);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCustomer);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbType);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDay);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCheckNo);
             this.Controls.Add(this.label1);
@@ -150,12 +156,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCheckNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDay;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label label3;
     }
 }

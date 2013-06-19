@@ -77,7 +77,7 @@ namespace DataAccessLayer.cs.DAL
             }
 
         }
-        public Customer GetCustomerbyID(string CustomerName)
+        public Customer GetCustomerbyName(string CustomerName)
         {
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
