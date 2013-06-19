@@ -38,6 +38,7 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbIE = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -129,11 +130,23 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Xuất / Nhập";
             // 
+            // cbIE
+            // 
+            this.cbIE.FormattingEnabled = true;
+            this.cbIE.Items.AddRange(new object[] {
+            "Xuất",
+            "Nhập"});
+            this.cbIE.Location = new System.Drawing.Point(190, 108);
+            this.cbIE.Name = "cbIE";
+            this.cbIE.Size = new System.Drawing.Size(187, 22);
+            this.cbIE.TabIndex = 10;
+            // 
             // InfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 261);
+            this.Controls.Add(this.cbIE);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCustomer);
@@ -163,5 +176,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbIE;
     }
 }
