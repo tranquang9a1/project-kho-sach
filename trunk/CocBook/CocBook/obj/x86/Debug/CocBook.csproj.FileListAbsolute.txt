@@ -30,3 +30,24 @@ D:\project-kho-sach\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResourc
 D:\project-kho-sach\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.dll
 D:\project-kho-sach\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.pdb
 D:\project-kho-sach\CocBook\CocBook\bin\Debug\CocBook.exe.config
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\CocBook.exe.config
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\CocBook.exe
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\CocBook.pdb
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.dll
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.pdb
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BookDetail.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ViewStore.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ImExManage.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.AddImport.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ChooseBook.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerManage.resources
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.InfoDetail.resources

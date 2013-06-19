@@ -47,6 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseBook.Designer.cs">
+      <DependentUpon>ChooseBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerManage.Designer.cs">
+      <DependentUpon>CustomerManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRow.Designer.cs">
+      <DependentUpon>EditRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoDetail.Designer.cs">
+      <DependentUpon>InfoDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +121,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseBook.resx">
+      <DependentUpon>ChooseBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerManage.resx">
+      <DependentUpon>CustomerManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRow.resx">
+      <DependentUpon>EditRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoDetail.resx">
+      <DependentUpon>InfoDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
