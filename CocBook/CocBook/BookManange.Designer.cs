@@ -54,6 +54,7 @@
             this.Price});
             this.BookGridView.Location = new System.Drawing.Point(60, 79);
             this.BookGridView.Name = "BookGridView";
+            this.BookGridView.ReadOnly = true;
             this.BookGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.BookGridView.Size = new System.Drawing.Size(662, 392);
             this.BookGridView.TabIndex = 0;
@@ -64,12 +65,14 @@
             this.ISBN.DataPropertyName = "ISBNBook";
             this.ISBN.HeaderText = "ISBN";
             this.ISBN.Name = "ISBN";
+            this.ISBN.ReadOnly = true;
             // 
             // BookManange
             // 
             this.BookManange.DataPropertyName = "BookName";
             this.BookManange.HeaderText = "Tên sách";
             this.BookManange.Name = "BookManange";
+            this.BookManange.ReadOnly = true;
             this.BookManange.Width = 250;
             // 
             // Publisher
@@ -77,12 +80,14 @@
             this.Publisher.DataPropertyName = "PublisherName";
             this.Publisher.HeaderText = "Nhà xuất bản";
             this.Publisher.Name = "Publisher";
+            this.Publisher.ReadOnly = true;
             // 
             // Unit
             // 
             this.Unit.DataPropertyName = "Unit";
             this.Unit.HeaderText = "Đơn vị tính";
             this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
             this.Unit.Width = 70;
             // 
             // Price
@@ -90,6 +95,7 @@
             this.Price.DataPropertyName = "Price";
             this.Price.HeaderText = "Giá bìa";
             this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -133,6 +139,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.BookGridView);
+            this.Name = "BookManage";
             this.Text = "Quản lí sách";
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).EndInit();
             this.ResumeLayout(false);
@@ -145,7 +152,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ISBN;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookManange;
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;

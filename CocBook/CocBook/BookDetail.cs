@@ -30,7 +30,7 @@ namespace CocBook
             
             if (Add)
             {
-                txtISBN.ReadOnly = false;
+               
                 int price = 0;
                 if (txtISBN.Text == "")
                 {
@@ -98,11 +98,16 @@ namespace CocBook
         {
             if (!Add)
             {
+                txtISBN.ReadOnly = true;
                 txtISBN.Text = book.ISBNBook;
                 txtBookName.Text = book.BookName;
                 txtPulisher.Text = book.PublisherName;
                 txtUnit.Text = book.Unit;
                 txtPrice.Text = book.Price.ToString();
+            }
+            else
+            {
+                txtISBN.ReadOnly = false;
             }
             
         }
