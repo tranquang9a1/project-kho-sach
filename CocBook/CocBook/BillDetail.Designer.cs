@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,6 +41,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAdd = new System.Windows.Forms.TextBox();
+            this.txtPay = new System.Windows.Forms.TextBox();
+            this.txtStoreName = new System.Windows.Forms.TextBox();
             this.txtTaxNo = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,26 +51,22 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtStoreName = new System.Windows.Forms.TextBox();
-            this.txtPay = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // lbTitle
             // 
@@ -196,6 +193,20 @@
             this.txtAdd.Size = new System.Drawing.Size(212, 20);
             this.txtAdd.TabIndex = 3;
             // 
+            // txtPay
+            // 
+            this.txtPay.Location = new System.Drawing.Point(192, 141);
+            this.txtPay.Name = "txtPay";
+            this.txtPay.Size = new System.Drawing.Size(212, 20);
+            this.txtPay.TabIndex = 2;
+            // 
+            // txtStoreName
+            // 
+            this.txtStoreName.Location = new System.Drawing.Point(192, 115);
+            this.txtStoreName.Name = "txtStoreName";
+            this.txtStoreName.Size = new System.Drawing.Size(212, 20);
+            this.txtStoreName.TabIndex = 2;
+            // 
             // txtTaxNo
             // 
             this.txtTaxNo.Location = new System.Drawing.Point(192, 89);
@@ -270,20 +281,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Khách hàng:";
             // 
-            // txtStoreName
-            // 
-            this.txtStoreName.Location = new System.Drawing.Point(192, 115);
-            this.txtStoreName.Name = "txtStoreName";
-            this.txtStoreName.Size = new System.Drawing.Size(212, 20);
-            this.txtStoreName.TabIndex = 2;
-            // 
-            // txtPay
-            // 
-            this.txtPay.Location = new System.Drawing.Point(192, 141);
-            this.txtPay.Name = "txtPay";
-            this.txtPay.Size = new System.Drawing.Size(212, 20);
-            this.txtPay.TabIndex = 2;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -292,32 +289,91 @@
             this.dataGridView1.Size = new System.Drawing.Size(770, 223);
             this.dataGridView1.TabIndex = 7;
             // 
-            // label12
+            // pictureBox1
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(143, 604);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 18);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Cộng";
+            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // label13
+            // groupBox1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(574, 604);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 14);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Sum";
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(111, 607);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(336, 100);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin chi tiết";
             // 
-            // txtName
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(32, 42);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Thêm dòng";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(127, 42);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Sửa dòng";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(226, 42);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Xóa dòng";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnExport);
+            this.groupBox2.Controls.Add(this.btnSave);
+            this.groupBox2.Location = new System.Drawing.Point(528, 607);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(339, 100);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lựa chọn";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(36, 42);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(170, 42);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.Text = "Xuất Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
+            // BillDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 647);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(921, 718);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.linkLabel1);
@@ -326,14 +382,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "txtName";
+            this.Name = "BillDetail";
             this.Text = "BillDetail";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +424,12 @@
         private System.Windows.Forms.TextBox txtPay;
         private System.Windows.Forms.TextBox txtStoreName;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnExport;
     }
 }

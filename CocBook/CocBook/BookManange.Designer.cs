@@ -52,11 +52,11 @@
             this.Publisher,
             this.Unit,
             this.Price});
-            this.BookGridView.Location = new System.Drawing.Point(60, 79);
+            this.BookGridView.Location = new System.Drawing.Point(60, 85);
             this.BookGridView.Name = "BookGridView";
             this.BookGridView.ReadOnly = true;
             this.BookGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BookGridView.Size = new System.Drawing.Size(662, 392);
+            this.BookGridView.Size = new System.Drawing.Size(662, 422);
             this.BookGridView.TabIndex = 0;
             this.BookGridView.Click += new System.EventHandler(this.BookGridView_Click);
             // 
@@ -100,9 +100,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(185, 33);
+            this.btnAdd.Location = new System.Drawing.Point(185, 36);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(334, 33);
+            this.btnEdit.Location = new System.Drawing.Point(334, 36);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 21);
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(481, 33);
+            this.btnDelete.Location = new System.Drawing.Point(481, 36);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 21);
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -132,9 +132,9 @@
             // 
             // BookManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 517);
+            this.ClientSize = new System.Drawing.Size(781, 557);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
