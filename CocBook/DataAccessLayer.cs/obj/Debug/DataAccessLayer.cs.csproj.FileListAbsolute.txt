@@ -22,3 +22,9 @@ D:\CocBook\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.pdb
 D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
 D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb
 D:\CocBook\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache
+D:\Working\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll.config
+D:\Working\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.dll
+D:\Working\CocBook\DataAccessLayer.cs\bin\Debug\DataAccessLayer.cs.pdb
+D:\Working\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.csprojResolveAssemblyReference.cache
+D:\Working\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.dll
+D:\Working\CocBook\DataAccessLayer.cs\obj\Debug\DataAccessLayer.cs.pdb

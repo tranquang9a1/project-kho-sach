@@ -54,8 +54,8 @@ namespace CocBook
             if (MessageBox.Show("Do you wish to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string name = CustomerDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-                BookDAL bookDAL = new BookDAL();
-                bookDAL.DeleteBook(name);
+                CustomerDAL customerDAL = new CustomerDAL();
+                customerDAL.DeleteCustomer(name);
             }
             loadAllData();
         }
