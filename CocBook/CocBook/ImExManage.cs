@@ -18,8 +18,8 @@ namespace CocBook
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddImport addImport = new AddImport();
-            addImport.Show();
+            InfoDetail infoDetail = new InfoDetail();            
+            infoDetail.Show();
             this.Close();
         }
 
