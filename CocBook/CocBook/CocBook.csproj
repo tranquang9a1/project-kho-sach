@@ -53,6 +53,12 @@
     <Compile Include="ChooseBook.Designer.cs">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerDetail.Designer.cs">
+      <DependentUpon>CustomerDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChooseBook.resx">
       <DependentUpon>ChooseBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerDetail.resx">
+      <DependentUpon>CustomerDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerManage.resx">
       <DependentUpon>CustomerManage.cs</DependentUpon>

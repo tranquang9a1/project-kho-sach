@@ -14,9 +14,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Insert into ImportExport values (@CheckNo, @Date, @Type, @ImportExport, @CustomerID)", con);
                 cmd.Parameters.AddWithValue("CheckNo", ie.CheckNo);
                 cmd.Parameters.AddWithValue("Date", ie.Date);
@@ -38,9 +37,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from ImportExport where CheckNo = @No", con);
                 cmd.Parameters.AddWithValue("No", No);
                 con.Open();
@@ -60,9 +58,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Update ImportExport set Date = @Date, Type = @Type, ImportExport = @ImportExport, CustomerID = @CustomerID where CheckNo = @No", con);
                 cmd.Parameters.AddWithValue("Date", ie.Date);
                 cmd.Parameters.AddWithValue("Type", ie.Type);
@@ -83,9 +80,8 @@ namespace DataAccessLayer.cs.DAL
         }
         public ImportExport GetIEbyCheckNo(int No)
         {
-            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where CheckNo = @No", con);
             cmd.Parameters.AddWithValue("No", No);
             con.Open();
@@ -106,9 +102,8 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<ImportExport> GetAllIE()
         {
-            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();

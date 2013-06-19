@@ -14,8 +14,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Insert into Customer values (@CustomerName, @Address, @Phone, @TaxNo)", con);
                 cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
@@ -38,9 +38,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerName = @CustomerName", con);
                 cmd.Parameters.AddWithValue("CustomerName", CustomerName);
                 con.Open();
@@ -59,9 +58,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-                //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-                //SqlConnection con = new SqlConnection(cs);
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("UPDATE Customer SET Address = @Address, Phone = @Phone, TaxNo = @TaxNo WHERE CustomerName = @CustomerName", con);
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
@@ -80,9 +78,8 @@ namespace DataAccessLayer.cs.DAL
         }
         public Customer GetCustomerbyID(string CustomerName)
         {
-            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Customer where CustomerName = @CustomerName", con);
             cmd.Parameters.AddWithValue("CustomerName", CustomerName);
             con.Open();
@@ -102,9 +99,8 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Customer> GetAllCustomer()
         {
-            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database = CocBook;uid=sa;pwd=vinhquang");
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStore"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Customer", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
