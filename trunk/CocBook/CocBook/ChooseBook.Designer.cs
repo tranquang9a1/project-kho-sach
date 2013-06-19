@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.BookGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -37,11 +42,6 @@
             this.rdISBN = new System.Windows.Forms.RadioButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnChoose = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -57,8 +57,41 @@
             this.Column3});
             this.BookGridView1.Location = new System.Drawing.Point(56, 154);
             this.BookGridView1.Name = "BookGridView1";
+            this.BookGridView1.ReadOnly = true;
+            this.BookGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.BookGridView1.Size = new System.Drawing.Size(543, 139);
             this.BookGridView1.TabIndex = 0;
+            this.BookGridView1.Click += new System.EventHandler(this.BookGridView1_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ISBNBook";
+            this.Column1.HeaderText = "ISBN";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "BookName";
+            this.Column2.HeaderText = "Tên sách";
+            this.Column2.Name = "Column2";
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "PublisherName";
+            this.Column5.HeaderText = "NXB";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Unit";
+            this.Column4.HeaderText = "ĐVT";
+            this.Column4.Name = "Column4";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Price";
+            this.Column3.HeaderText = "Giá";
+            this.Column3.Name = "Column3";
             // 
             // btnAdd
             // 
@@ -140,36 +173,6 @@
             this.btnChoose.Text = "Chọn";
             this.btnChoose.UseVisualStyleBackColor = true;
             this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ISBNBook";
-            this.Column1.HeaderText = "ISBN";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "BookName";
-            this.Column2.HeaderText = "Tên sách";
-            this.Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "PublisherName";
-            this.Column5.HeaderText = "NXB";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Unit";
-            this.Column4.HeaderText = "ĐVT";
-            this.Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Price";
-            this.Column3.HeaderText = "Giá";
-            this.Column3.Name = "Column3";
             // 
             // ChooseBook
             // 

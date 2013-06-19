@@ -48,7 +48,7 @@ namespace CocBook
             bookDetail.NotifyEvent += new NotifyLoadData(BookDetail_NotifyEvent);
             bookDetail.Show();
         }
-        private void BookGridView_Click(object sender, EventArgs e)
+        private void BookGridView1_Click(object sender, EventArgs e)
         {
 
             book.ISBNBook = BookGridView1.SelectedRows[0].Cells[0].Value.ToString();

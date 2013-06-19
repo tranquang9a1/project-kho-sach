@@ -64,6 +64,7 @@ namespace DataAccessLayer.cs.DAL
                 cmd.Parameters.AddWithValue("Address", customer.Address);
                 cmd.Parameters.AddWithValue("Phone", customer.Phone);
                 cmd.Parameters.AddWithValue("TaxNo", customer.TaxNo);
+                cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
                 con.Close();

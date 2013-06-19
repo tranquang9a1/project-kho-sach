@@ -49,6 +49,7 @@ namespace CocBook
                     customer.Address = txtAddress.Text;
                     customer.Phone = txtPhone.Text;
                     customer.TaxNo = txtTaxNo.Text;
+                    customerDAL.CreateCustomer(customer);
                     
                 }
                 }

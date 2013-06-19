@@ -18,6 +18,7 @@ namespace CocBook
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             Application.Run();
+            
         }
     }
 }
