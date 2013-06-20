@@ -16,6 +16,8 @@ namespace CocBook
     {
         public ImportExport importExport = new ImportExport();
         ImportExportDAL importExportDAL = new ImportExportDAL();
+        CustomerManage customerManage = new CustomerManage();
+        Customer customer = new Customer();
         public InfoDetail()
         {
             InitializeComponent();
@@ -23,10 +25,44 @@ namespace CocBook
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            importExport.CheckNo = int.Parse(txtCheckNo.Text);
-            importExport.Date = DateTime.ParseExact(txtDay.Text, "yyyy-MM-dd",CultureInfo.InvariantCulture);
+            if (txtCheckNo.Text != null)
+            {
+                importExport.CheckNo = int.Parse(txtCheckNo.Text);
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa điền số phiếu! Vui lòng nhập lại! ");
+                txtCheckNo.Focus();
+            }
+            if (txtDay.Text != null)
+            {
+                importExport.Date = DateTime.ParseExact(txtDay.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập thời gian dạng YYYY-MM-DD !");
+                txtDay.Focus();
+            }
+            
+            if (rdImport.Checked)
+            {
+                importExport.ImEx = "I";
+            }
+            else if (rdExport.Checked)
+            {
+                importExport.ImEx = "E";
+            }
             importExport.Type = cbType.SelectedItem.ToString();
-            importExport.CustomerName = txtCustomerName.Text;
+            if (txtCustomerName != null)
+            {
+                importExport.CustomerName = txtCustomerName.Text;
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng. Vui lòng chọn!");
+                txtCustomerName.Focus();
+            }
+            
             importExportDAL.CreateIE(importExport);
             BillDetail billDetail = new BillDetail();
             billDetail.importExport = this.importExport;
@@ -36,10 +72,31 @@ namespace CocBook
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            CustomerManage customerManage = new CustomerManage();
-            customerManage.Show();
-            //After Choose Customer from CustomerManage Load CustomerName from Customer in CustomerManage
+            
+            customerManage.loadCustomerNameEvent += new LoadCustomerName(loadCustomerName);
+            customerManage.ShowDialog();
+            
+        }
+        void loadCustomerName()
+        {
+            customer = customerManage.customer;
+            txtCustomerName.Text = customer.CustomerName.ToString();
         }
 
+        private void rdImport_CheckedChanged(object sender, EventArgs e)
+        {
+            cbType.Items.Clear();
+            cbType.Items.Add("Ký gửi");
+            cbType.Items.Add("Bán lẻ");
+            cbType.Items.Add("Nhập trả");
+        }
+
+        private void rdExport_CheckedChanged(object sender, EventArgs e)
+        {
+            cbType.Items.Clear();
+            cbType.Items.Add("Ký gửi");
+            cbType.Items.Add("Bán lẻ");
+            cbType.Items.Add("Lưu kho");
+        }
     }
 }
