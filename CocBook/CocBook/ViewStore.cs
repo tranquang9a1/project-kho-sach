@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DataAccessLayer.DAL;
+using DataAccessLayer.cs.DTO;
 
 namespace CocBook
 {
@@ -14,6 +16,79 @@ namespace CocBook
         public ViewStore()
         {
             InitializeComponent();
+            LoadAllData();
+        }
+        private void LoadAllData()
+        {
+            BookStoreDAL bookstoreDAL = new BookStoreDAL();
+            List<Store> list = bookstoreDAL.GetAllStore();
+            dataGridView1.DataSource = list;
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                string search = txtSearch.Text;
+                if (rdISBN.Checked)
+                {
+                    Store store = new Store();
+                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                    if (bookstoreDAL.GetBookStorebyISBN(search) != null)
+                    {
+                        store = bookstoreDAL.GetBookStorebyISBN(search);
+                        List<Store> list = new List<Store>();
+                        list.Add(store);
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+                    }
+                }
+                if (rdName.Checked)
+                {
+                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                    if (bookstoreDAL.GetBookStorebyName(search) != null)
+                    {
+                        List<Store> list = bookstoreDAL.GetBookStorebyName(search);
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+                    }
+                }
+                if (rdPulisher.Checked)
+                {
+                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                    if (bookstoreDAL.GetBookStorebyPublisher(search) != null)
+                    {
+                        List<Store> list = bookstoreDAL.GetBookStorebyPublisher(search);
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+                    }
+                }
+                if (rdPrice.Checked)
+                {
+                    int price = int.Parse(search);
+                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                    if (bookstoreDAL.GetBookStorebyPrice(price) != null)
+                    {
+                        List<Store> list = bookstoreDAL.GetBookStorebyPrice(price);
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+                    }
+                }
+                if(rdISBN.Checked==false && rdName.Checked==false && rdPrice.Checked==false && rdPulisher.Checked == false){
+                    MessageBox.Show("Hãy chọn mục tìm kiếm !");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập giá trị tìm kiếm !");
+            }
+        }
+
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            LoadAllData();
+            dataGridView1.Refresh();
         }
     }
 }

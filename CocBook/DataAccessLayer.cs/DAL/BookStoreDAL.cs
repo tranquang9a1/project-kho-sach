@@ -5,6 +5,7 @@ using System.Text;
 using DataAccessLayer.cs.DTO;
 using System.Data.SqlClient;
 using System.Configuration;
+using DataAccessLayer.cs.DAL;
 
 namespace DataAccessLayer.DAL
 {
@@ -78,7 +79,7 @@ namespace DataAccessLayer.DAL
             }
 
         }
-        public BookStore GetBookStorebyISBN(int ISBNBookStore)
+        public Store GetBookStorebyISBN(string ISBNBookStore)
         {
 
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
@@ -88,41 +89,155 @@ namespace DataAccessLayer.DAL
             cmd.Parameters.AddWithValue("ISBN", ISBNBookStore);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            BookStore bookstore = new BookStore();
+            Store store = new Store();
 
             if (sdr.HasRows)
             {
                 sdr.Read();
-                bookstore.ISBN = (int)sdr["ISBN"];
-                bookstore.Quantity = (int)sdr["Quantity"];
-                
-                return bookstore;
+                store.ISBNBook = sdr["ISBN"].ToString();
+                string ISBN = store.ISBNBook;
+                store.Quantity = (int)sdr["Quantity"];
+                BookDAL bookDAL = new BookDAL();
+                Book book = new Book();
+                book = bookDAL.GetBookbyISBN(ISBN);
+                store.BookName = book.BookName;
+                store.Publisher = book.PublisherName;
+                store.Unit = book.Unit;
+                store.Price = book.Price;
+                return store;
             }
             con.Close();
             return null;
         }
-        public List<BookStore> GetAllBookStore()
+        public List<Store> GetAllStore()
         {
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].Name;
-            Console.WriteLine(cs);
+            /*
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
+            */
             
-            //SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
+            SqlConnection con = new SqlConnection(@"Server=(local);Database=CocBook;uid=sa;pwd=123456789");
             SqlCommand cmd = new SqlCommand("Select * from BookStore", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            List<BookStore> list = new List<BookStore>();
+            List<Store> list = new List<Store>();
             while (sdr.Read())
             {
-                BookStore bookstore = new BookStore();
-                bookstore.ISBN = (int)sdr["ISBN"];
-                bookstore.Quantity = (int)sdr["Quantity"];
-                
-                list.Add(bookstore);
+                Store store = new Store();
+                store.ISBNBook = sdr["ISBN"].ToString();
+                string ISBN = store.ISBNBook;
+                store.Quantity = (int)sdr["Quantity"];
+                Book book = new Book();
+                BookDAL bookDAL = new BookDAL();
+                book = bookDAL.GetBookbyISBN(ISBN);
+                store.BookName = book.BookName;
+                store.Publisher = book.PublisherName;
+                store.Unit = book.Unit;
+                store.Price = book.Price;
+                list.Add(store);
             }
             con.Close();
             return list;
 
+        }
+        public List<Store> GetBookStorebyName(string name)
+        {
+            List<Store> list = new List<Store>();
+            List<Book> listBook = new List<Book>();
+            BookDAL bookDAL = new BookDAL();
+            listBook = bookDAL.GetBookbyName(name);
+            foreach (var book in listBook)
+            {
+                Store store = new Store();
+                store.ISBNBook = book.ISBNBook;
+                store.BookName = book.BookName;
+                store.Publisher = book.PublisherName;
+                store.Unit = book.Unit;
+                store.Price = book.Price;
+                string ISBN = book.ISBNBook;
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+           
+                SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
+                cmd.Parameters.AddWithValue("ISBN", ISBN);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                if (sdr.HasRows)
+                {
+                    sdr.Read();
+                    store.Quantity = (int)sdr["Quantity"];
+                }
+                con.Close();
+                list.Add(store);
+            }
+            return list;
+        }
+        public List<Store> GetBookStorebyPublisher(string publisher)
+        {
+            List<Store> list = new List<Store>();
+            List<Book> listBook = new List<Book>();
+            BookDAL bookDAL = new BookDAL();
+            listBook = bookDAL.GetBookbyPublisherName(publisher);
+            foreach (var book in listBook)
+            {
+                Store store = new Store();
+                store.ISBNBook = book.ISBNBook;
+                store.BookName = book.BookName;
+                store.Publisher = book.PublisherName;
+                store.Unit = book.Unit;
+                store.Price = book.Price;
+                string ISBN = book.ISBNBook;
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+
+                SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
+                cmd.Parameters.AddWithValue("ISBN", ISBN);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                if (sdr.HasRows)
+                {
+                    sdr.Read();
+                    store.Quantity = (int)sdr["Quantity"];
+                }
+                con.Close();
+                list.Add(store);
+            }
+            return list;
+        }
+        public List<Store> GetBookStorebyPrice(int price)
+        {
+            List<Store> list = new List<Store>();
+            List<Book> listBook = new List<Book>();
+            BookDAL bookDAL = new BookDAL();
+            listBook = bookDAL.GetBookbyPrice(price);
+            foreach (var book in listBook)
+            {
+                Store store = new Store();
+                store.ISBNBook = book.ISBNBook;
+                store.BookName = book.BookName;
+                store.Publisher = book.PublisherName;
+                store.Unit = book.Unit;
+                store.Price = book.Price;
+                string ISBN = book.ISBNBook;
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+
+                SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
+                cmd.Parameters.AddWithValue("ISBN", ISBN);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+
+                if (sdr.HasRows)
+                {
+                    sdr.Read();
+                    store.Quantity = (int)sdr["Quantity"];
+                }
+                con.Close();
+                list.Add(store);
+            }
+            return list;
         }
     }
 }

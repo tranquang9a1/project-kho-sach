@@ -25,8 +25,8 @@ namespace CocBook
         {
             
             InitializeComponent();
-            BillLoadData();
-            OrderLoadData();
+            //BillLoadData();
+            //OrderLoadData();
         }
         private void BillLoadData(){
             customer = customerDAL.GetCustomerbyName(importExport.CustomerName);
@@ -101,7 +101,7 @@ namespace CocBook
         }
 
     }
-    public class ListGridView ()
+    public class ListGridView
     {
         public int i { get; set; }
         public string ISBNBook { get; set; }

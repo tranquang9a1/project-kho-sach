@@ -53,6 +53,7 @@
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\ImportExport.cs" />
     <Compile Include="DTO\IEDetail.cs" />
+    <Compile Include="DTO\Store.cs" />
     <Compile Include="DTO\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

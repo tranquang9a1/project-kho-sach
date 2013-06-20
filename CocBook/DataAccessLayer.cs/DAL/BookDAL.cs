@@ -189,7 +189,6 @@ namespace DataAccessLayer.cs.DAL
                 book.Unit = (string)sdr["Unit"];
                 book.Price = (int)sdr["Price"];
                 list.Add(book);
-                list.Add(book);
             }
             con.Close();
             return list;
