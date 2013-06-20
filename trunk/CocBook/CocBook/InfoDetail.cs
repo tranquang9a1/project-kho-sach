@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
+using System.Globalization;
 
 namespace CocBook
 {
@@ -23,7 +24,7 @@ namespace CocBook
         private void btnNext_Click(object sender, EventArgs e)
         {
             importExport.CheckNo = int.Parse(txtCheckNo.Text);
-            importExport.Date = DateTime.ParseExact(txtDay.Text);//Edit ParseExact
+            importExport.Date = DateTime.ParseExact(txtDay.Text, "YYYY-MM-DD",CultureInfo.InvariantCulture);
             importExport.Type = cbType.SelectedItem.ToString();//Edit if Import Khác = Nhập trả; Export Khác = Lưu kho
             importExport.CustomerName = txtCustomerName.Text;
             importExportDAL.CreateIE(importExport);

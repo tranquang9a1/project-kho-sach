@@ -23,6 +23,7 @@ namespace CocBook
         }
         private void BillLoadData(){
             customer = customerDAL.GetCustomerbyName(importExport.CustomerName);
+            
             lbTitle.Text = "Phiếu " + importExport.Type;
             txtCheckNo.Text = importExport.CheckNo.ToString();
             txtDay.Text = importExport.Date.ToString();//Edit type DD/MM/YYYY
@@ -37,6 +38,7 @@ namespace CocBook
             EditRow editrow = new EditRow();
             editrow.ieDetail.CheckNo = importExport.CheckNo;
             editrow.Show();
+
         }
     }
 }
