@@ -127,5 +127,73 @@ namespace DataAccessLayer.cs.DAL
             return list;
         
     }
+        public List<Book> GetBookbyName(string name)
+        {
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select * from Book where BookName = @Name", con);
+            cmd.Parameters.AddWithValue("Name", name);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            List<Book> list = new List<Book>();
+            while (sdr.Read())
+            {
+                Book book = new Book();
+                book.ISBNBook = (string)sdr["ISBNBook"];
+                book.BookName = (string)sdr["BookName"];
+                book.PublisherName = (string)sdr["PublisherName"];
+                book.Unit = (string)sdr["Unit"];
+                book.Price = (int)sdr["Price"];
+                list.Add(book);
+            }
+            con.Close();
+            return list;
+        }
+        public List<Book> GetBookbyPublisherName(string publisher)
+        {
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select * from Book where PublisherName = @Name", con);
+            cmd.Parameters.AddWithValue("Name", publisher);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            List<Book> list = new List<Book>();
+            while (sdr.Read())
+            {
+                Book book = new Book();
+                book.ISBNBook = (string)sdr["ISBNBook"];
+                book.BookName = (string)sdr["BookName"];
+                book.PublisherName = (string)sdr["PublisherName"];
+                book.Unit = (string)sdr["Unit"];
+                book.Price = (int)sdr["Price"];
+                list.Add(book);
+            }
+            con.Close();
+            return list;
+        }
+        public List<Book> GetBookbyPrice(int price)
+        {
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select * from Book where Price = @Price", con);
+            cmd.Parameters.AddWithValue("Price", price);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            List<Book> list = new List<Book>();
+            while (sdr.Read())
+            {
+                Book book = new Book();
+                book.ISBNBook = (string)sdr["ISBNBook"];
+                book.BookName = (string)sdr["BookName"];
+                book.PublisherName = (string)sdr["PublisherName"];
+                book.Unit = (string)sdr["Unit"];
+                book.Price = (int)sdr["Price"];
+                list.Add(book);
+                list.Add(book);
+            }
+            con.Close();
+            return list;
+        }
+
     }
 }
