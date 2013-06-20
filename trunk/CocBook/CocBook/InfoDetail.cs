@@ -18,6 +18,7 @@ namespace CocBook
         ImportExportDAL importExportDAL = new ImportExportDAL();
         CustomerManage customerManage = new CustomerManage();
         Customer customer = new Customer();
+        BillDetail billDetail = new BillDetail();
         public InfoDetail()
         {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace CocBook
             }
             
             importExportDAL.CreateIE(importExport);
-            BillDetail billDetail = new BillDetail();
+            
             billDetail.importExport = this.importExport;
             billDetail.Show();
             this.Close();
