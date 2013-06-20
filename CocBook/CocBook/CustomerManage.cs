@@ -11,8 +11,10 @@ using DataAccessLayer.cs.DAL;
 
 namespace CocBook
 {
+    public delegate void LoadCustomerName();
     public partial class CustomerManage : Form
     {
+        public event LoadCustomerName loadCustomerNameEvent;
         public Customer customer = new Customer();
         public CustomerManage()
         {
@@ -71,10 +73,20 @@ namespace CocBook
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            if (customer != null)
+            if (customer.CustomerName != null)
             {
+                if (loadCustomerNameEvent != null)
+                {
+                    loadCustomerNameEvent();
+                }
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng! Vui lòng chọn lại !");
+                this.Focus();
+            }
+
         }
 
     }
