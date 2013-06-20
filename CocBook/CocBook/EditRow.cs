@@ -11,10 +11,12 @@ using DataAccessLayer.cs.DAL;
 
 namespace CocBook
 {
+    
     public partial class EditRow : Form
     {
         public IEDetail ieDetail = new IEDetail();
         IEDetailDAL ieDetailDAL = new IEDetailDAL();
+        ChooseBook chooseBook = new ChooseBook();
         public EditRow()
         {
             InitializeComponent();
@@ -22,8 +24,15 @@ namespace CocBook
 
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
-            ChooseBook chooseBook = new ChooseBook();
-            chooseBook.Show();
+            
+            chooseBook.ShowDialog();
+            chooseBook.importEvent += new ImportEvent(chooseBook_importEvent);
+
+            
+        }
+
+        void chooseBook_importEvent()
+        {
             ieDetail.ISBNBook = chooseBook.book.ISBNBook;
         }
 
@@ -37,5 +46,12 @@ namespace CocBook
             ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
             ieDetailDAL.CreateIEDetail(ieDetail);
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }

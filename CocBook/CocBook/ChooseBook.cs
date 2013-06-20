@@ -11,8 +11,10 @@ using DataAccessLayer.cs.DAL;
 
 namespace CocBook
 {
+    public delegate void ImportEvent();
     public partial class ChooseBook : Form
     {
+        public event ImportEvent importEvent;
         public Book book = new Book();
         public ChooseBook()
         {
@@ -61,6 +63,10 @@ namespace CocBook
         private void btnChoose_Click(object sender, EventArgs e)
         {
             Close();
+            if (importEvent != null)
+            {
+                importEvent();
+            }
         }
     }
 }
