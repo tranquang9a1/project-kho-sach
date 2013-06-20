@@ -52,14 +52,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +60,14 @@
             this.RowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -80,7 +80,7 @@
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(353, 29);
+            this.lbTitle.Location = new System.Drawing.Point(353, 27);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(188, 24);
             this.lbTitle.TabIndex = 1;
@@ -90,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(354, 66);
+            this.label1.Location = new System.Drawing.Point(354, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             // txtDay
             // 
-            this.txtDay.Location = new System.Drawing.Point(408, 66);
+            this.txtDay.Location = new System.Drawing.Point(408, 61);
             this.txtDay.Name = "txtDay";
             this.txtDay.Size = new System.Drawing.Size(109, 20);
             this.txtDay.TabIndex = 3;
@@ -110,9 +110,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(655, 29);
+            this.panel1.Location = new System.Drawing.Point(655, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.Size = new System.Drawing.Size(200, 93);
             this.panel1.TabIndex = 4;
             // 
             // txtCheckNo
@@ -125,45 +125,45 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 61);
+            this.label5.Location = new System.Drawing.Point(4, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 14);
+            this.label5.Size = new System.Drawing.Size(94, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Phương thức xuất:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 43);
+            this.label4.Location = new System.Drawing.Point(3, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 14);
+            this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Ký hiệu HĐ:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 26);
+            this.label3.Location = new System.Drawing.Point(3, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 14);
+            this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Số chứng từ:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 8);
+            this.label2.Location = new System.Drawing.Point(3, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 14);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Số phiếu:";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(21, 122);
+            this.linkLabel1.Location = new System.Drawing.Point(21, 113);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(151, 14);
+            this.linkLabel1.Size = new System.Drawing.Size(149, 13);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "www.facebook.com/cocbook";
@@ -182,49 +182,49 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(137, 166);
+            this.panel2.Location = new System.Drawing.Point(137, 154);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(442, 170);
+            this.panel2.Size = new System.Drawing.Size(442, 158);
             this.panel2.TabIndex = 6;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(192, 63);
+            this.txtPhone.Location = new System.Drawing.Point(192, 58);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(212, 20);
             this.txtPhone.TabIndex = 4;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(192, 36);
+            this.txtAddress.Location = new System.Drawing.Point(192, 33);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(212, 20);
             this.txtAddress.TabIndex = 3;
             // 
             // txtPay
             // 
-            this.txtPay.Location = new System.Drawing.Point(192, 141);
+            this.txtPay.Location = new System.Drawing.Point(192, 131);
             this.txtPay.Name = "txtPay";
             this.txtPay.Size = new System.Drawing.Size(212, 20);
             this.txtPay.TabIndex = 2;
             // 
             // txtStoreName
             // 
-            this.txtStoreName.Location = new System.Drawing.Point(192, 115);
+            this.txtStoreName.Location = new System.Drawing.Point(192, 107);
             this.txtStoreName.Name = "txtStoreName";
             this.txtStoreName.Size = new System.Drawing.Size(212, 20);
             this.txtStoreName.TabIndex = 2;
             // 
             // txtTaxNo
             // 
-            this.txtTaxNo.Location = new System.Drawing.Point(192, 89);
+            this.txtTaxNo.Location = new System.Drawing.Point(192, 83);
             this.txtTaxNo.Name = "txtTaxNo";
             this.txtTaxNo.Size = new System.Drawing.Size(212, 20);
             this.txtTaxNo.TabIndex = 2;
             // 
             // txtCustomerName
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(192, 10);
+            this.txtCustomerName.Location = new System.Drawing.Point(192, 9);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(212, 20);
             this.txtCustomerName.TabIndex = 1;
@@ -233,7 +233,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(22, 141);
+            this.label11.Location = new System.Drawing.Point(22, 131);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(135, 17);
             this.label11.TabIndex = 0;
@@ -243,7 +243,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 115);
+            this.label10.Location = new System.Drawing.Point(22, 107);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(80, 17);
             this.label10.TabIndex = 0;
@@ -253,7 +253,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 89);
+            this.label9.Location = new System.Drawing.Point(22, 83);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 17);
             this.label9.TabIndex = 0;
@@ -263,7 +263,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(22, 63);
+            this.label8.Location = new System.Drawing.Point(22, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(68, 17);
             this.label8.TabIndex = 0;
@@ -273,7 +273,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(22, 36);
+            this.label7.Location = new System.Drawing.Point(22, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 17);
             this.label7.TabIndex = 0;
@@ -283,7 +283,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 10);
+            this.label6.Location = new System.Drawing.Point(22, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 0;
@@ -301,89 +301,11 @@
             this.RowPrice,
             this.RowDiscount,
             this.RowValue});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 365);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 339);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(939, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(939, 207);
             this.dataGridView1.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(111, 607);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 100);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin chi tiết";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(226, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Xóa dòng";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(127, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sửa dòng";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thêm dòng";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnExport);
-            this.groupBox2.Controls.Add(this.btnSave);
-            this.groupBox2.Location = new System.Drawing.Point(528, 607);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 100);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lựa chọn";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(170, 42);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
-            this.btnExport.TabIndex = 1;
-            this.btnExport.Text = "Xuất Excel";
-            this.btnExport.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(36, 42);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // RowID
             // 
@@ -427,11 +349,92 @@
             this.RowValue.HeaderText = "Thành tiền";
             this.RowValue.Name = "RowValue";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(21, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDelete);
+            this.groupBox1.Controls.Add(this.btnEdit);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Location = new System.Drawing.Point(111, 564);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(336, 93);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin chi tiết";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(226, 39);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 21);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Xóa dòng";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(127, 39);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 21);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Sửa dòng";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(32, 39);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm dòng";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnExport);
+            this.groupBox2.Controls.Add(this.btnSave);
+            this.groupBox2.Location = new System.Drawing.Point(528, 564);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(339, 93);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lựa chọn";
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(170, 39);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 21);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.Text = "Xuất Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(36, 39);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 21);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Lưu";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
             // BillDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 718);
+            this.ClientSize = new System.Drawing.Size(969, 667);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -485,9 +488,9 @@
         private System.Windows.Forms.TextBox txtStoreName;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExport;
