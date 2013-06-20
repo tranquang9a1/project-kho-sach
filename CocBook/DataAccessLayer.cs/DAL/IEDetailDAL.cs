@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using DataAccessLayer.cs.DTO;
+using System.Configuration;
 
 namespace DataAccessLayer.cs.DAL
 {
@@ -75,12 +76,11 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                // ConnectionString to DB
-                /*ConnectionString Error
+                
                 string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
-                */
-                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+                
+               // SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
 
                 //Delete Command
@@ -101,12 +101,11 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<IEDetail> GetAllIEDetail()
         {
-            // ConnectionString to DB
-            /*ConnectionString Error
+           
             string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            */
-            SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+            
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             // View all Command
             SqlCommand cmd = new SqlCommand("SELECT * from IEDetail", con);
@@ -133,12 +132,11 @@ namespace DataAccessLayer.cs.DAL
         public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
         {
 
-            // ConnectionString to DB
-            /*ConnectionString Error
+            
             string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            */
-            SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+            
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @no AND ISBNBook = @isbn", con);
             cmd.Parameters.AddWithValue("no", no);
