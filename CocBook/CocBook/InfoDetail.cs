@@ -24,8 +24,8 @@ namespace CocBook
         private void btnNext_Click(object sender, EventArgs e)
         {
             importExport.CheckNo = int.Parse(txtCheckNo.Text);
-            importExport.Date = DateTime.ParseExact(txtDay.Text, "YYYY-MM-DD",CultureInfo.InvariantCulture);
-            importExport.Type = cbType.SelectedItem.ToString();//Edit if Import Khác = Nhập trả; Export Khác = Lưu kho
+            importExport.Date = DateTime.ParseExact(txtDay.Text, "yyyy-MM-dd",CultureInfo.InvariantCulture);
+            importExport.Type = cbType.SelectedItem.ToString();
             importExport.CustomerName = txtCustomerName.Text;
             importExportDAL.CreateIE(importExport);
             BillDetail billDetail = new BillDetail();
@@ -40,5 +40,6 @@ namespace CocBook
             customerManage.Show();
             //After Choose Customer from CustomerManage Load CustomerName from Customer in CustomerManage
         }
+
     }
 }
