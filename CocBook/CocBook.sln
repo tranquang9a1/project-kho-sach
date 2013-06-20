@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.cs", "DataAccessLayer.cs\DataAccessLayer.cs.csproj", "{F67D7753-5655-49D7-B090-15A2EB935650}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = CocBook.vsmdi
@@ -45,6 +47,16 @@ Global
 		{F67D7753-5655-49D7-B090-15A2EB935650}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F67D7753-5655-49D7-B090-15A2EB935650}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F67D7753-5655-49D7-B090-15A2EB935650}.Release|x86.ActiveCfg = Release|Any CPU
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Debug|x86.ActiveCfg = Debug|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Debug|x86.Build.0 = Debug|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Release|Any CPU.ActiveCfg = Release|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Release|Mixed Platforms.Build.0 = Release|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Release|x86.ActiveCfg = Release|x86
+		{38CC6774-1B2A-4FAB-8AFB-7CBE7C05A70A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
