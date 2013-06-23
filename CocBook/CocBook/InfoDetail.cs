@@ -37,21 +37,21 @@ namespace CocBook
             }
             if (txtDay.Text != null)
             {
-                importExport.Date = DateTime.ParseExact(txtDay.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+                importExport.Date = DateTime.ParseExact(txtDay.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thời gian dạng YYYY-MM-DD !");
+                MessageBox.Show("Vui lòng nhập thời gian dạng 25-12-1993 !");
                 txtDay.Focus();
             }
             
             if (rdImport.Checked)
             {
-                importExport.ImEx = "I";
+                importExport.ImEx = "Nhập";
             }
             else if (rdExport.Checked)
             {
-                importExport.ImEx = "E";
+                importExport.ImEx = "Xuất";
             }
             importExport.Type = cbType.SelectedItem.ToString();
             if (txtCustomerName != null)
