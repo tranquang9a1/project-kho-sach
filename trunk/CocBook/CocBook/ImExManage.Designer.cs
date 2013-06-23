@@ -87,26 +87,31 @@
             // 
             // CheckNo
             // 
+            this.CheckNo.DataPropertyName = "CheckNo";
             this.CheckNo.HeaderText = "Số phiếu";
             this.CheckNo.Name = "CheckNo";
             // 
             // Day
             // 
+            this.Day.DataPropertyName = "Date";
             this.Day.HeaderText = "Ngày";
             this.Day.Name = "Day";
             // 
             // Type
             // 
+            this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "Loại";
             this.Type.Name = "Type";
             // 
             // IE
             // 
+            this.IE.DataPropertyName = "ImEx";
             this.IE.HeaderText = "Nhập/Xuất";
             this.IE.Name = "IE";
             // 
             // CustomerName
             // 
+            this.CustomerName.DataPropertyName = "CustomerName";
             this.CustomerName.HeaderText = "Tên khách hàng";
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Width = 200;

@@ -116,7 +116,7 @@ namespace DataAccessLayer.cs.DAL
                 ie.Date = (DateTime)sdr["Date"];
                 ie.ImEx = (string)sdr["ImportExport"];
                 ie.Type = (string)sdr["Type"];
-                ie.CustomerName = (string)sdr["CustomerID"];
+                ie.CustomerName = (string)sdr["CustomerName"];
                 list.Add(ie);
             }
             con.Close();
