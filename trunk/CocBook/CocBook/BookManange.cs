@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CocBook
 {
@@ -72,13 +73,68 @@ namespace CocBook
             }
             LoadAllData();
         }
-        /* Button "Nhập từ Excel"
-         * Nhấn vào mở ra openFileDialog
-         * Chọn File Excel cần nhập, ở đây là BookDatabase.xlsx
-         * Xem tương ứng các trường trong lớp Book, vị trí các ô trong file Excel
-         * Thay dong cuối dạng như dataGridView1.DataSource = list; bằng lệnh lưu xuống Database trong BookDAL
-         * Load lại Database trên GridView         
-         */
+
+        private void btnImportFromExcel_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            string filename = openFileDialog1.FileName;
+
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkBook = xlApp.Workbooks.Open(filename, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            int i = 2;
+            BookDAL bookDAL = new BookDAL();
+            
+            while ( xlWorkSheet.get_Range("A" + i, "A" + i).Value2 != null)
+            {
+                
+                Book book = new Book();
+                book.BookName = xlWorkSheet.get_Range("A" + i, "A" + i).Value2.ToString();
+                book.PublisherName = xlWorkSheet.get_Range("B" + i, "B" + i).Value2.ToString();
+                book.Unit = xlWorkSheet.get_Range("C" + i, "C" + i).Value2.ToString();
+                book.Price = int.Parse(xlWorkSheet.get_Range("D" + i, "D" + i).Value2.ToString());
+                book.ISBNBook = xlWorkSheet.get_Range("E" + i, "E" + i).Value2.ToString();
+                i++;
+                bookDAL.CreateBook(book);
+            }
+            MessageBox.Show("Thêm sách thành công");
+            LoadAllData();
+
+            
+
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+            
+        }
+
+
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Unable to release the Object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        }
 
     }
-}
