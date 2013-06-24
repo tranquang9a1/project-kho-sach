@@ -37,6 +37,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnImportFromExcel = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +54,11 @@
             this.Publisher,
             this.Unit,
             this.Price});
-            this.BookGridView.Location = new System.Drawing.Point(60, 85);
+            this.BookGridView.Location = new System.Drawing.Point(60, 79);
             this.BookGridView.Name = "BookGridView";
             this.BookGridView.ReadOnly = true;
             this.BookGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BookGridView.Size = new System.Drawing.Size(662, 422);
+            this.BookGridView.Size = new System.Drawing.Size(662, 392);
             this.BookGridView.TabIndex = 0;
             this.BookGridView.Click += new System.EventHandler(this.BookGridView_Click);
             // 
@@ -100,9 +102,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(185, 36);
+            this.btnAdd.Location = new System.Drawing.Point(107, 33);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 21);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -111,9 +113,9 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(334, 36);
+            this.btnEdit.Location = new System.Drawing.Point(253, 33);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(75, 21);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -122,19 +124,35 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(481, 36);
+            this.btnDelete.Location = new System.Drawing.Point(406, 33);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(75, 21);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnImportFromExcel
+            // 
+            this.btnImportFromExcel.Location = new System.Drawing.Point(531, 32);
+            this.btnImportFromExcel.Name = "btnImportFromExcel";
+            this.btnImportFromExcel.Size = new System.Drawing.Size(115, 23);
+            this.btnImportFromExcel.TabIndex = 4;
+            this.btnImportFromExcel.Text = "Nhập từ Excel";
+            this.btnImportFromExcel.UseVisualStyleBackColor = true;
+            this.btnImportFromExcel.Click += new System.EventHandler(this.btnImportFromExcel_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Excel|*.xlsx";
+            // 
             // BookManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 557);
+            this.ClientSize = new System.Drawing.Size(781, 517);
+            this.Controls.Add(this.btnImportFromExcel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -157,5 +175,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Publisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.Button btnImportFromExcel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

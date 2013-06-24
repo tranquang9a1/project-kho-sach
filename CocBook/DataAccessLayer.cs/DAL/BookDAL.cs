@@ -9,7 +9,7 @@ namespace DataAccessLayer.cs.DAL
 {
     public class BookDAL
     {
-         public bool CreateBook(Book book)
+        public bool CreateBook(Book book)
         {
             try
             {
