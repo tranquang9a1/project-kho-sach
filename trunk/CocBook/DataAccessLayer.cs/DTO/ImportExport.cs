@@ -11,6 +11,6 @@ namespace DataAccessLayer.cs.DTO
         public DateTime Date { get; set; }
         public string Type { get; set; }
         public string  ImEx { get; set; }
-        public string CustomerName { get; set; }
+        public int CustomerID { get; set; }
     }
 }

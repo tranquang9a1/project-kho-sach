@@ -31,6 +31,7 @@ namespace CocBook
             if (txtSearch.Text != "")
             {
                 string search = txtSearch.Text;
+                // Search by ISBN
                 if (rdISBN.Checked)
                 {
                     Store store = new Store();
@@ -43,7 +44,12 @@ namespace CocBook
                         dataGridView1.DataSource = list;
                         dataGridView1.Refresh();
                     }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác ISBN !");
+                    }
                 }
+                // Search By Name
                 if (rdName.Checked)
                 {
                     BookStoreDAL bookstoreDAL = new BookStoreDAL();
@@ -53,7 +59,12 @@ namespace CocBook
                         dataGridView1.DataSource = list;
                         dataGridView1.Refresh();
                     }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác tên sách !");
+                    }
                 }
+                // Search by Publisher
                 if (rdPulisher.Checked)
                 {
                     BookStoreDAL bookstoreDAL = new BookStoreDAL();
@@ -63,7 +74,12 @@ namespace CocBook
                         dataGridView1.DataSource = list;
                         dataGridView1.Refresh();
                     }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác nhà xuất bản !");
+                    }
                 }
+                // Search by Price. Need edit price from to
                 if (rdPrice.Checked)
                 {
                     int price = int.Parse(search);
@@ -74,6 +90,7 @@ namespace CocBook
                         dataGridView1.DataSource = list;
                         dataGridView1.Refresh();
                     }
+                    
                 }
                 if(rdISBN.Checked==false && rdName.Checked==false && rdPrice.Checked==false && rdPulisher.Checked == false){
                     MessageBox.Show("Hãy chọn mục tìm kiếm !");

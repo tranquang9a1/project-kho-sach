@@ -53,21 +53,22 @@ namespace CocBook
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you wish to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn xóa khách hàng này không?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string name = CustomerDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                int customerID = (int)CustomerDataGridView.SelectedRows[0].Cells[0].Value;
                 CustomerDAL customerDAL = new CustomerDAL();
-                customerDAL.DeleteCustomer(name);
+                customerDAL.DeleteCustomer(customerID);
             }
             loadAllData();
         }
 
         private void CustomerDataGridView_Click(object sender, EventArgs e)
         {
-            customer.CustomerName = CustomerDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            customer.Address = CustomerDataGridView.SelectedRows[0].Cells[1].Value.ToString();
-            customer.Phone = CustomerDataGridView.SelectedRows[0].Cells[2].Value.ToString();
-            customer.TaxNo = CustomerDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            customer.CustomerID = (int)CustomerDataGridView.SelectedRows[0].Cells[0].Value;
+            customer.CustomerName = CustomerDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            customer.Address = CustomerDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            customer.Phone = CustomerDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+            customer.TaxNo = CustomerDataGridView.SelectedRows[0].Cells[4].Value.ToString();
             
         }
 

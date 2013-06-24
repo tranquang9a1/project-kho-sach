@@ -21,7 +21,7 @@ namespace DataAccessLayer.cs.DAL
                 cmd.Parameters.AddWithValue("Date", ie.Date);
                 cmd.Parameters.AddWithValue("Type", ie.Type);
                 cmd.Parameters.AddWithValue("ImportExport", ie.ImEx);
-                cmd.Parameters.AddWithValue("CustomerID", ie.CustomerName);
+                cmd.Parameters.AddWithValue("CustomerID", ie.CustomerID);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
                 con.Close();
@@ -64,7 +64,7 @@ namespace DataAccessLayer.cs.DAL
                 cmd.Parameters.AddWithValue("Date", ie.Date);
                 cmd.Parameters.AddWithValue("Type", ie.Type);
                 cmd.Parameters.AddWithValue("ImportExport", ie.ImEx);
-                cmd.Parameters.AddWithValue("CustomerID", ie.CustomerName);
+                cmd.Parameters.AddWithValue("CustomerID", ie.CustomerID);
                 cmd.Parameters.AddWithValue("No", ie.CheckNo);
                 con.Open();
                 int count = cmd.ExecuteNonQuery();
@@ -94,7 +94,7 @@ namespace DataAccessLayer.cs.DAL
                 ie.Date = (DateTime)sdr["Date"];
                 ie.ImEx = (string)sdr["ImportExport"];
                 ie.Type = (string)sdr["Type"];
-                ie.CustomerName = (string)sdr["CustomerID"];
+                ie.CustomerID = (int)sdr["CustomerID"];
                 return ie;
             }
             con.Close();
@@ -116,7 +116,7 @@ namespace DataAccessLayer.cs.DAL
                 ie.Date = (DateTime)sdr["Date"];
                 ie.ImEx = (string)sdr["ImportExport"];
                 ie.Type = (string)sdr["Type"];
-                ie.CustomerName = (string)sdr["CustomerName"];
+                ie.CustomerID = (int)sdr["CustomerID"];
                 list.Add(ie);
             }
             con.Close();
