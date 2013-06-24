@@ -56,7 +56,7 @@ namespace CocBook
             importExport.Type = cbType.SelectedItem.ToString();
             if (txtCustomerName != null)
             {
-                importExport.CustomerName = txtCustomerName.Text;
+                importExport.CustomerID = customer.CustomerID;
             }
             else
             {
@@ -98,6 +98,7 @@ namespace CocBook
             cbType.Items.Add("Ký gửi");
             cbType.Items.Add("Bán lẻ");
             cbType.Items.Add("Lưu kho");
+            cbType.Items.Add("Trả hàng");
         }
     }
 }

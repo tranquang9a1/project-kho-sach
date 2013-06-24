@@ -11,15 +11,15 @@ using DataAccessLayer.cs.DAL;
 
 namespace CocBook
 {
-    public delegate void TotalCost();
+    public delegate void ImportRow();
     public partial class EditRow : Form
     {
+        public event ImportRow importRowEvent;
         public IEDetail ieDetail = new IEDetail();
         IEDetailDAL ieDetailDAL = new IEDetailDAL();
         ChooseBook chooseBook = new ChooseBook();
         BookDAL bookDAL = new BookDAL();
         Book book = new Book();
-        public event TotalCost totalCost;
         public bool Add;
         public EditRow()
         {
@@ -28,46 +28,42 @@ namespace CocBook
 
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
-            
-            chooseBook.ShowDialog();
             chooseBook.importEvent += new ImportEvent(chooseBook_importEvent);
-
-            
+            chooseBook.ShowDialog();
         }
 
         void chooseBook_importEvent()
         {
             ieDetail.ISBNBook = chooseBook.book.ISBNBook;
+            txtBookName.Text = chooseBook.book.BookName;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (Add)
             {
-                
+
                 ieDetail.Quantity = int.Parse(txtQuantity.Text);
                 ieDetail.Discount = int.Parse(txtDiscount.Text);
                 book = bookDAL.GetBookbyISBN(ieDetail.ISBNBook);
-                ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
+                ieDetail.Value = (book.Price * ieDetail.Quantity * (100-ieDetail.Discount)) / 100;
                 ieDetailDAL.CreateIEDetail(ieDetail);
 
             }
             else
             {
-                
-                txtISBNBook.Text = ieDetail.ISBNBook;
+
+                txtBookName.Text = ieDetail.ISBNBook;
                 txtQuantity.Text = ieDetail.Quantity.ToString();
                 txtDiscount.Text = ieDetail.Discount.ToString();
                 book = bookDAL.GetBookbyISBN(ieDetail.ISBNBook);
                 ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
                 ieDetailDAL.UpdateIEDetail(ieDetail);
             }
-
-            if (totalCost != null)
-            {
-                totalCost();
+            Close();
+            if(importRowEvent!=null){
+                importRowEvent();
             }
-
         }
 
         private void btnExit_Click(object sender, EventArgs e)

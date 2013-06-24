@@ -11,24 +11,14 @@ namespace DataAccessLayer.cs.DAL
     {
         public List<UserInfo> GetAllUserInfo()
         {
-            // ConnectionString to DB
-            /*ConnectionString Error
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
-            */
-            SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
-            //
-            // View all Command
-            SqlCommand cmd = new SqlCommand("SELECT * from UserInfo", con);
-            //
+            SqlCommand cmd = new SqlCommand("SELECT * FROM UserInfo", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-
             List<UserInfo> list = new List<UserInfo>();
-
             while (sdr.Read())
             {
-
                 UserInfo userInfo = new UserInfo();
                 userInfo.Username = (string)sdr["Username"];
                 userInfo.Password = (string)sdr["Password"];

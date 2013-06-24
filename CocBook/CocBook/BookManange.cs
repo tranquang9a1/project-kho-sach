@@ -72,5 +72,13 @@ namespace CocBook
             }
             LoadAllData();
         }
+        /* Button "Nhập từ Excel"
+         * Nhấn vào mở ra openFileDialog
+         * Chọn File Excel cần nhập, ở đây là BookDatabase.xlsx
+         * Xem tương ứng các trường trong lớp Book, vị trí các ô trong file Excel
+         * Thay dong cuối dạng như dataGridView1.DataSource = list; bằng lệnh lưu xuống Database trong BookDAL
+         * Load lại Database trên GridView         
+         */
+
     }
 }

@@ -18,61 +18,59 @@ namespace CocBook
         Customer customer = new Customer();
         Book book = new Book();
         BookDAL bookDAL = new BookDAL();
-        IEDetail iedetail = new IEDetail();
+        
         IEDetailDAL ieDAL = new IEDetailDAL();
-        List<ListGridView> list = new List<ListGridView>();
+        
         public BillDetail()
         {
             
             InitializeComponent();
-            //BillLoadData();
-            //OrderLoadData();
-        }
-        private void BillLoadData(){
-            customer = customerDAL.GetCustomerbyName(importExport.CustomerName);
-            
-            lbTitle.Text = "Phiếu " + importExport.Type;
-            txtCheckNo.Text = importExport.CheckNo.ToString();
-            txtDay.Text = importExport.Date.ToString();//Edit type DD/MM/YYYY
-            txtCustomerName.Text = customer.CustomerName;
-            txtAddress.Text = customer.Address;
-            txtPhone.Text = customer.Phone;
-            txtTaxNo.Text = customer.TaxNo;
+            if (ieDAL.HasIEWithCheckNo(importExport.CheckNo))
+            {
+                OrderLoadData();
+            }
         }
         private void OrderLoadData()
         {
-            
-            
-            book = bookDAL.GetBookbyISBN(iedetail.ISBNBook);
-            
+            List<GridViewRow> list = new List<GridViewRow>();
+            List<IEDetail> iedetail = new List<IEDetail>();
+            iedetail = ieDAL.GetIEDetailByCheckNo(importExport.CheckNo);
+            foreach (var item in iedetail)
+            {
+                GridViewRow gridViewRow = new GridViewRow();
+                gridViewRow.ISBNBook = item.ISBNBook;
+                book = bookDAL.GetBookbyISBN(item.ISBNBook);
+                gridViewRow.BookName = book.BookName;
+                gridViewRow.Unit = book.Unit;
+                gridViewRow.Quantity = item.Quantity;
+                gridViewRow.Price = book.Price;
+                gridViewRow.Discount = item.Discount;
+                gridViewRow.Value = item.Value;
+                list.Add(gridViewRow);
+            }
+            dataGridView1.DataSource = list;            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EditRow editrow = new EditRow();
+            editrow.importRowEvent += new ImportRow(OrderLoadData);
             editrow.ieDetail.CheckNo = importExport.CheckNo;
+            editrow.Add = true;
             editrow.ShowDialog();
-            editrow.totalCost += new TotalCost(editrow_totalCost);
-
         }
 
-        void editrow_totalCost()
-        {
-            OrderLoadData();
-        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             EditRow editrow = new EditRow();
+            IEDetail iedetail = new IEDetail();
             editrow.ieDetail.CheckNo = importExport.CheckNo;
             iedetail.Discount = editrow.ieDetail.Discount;
             iedetail.Quantity = editrow.ieDetail.Quantity;
             editrow.ShowDialog();
-            editrow.totalCost += new TotalCost(editrow_totalCost);
-            
-
         }
-
+        /*
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             //id grid = 0;
@@ -84,11 +82,11 @@ namespace CocBook
             iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
             iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[7].Value;
         }
-
+        */
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            bool del = ieDAL.DeletePublisherByCheckNoAndISBN(int.Parse(txtCheckNo.Text), iedetail.ISBNBook);
+            IEDetail iedetail = new IEDetail();
+            bool del = ieDAL.DeletePublisherByCheckNoAndISBN(iedetail.CheckNo, iedetail.ISBNBook);
             if (del)
             {
                 MessageBox.Show("Đã xóa!");
@@ -99,18 +97,27 @@ namespace CocBook
             }
             OrderLoadData();
         }
+        public void AutoNumberRowsForGridView(DataGridView dataGridView)
+        {
+            if (dataGridView != null)
+            {
+                for (int count = 0; (count <= (dataGridView.Rows.Count - 2)); count++)
+                {
+                    dataGridView.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
+                }
+            }
+        }
 
     }
-    public class ListGridView
+    public class GridViewRow
     {
-        public int i { get; set; }
         public string ISBNBook { get; set; }
         public string BookName { get; set; }
         public string Unit { get; set; }
-        public string Price { get; set; }
-        public string Discount { get; set; }
-        public string Value { get; set; }
-
+        public int Quantity { get; set; }
+        public int Price { get; set; }
+        public int Discount { get; set; }
+        public int Value { get; set; }
     }
 
 }

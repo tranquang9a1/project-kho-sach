@@ -37,8 +37,8 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rdImport = new System.Windows.Forms.RadioButton();
             this.rdExport = new System.Windows.Forms.RadioButton();
+            this.rdImport = new System.Windows.Forms.RadioButton();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 8;
-            this.btnNext.Text = "Tiếp";
+            this.btnNext.Text = "Thêm sách";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
@@ -120,18 +120,6 @@
             this.panel1.Size = new System.Drawing.Size(187, 30);
             this.panel1.TabIndex = 10;
             // 
-            // rdImport
-            // 
-            this.rdImport.AutoSize = true;
-            this.rdImport.Location = new System.Drawing.Point(3, 4);
-            this.rdImport.Name = "rdImport";
-            this.rdImport.Size = new System.Drawing.Size(50, 18);
-            this.rdImport.TabIndex = 0;
-            this.rdImport.TabStop = true;
-            this.rdImport.Text = "Nhập";
-            this.rdImport.UseVisualStyleBackColor = true;
-            this.rdImport.CheckedChanged += new System.EventHandler(this.rdImport_CheckedChanged);
-            // 
             // rdExport
             // 
             this.rdExport.AutoSize = true;
@@ -143,6 +131,18 @@
             this.rdExport.Text = "Xuất";
             this.rdExport.UseVisualStyleBackColor = true;
             this.rdExport.CheckedChanged += new System.EventHandler(this.rdExport_CheckedChanged);
+            // 
+            // rdImport
+            // 
+            this.rdImport.AutoSize = true;
+            this.rdImport.Location = new System.Drawing.Point(3, 4);
+            this.rdImport.Name = "rdImport";
+            this.rdImport.Size = new System.Drawing.Size(50, 18);
+            this.rdImport.TabIndex = 0;
+            this.rdImport.TabStop = true;
+            this.rdImport.Text = "Nhập";
+            this.rdImport.UseVisualStyleBackColor = true;
+            this.rdImport.CheckedChanged += new System.EventHandler(this.rdImport_CheckedChanged);
             // 
             // cbType
             // 

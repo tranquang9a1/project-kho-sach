@@ -129,6 +129,34 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
+        public List<IEDetail> GetIEDetailByCheckNo(int no)
+        {
+
+
+            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+            //
+            SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @no", con);
+            cmd.Parameters.AddWithValue("no", no);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            List<IEDetail> list = new List<IEDetail>();
+            if (sdr.HasRows)
+            {
+                sdr.Read();
+                IEDetail iedetail = new IEDetail();
+                iedetail.CheckNo = (int)sdr["CheckNo"];
+                iedetail.ISBNBook = (string)sdr["ISBNBook"];
+                iedetail.Quantity = (int)sdr["Quantity"];
+                iedetail.Discount = (int)sdr["Discount"];
+                iedetail.Value = (int)sdr["Value"];
+                list.Add(iedetail);
+            }
+            con.Close();
+            return list;
+        }
         public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
         {
 
@@ -155,7 +183,27 @@ namespace DataAccessLayer.cs.DAL
             }
             con.Close();
             return iedetail;
+        }
+        public bool HasIEWithCheckNo(int no)
+        {
 
+
+            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+            //
+            SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @no", con);
+            cmd.Parameters.AddWithValue("no", no);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            IEDetail iedetail = new IEDetail();
+            if (sdr.HasRows)
+            {
+                return true;
+            }
+            con.Close();
+            return false;
         }
     }
 }

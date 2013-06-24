@@ -25,39 +25,24 @@ namespace CocBook
         private void btnSave_Click(object sender, EventArgs e)
         {
             CustomerDAL customerDAL = new CustomerDAL();
-            if (Add)
+            if (txtName.Text == "")
             {
-               
-                
-                if (txtName.Text == "")
-                {
-                    MessageBox.Show("Hãy nhập tên");
-                    txtName.Focus();
-                }
-                else
-                {
-                    customer.CustomerName = txtName.Text;
-                }
-                
-                if (txtAddress.Text == "")
-                {
-                    MessageBox.Show("Hãy nhập địa chỉ !");
-                    txtAddress.Focus();
-                }
-                else
-                {
-                    customer.Address = txtAddress.Text;
-                    customer.Phone = txtPhone.Text;
-                    customer.TaxNo = txtTaxNo.Text;
-                    customerDAL.CreateCustomer(customer);
-                    
-                }
-                }
+                MessageBox.Show("Hãy nhập tên");
+                txtName.Focus();
+            }
             else
             {
-                customer.Address = txtAddress.Text;
-                customer.Phone = txtPhone.Text;
-                customer.TaxNo = txtTaxNo.Text;
+                customer.CustomerName = txtName.Text;
+            }
+            customer.Address = txtAddress.Text;
+            customer.Phone = txtPhone.Text;
+            customer.TaxNo = txtTaxNo.Text;
+            if (Add)
+            {
+                customerDAL.CreateCustomer(customer);
+            }
+            else
+            {
                 customerDAL.UpdateCustomer(customer);
             }
             if (NotifyEvent != null)
@@ -75,13 +60,13 @@ namespace CocBook
                 txtPhone.Text = customer.Phone;
                 txtTaxNo.Text = customer.TaxNo;
             }
-            
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-        
+
     }
 }
