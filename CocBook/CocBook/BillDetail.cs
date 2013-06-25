@@ -114,9 +114,13 @@ namespace CocBook
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            UpdateStore();
+            bool rs = UpdateStore();
+            if (rs)
+            {
+                MessageBox.Show("Cập nhật thành công !");
+            }
         }
-        private void UpdateStore()
+        private bool UpdateStore()
         {
             bool rs = true;
             int rows;
@@ -183,11 +187,16 @@ namespace CocBook
             {
                 MessageBox.Show(error + ". Vui lòng xem lại !");
             }
-            else
-            {
-                MessageBox.Show("Cập nhật xuống kho thành công !");
-            }
+            return rs;
+        }
 
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            bool rs = UpdateStore();
+            if (rs)
+            {
+                //Hiện thực hàm lưu file Excel
+            }
         }
     }
     public class GridViewRow
