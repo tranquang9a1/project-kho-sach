@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
+using DataAccessLayer.DAL;
 
 namespace CocBook
 {
@@ -66,6 +67,58 @@ namespace CocBook
             if (importEvent != null)
             {
                 importEvent();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                string search = txtSearch.Text;
+                // Search by ISBN
+                if (rdISBN.Checked)
+                {
+                    Store store = new Store();
+                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                    if (bookstoreDAL.GetBookStorebyISBN(search) != null)
+                    {
+                        store = bookstoreDAL.GetBookStorebyISBN(search);
+                        List<Store> list = new List<Store>();
+                        list.Add(store);
+                        BookGridView1.DataSource = list;
+                        BookGridView1.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác ISBN!");
+                    }
+                }
+                else
+                {
+                    // search by BookName
+                    if (rdBookName.Checked)
+                    {
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyName(search) != null)
+                        {
+                            List<Store> list = bookstoreDAL.GetBookStorebyName(search);
+                            BookGridView1.DataSource = list;
+                            BookGridView1.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác tên sách!");
+                        }
+                    }
+                    if (rdISBN.Checked == false && rdBookName.Checked == false)
+                    {
+                        MessageBox.Show("Hãy chọn mục tìm kiếm !");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập giá trị tìm kiếm !");
             }
         }
     }

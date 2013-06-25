@@ -68,50 +68,52 @@ namespace CocBook
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (txtCheckNo.Text != null)
+            if (add == true)
             {
-                importExport.CheckNo = int.Parse(txtCheckNo.Text);
+                if (txtCheckNo.Text != null)
+                {
+                    importExport.CheckNo = int.Parse(txtCheckNo.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa điền số phiếu! Vui lòng nhập lại! ");
+                    txtCheckNo.Focus();
+                }
+                if (txtDay.Text != null)
+                {
+                    importExport.Date = DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập thời gian dạng 25/12/1993 !");
+                    txtDay.Focus();
+                }
+
+                if (rdImport.Checked)
+                {
+                    importExport.ImEx = "Nhập";
+                }
+                else if (rdExport.Checked)
+                {
+                    importExport.ImEx = "Xuất";
+                }
+                importExport.Type = cbType.SelectedItem.ToString();
+                if (txtCustomerName != null)
+                {
+                    importExport.CustomerID = customer.CustomerID;
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa chọn khách hàng. Vui lòng chọn!");
+                    txtCustomerName.Focus();
+                }
+                importExportDAL.CreateIE(importExport);
+                billDetail.importExport = this.importExport;
             }
-            else
+            else 
             {
-                MessageBox.Show("Bạn chưa điền số phiếu! Vui lòng nhập lại! ");
-                txtCheckNo.Focus();
-            }
-            if (txtDay.Text != null)
-            {
-                importExport.Date = DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập thời gian dạng 25/12/1993 !");
-                txtDay.Focus();
-            }
-            
-            if (rdImport.Checked)
-            {
-                importExport.ImEx = "Nhập";
-            }
-            else if (rdExport.Checked)
-            {
-                importExport.ImEx = "Xuất";
-            }
-            importExport.Type = cbType.SelectedItem.ToString();
-            if (txtCustomerName != null)
-            {
-                importExport.CustomerID = customer.CustomerID;
-            }
-            else
-            {
-                MessageBox.Show("Bạn chưa chọn khách hàng. Vui lòng chọn!");
-                txtCustomerName.Focus();
-            }
-            
-            importExportDAL.CreateIE(importExport);
-            // Nếu là sửa (add = false) thì UpdateIE trong ImportExportDAL
-            billDetail.importExport = this.importExport;
-            if (!add)
-            {
-                billDetail.OrderLoadData();
+                importExportDAL.UpdateIE(importExport);
+                //Chưa chắc chỗ này tại Database chưa chính xác nên chưa test
             }
             billDetail.Show();
             this.Close();
