@@ -18,32 +18,29 @@ namespace CocBook
         Customer customer = new Customer();
         Book book = new Book();
         BookDAL bookDAL = new BookDAL();
-        
         IEDetailDAL ieDAL = new IEDetailDAL();
-        
+        IEDetail iedetail = new IEDetail();
         public BillDetail()
         {
-            
             InitializeComponent();
-            if (ieDAL.HasIEWithCheckNo(importExport.CheckNo))
-            {
-                OrderLoadData();
-            }
+            iedetail.CheckNo = importExport.CheckNo;
         }
-        private void OrderLoadData()
+        public void OrderLoadData()
         {
+            iedetail.CheckNo = importExport.CheckNo;
             List<GridViewRow> list = new List<GridViewRow>();
-            List<IEDetail> iedetail = new List<IEDetail>();
-            iedetail = ieDAL.GetIEDetailByCheckNo(importExport.CheckNo);
-            foreach (var item in iedetail)
+            List<IEDetail> iedetail1 = new List<IEDetail>();
+            iedetail1 = ieDAL.GetIEDetailByCheckNo(importExport.CheckNo);
+            foreach (var item in iedetail1)
             {
                 GridViewRow gridViewRow = new GridViewRow();
                 gridViewRow.ISBNBook = item.ISBNBook;
-                book = bookDAL.GetBookbyISBN(item.ISBNBook);
-                gridViewRow.BookName = book.BookName;
-                gridViewRow.Unit = book.Unit;
+                Book book1 = new Book();
+                book1 = bookDAL.GetBookbyISBN(item.ISBNBook);
+                gridViewRow.BookName = book1.BookName;
+                gridViewRow.Unit = book1.Unit;
                 gridViewRow.Quantity = item.Quantity;
-                gridViewRow.Price = book.Price;
+                gridViewRow.Price = book1.Price;
                 gridViewRow.Discount = item.Discount;
                 gridViewRow.Value = item.Value;
                 list.Add(gridViewRow);
@@ -54,9 +51,9 @@ namespace CocBook
         private void btnAdd_Click(object sender, EventArgs e)
         {
             EditRow editrow = new EditRow();
-            editrow.importRowEvent += new ImportRow(OrderLoadData);
             editrow.ieDetail.CheckNo = importExport.CheckNo;
             editrow.Add = true;
+            editrow.importRowEvent += new ImportRow(OrderLoadData);
             editrow.ShowDialog();
         }
 
@@ -64,29 +61,35 @@ namespace CocBook
         private void btnEdit_Click(object sender, EventArgs e)
         {
             EditRow editrow = new EditRow();
-            IEDetail iedetail = new IEDetail();
-            editrow.ieDetail.CheckNo = importExport.CheckNo;
-            iedetail.Discount = editrow.ieDetail.Discount;
-            iedetail.Quantity = editrow.ieDetail.Quantity;
+            editrow.ieDetail = iedetail;
+            editrow.book = book;
+            editrow.Add = false;
+            editrow.LoadData();
+            editrow.importRowEvent += new ImportRow(editrow_importRowEvent);
             editrow.ShowDialog();
         }
-        /*
+
+        void editrow_importRowEvent()
+        {
+            OrderLoadData();
+        }
+        
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             //id grid = 0;
-            iedetail.ISBNBook = dataGridView1.SelectedRows[1].Cells[1].Value.ToString();
+            iedetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            book.ISBNBook = iedetail.ISBNBook;
             book.BookName = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
             book.Unit = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            iedetail.Quantity = (int)dataGridView1.SelectedRows[4].Cells[3].Value;
+            iedetail.Quantity = (int)dataGridView1.SelectedRows[0].Cells[4].Value;
             book.Price = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
             iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
             iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[7].Value;
         }
-        */
+        
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            IEDetail iedetail = new IEDetail();
-            bool del = ieDAL.DeletePublisherByCheckNoAndISBN(iedetail.CheckNo, iedetail.ISBNBook);
+            bool del = ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, iedetail.ISBNBook);
             if (del)
             {
                 MessageBox.Show("Đã xóa!");

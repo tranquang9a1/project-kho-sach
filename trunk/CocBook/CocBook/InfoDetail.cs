@@ -15,15 +15,57 @@ namespace CocBook
     public partial class InfoDetail : Form
     {
         public ImportExport importExport = new ImportExport();
+        public bool add { get; set; }
         ImportExportDAL importExportDAL = new ImportExportDAL();
         CustomerManage customerManage = new CustomerManage();
-        Customer customer = new Customer();
+        public Customer customer = new Customer();
         BillDetail billDetail = new BillDetail();
         public InfoDetail()
         {
             InitializeComponent();
         }
-
+        public void LoadData()
+        {
+            if (!add)
+            {
+                txtCheckNo.Text = importExport.CheckNo.ToString();
+                txtCheckNo.ReadOnly = true;
+                txtDay.Text = String.Format("{0:dd/MM/yyyy}", importExport.Date);
+                if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                {
+                    rdImport.Checked = true;
+                }
+                else
+                {
+                    rdExport.Checked = true;
+                }
+                if (String.Compare(importExport.Type, "Ký gửi", true) == 0)
+                {
+                    cbType.SelectedIndex = 0;
+                }
+                if (String.Compare(importExport.Type, "Bán lẻ", true) == 0)
+                {
+                    cbType.SelectedIndex = 1;
+                }
+                if (String.Compare(importExport.Type, "Nhập trả", true) == 0 && String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                {
+                    cbType.SelectedIndex = 2;
+                }
+                if (String.Compare(importExport.Type, "Lưu kho", true) == 0 && String.Compare(importExport.ImEx, "Xuất", true) == 0)
+                {
+                    cbType.SelectedIndex = 2;
+                }
+                if (String.Compare(importExport.Type, "Trả hàng", true) == 0 && String.Compare(importExport.ImEx, "Xuất", true) == 0)
+                {
+                    cbType.SelectedIndex = 3;
+                }
+                txtCustomerName.Text = customer.CustomerName;
+            }
+            else
+            {
+                txtCheckNo.ReadOnly = false;
+            }
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
             if (txtCheckNo.Text != null)
@@ -37,11 +79,11 @@ namespace CocBook
             }
             if (txtDay.Text != null)
             {
-                importExport.Date = DateTime.ParseExact(txtDay.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                importExport.Date = DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập thời gian dạng 25-12-1993 !");
+                MessageBox.Show("Vui lòng nhập thời gian dạng 25/12/1993 !");
                 txtDay.Focus();
             }
             
@@ -65,8 +107,11 @@ namespace CocBook
             }
             
             importExportDAL.CreateIE(importExport);
-            
             billDetail.importExport = this.importExport;
+            if (!add)
+            {
+                billDetail.OrderLoadData();
+            }
             billDetail.Show();
             this.Close();
         }

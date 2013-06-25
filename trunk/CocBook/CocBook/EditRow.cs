@@ -19,7 +19,7 @@ namespace CocBook
         IEDetailDAL ieDetailDAL = new IEDetailDAL();
         ChooseBook chooseBook = new ChooseBook();
         BookDAL bookDAL = new BookDAL();
-        Book book = new Book();
+        public Book book = new Book();
         public bool Add;
         public EditRow()
         {
@@ -53,10 +53,9 @@ namespace CocBook
             else
             {
 
-                txtBookName.Text = ieDetail.ISBNBook;
-                txtQuantity.Text = ieDetail.Quantity.ToString();
-                txtDiscount.Text = ieDetail.Discount.ToString();
-                book = bookDAL.GetBookbyISBN(ieDetail.ISBNBook);
+                ieDetail.ISBNBook=book.ISBNBook;
+                ieDetail.Quantity=int.Parse(txtQuantity.Text);
+                ieDetail.Discount=int.Parse(txtDiscount.Text);
                 ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
                 ieDetailDAL.UpdateIEDetail(ieDetail);
             }
@@ -71,6 +70,19 @@ namespace CocBook
             Close();
         }
 
-
+        public void LoadData()
+        {
+            if (!Add)
+            {
+                txtBookName.Text = book.BookName;
+                txtBookName.ReadOnly = true;
+                txtDiscount.Text = ieDetail.Discount.ToString();
+                txtQuantity.Text = ieDetail.Quantity.ToString();
+            }
+            else
+            {
+                txtBookName.ReadOnly = false;
+            }
+        }
     }
 }

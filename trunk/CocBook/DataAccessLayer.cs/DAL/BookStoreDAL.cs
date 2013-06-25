@@ -112,11 +112,11 @@ namespace DataAccessLayer.DAL
         public List<Store> GetAllStore()
         {
 
-            //string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-            //SqlConnection con = new SqlConnection(cs);
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
 
 
-            SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database=CocBook;uid=sa;pwd=vinhquang");
+            //SqlConnection con = new SqlConnection(@"Server=QUANGTVSE61078\SQLEXPRESS;Database=CocBook;uid=sa;pwd=vinhquang");
             SqlCommand cmd = new SqlCommand("Select * from BookStore", con);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
