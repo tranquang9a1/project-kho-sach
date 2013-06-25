@@ -65,7 +65,7 @@ namespace CocBook
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you wish to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 string isbn = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
                 BookDAL bookDAL = new BookDAL();
@@ -101,7 +101,20 @@ namespace CocBook
                 book.Price = int.Parse(xlWorkSheet.get_Range("D" + i, "D" + i).Value2.ToString());
                 book.ISBNBook = xlWorkSheet.get_Range("E" + i, "E" + i).Value2.ToString();
                 i++;
-                bookDAL.CreateBook(book);
+                Book book1 = bookDAL.GetBookbyISBN(book.ISBNBook);
+                if (book1 == null)
+                {
+                    bookDAL.CreateBook(book);
+                }
+                else if (book1!=book)
+                {
+                    
+                    if (MessageBox.Show("Bạn có cập nhật " + book1.BookName + " - " + book1.PublisherName + " - " + book1.Price + " thành " + book.BookName + " - " + book.PublisherName + " - " + book.Price, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        bookDAL.UpdateBook(book1);
+                    }
+                }
+                
             }
             MessageBox.Show("Thêm sách thành công");
             LoadAllData();

@@ -30,6 +30,14 @@
         {
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RowValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -40,14 +48,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RowValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,8 +80,59 @@
             this.RowValue});
             this.dataGridView1.Location = new System.Drawing.Point(18, 164);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(939, 362);
             this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // RowID
+            // 
+            this.RowID.HeaderText = "Stt";
+            this.RowID.Name = "RowID";
+            this.RowID.Width = 50;
+            // 
+            // RowISBN
+            // 
+            this.RowISBN.DataPropertyName = "ISBNBook";
+            this.RowISBN.HeaderText = "Mã hàng";
+            this.RowISBN.Name = "RowISBN";
+            // 
+            // RowBookName
+            // 
+            this.RowBookName.DataPropertyName = "BookName";
+            this.RowBookName.HeaderText = "Tên sách";
+            this.RowBookName.Name = "RowBookName";
+            this.RowBookName.Width = 250;
+            // 
+            // RowUnit
+            // 
+            this.RowUnit.DataPropertyName = "Unit";
+            this.RowUnit.HeaderText = "Đơn vị tính";
+            this.RowUnit.Name = "RowUnit";
+            // 
+            // RowQuantity
+            // 
+            this.RowQuantity.DataPropertyName = "Quantity";
+            this.RowQuantity.HeaderText = "Số lượng";
+            this.RowQuantity.Name = "RowQuantity";
+            // 
+            // RowPrice
+            // 
+            this.RowPrice.DataPropertyName = "Price";
+            this.RowPrice.HeaderText = "Giá bìa";
+            this.RowPrice.Name = "RowPrice";
+            // 
+            // RowDiscount
+            // 
+            this.RowDiscount.DataPropertyName = "Discount";
+            this.RowDiscount.HeaderText = "Chiết khấu";
+            this.RowDiscount.Name = "RowDiscount";
+            // 
+            // RowValue
+            // 
+            this.RowValue.DataPropertyName = "Value";
+            this.RowValue.HeaderText = "Thành tiền";
+            this.RowValue.Name = "RowValue";
             // 
             // pictureBox1
             // 
@@ -182,55 +233,6 @@
             this.label1.Size = new System.Drawing.Size(218, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "CHI TIẾT ĐƠN HÀNG";
-            // 
-            // RowID
-            // 
-            this.RowID.HeaderText = "Stt";
-            this.RowID.Name = "RowID";
-            this.RowID.Width = 50;
-            // 
-            // RowISBN
-            // 
-            this.RowISBN.DataPropertyName = "ISBNBook";
-            this.RowISBN.HeaderText = "Mã hàng";
-            this.RowISBN.Name = "RowISBN";
-            // 
-            // RowBookName
-            // 
-            this.RowBookName.DataPropertyName = "BookName";
-            this.RowBookName.HeaderText = "Tên sách";
-            this.RowBookName.Name = "RowBookName";
-            this.RowBookName.Width = 250;
-            // 
-            // RowUnit
-            // 
-            this.RowUnit.DataPropertyName = "Unit";
-            this.RowUnit.HeaderText = "Đơn vị tính";
-            this.RowUnit.Name = "RowUnit";
-            // 
-            // RowQuantity
-            // 
-            this.RowQuantity.DataPropertyName = "Quantity";
-            this.RowQuantity.HeaderText = "Số lượng";
-            this.RowQuantity.Name = "RowQuantity";
-            // 
-            // RowPrice
-            // 
-            this.RowPrice.DataPropertyName = "Price";
-            this.RowPrice.HeaderText = "Giá bìa";
-            this.RowPrice.Name = "RowPrice";
-            // 
-            // RowDiscount
-            // 
-            this.RowDiscount.DataPropertyName = "Discount";
-            this.RowDiscount.HeaderText = "Chiết khấu";
-            this.RowDiscount.Name = "RowDiscount";
-            // 
-            // RowValue
-            // 
-            this.RowValue.DataPropertyName = "Value";
-            this.RowValue.HeaderText = "Thành tiền";
-            this.RowValue.Name = "RowValue";
             // 
             // BillDetail
             // 

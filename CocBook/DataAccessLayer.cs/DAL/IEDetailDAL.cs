@@ -72,7 +72,7 @@ namespace DataAccessLayer.cs.DAL
                 return false;
             }
         }
-        public bool DeletePublisherByCheckNoAndISBN(int no, string ISBN)
+        public bool DeleteOrderByCheckNoAndISBN(int no, string ISBN)
         {
             try
             {
@@ -138,14 +138,18 @@ namespace DataAccessLayer.cs.DAL
 
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
-            SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @no", con);
-            cmd.Parameters.AddWithValue("no", no);
+            // View all Command
+            SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @cNo", con);
+            cmd.Parameters.AddWithValue("cNo", no);
+            //
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
+
             List<IEDetail> list = new List<IEDetail>();
-            if (sdr.HasRows)
+
+            while (sdr.Read())
             {
-                sdr.Read();
+
                 IEDetail iedetail = new IEDetail();
                 iedetail.CheckNo = (int)sdr["CheckNo"];
                 iedetail.ISBNBook = (string)sdr["ISBNBook"];
@@ -186,8 +190,6 @@ namespace DataAccessLayer.cs.DAL
         }
         public bool HasIEWithCheckNo(int no)
         {
-
-
             string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
 
@@ -197,7 +199,6 @@ namespace DataAccessLayer.cs.DAL
             cmd.Parameters.AddWithValue("no", no);
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            IEDetail iedetail = new IEDetail();
             if (sdr.HasRows)
             {
                 return true;
