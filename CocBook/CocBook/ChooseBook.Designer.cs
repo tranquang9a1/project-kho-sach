@@ -68,30 +68,35 @@
             this.Column1.DataPropertyName = "ISBNBook";
             this.Column1.HeaderText = "ISBN";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.DataPropertyName = "BookName";
             this.Column2.HeaderText = "Tên sách";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "PublisherName";
             this.Column5.HeaderText = "NXB";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "Unit";
             this.Column4.HeaderText = "ĐVT";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "Price";
             this.Column3.HeaderText = "Giá";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -121,6 +126,7 @@
             this.btnSearch.TabIndex = 3;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // groupBox1
             // 
