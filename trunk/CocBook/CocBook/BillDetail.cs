@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
+using DataAccessLayer.DAL;
 
 namespace CocBook
 {
@@ -45,7 +46,7 @@ namespace CocBook
                 gridViewRow.Value = item.Value;
                 list.Add(gridViewRow);
             }
-            dataGridView1.DataSource = list;            
+            dataGridView1.DataSource = list;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace CocBook
         {
             OrderLoadData();
         }
-        
+
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             //id grid = 0;
@@ -86,7 +87,7 @@ namespace CocBook
             iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
             iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[7].Value;
         }
-        
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             bool del = ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, iedetail.ISBNBook);
@@ -111,6 +112,83 @@ namespace CocBook
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            UpdateStore();
+        }
+        private void UpdateStore()
+        {
+            bool rs = true;
+            int rows;
+            string error = "";
+            for (rows = 0; rows < dataGridView1.Rows.Count; rows++)
+            {
+                BookStore bookStore = new BookStore();
+                BookStoreDAL bookStoreDAL = new BookStoreDAL();
+                string ISBN = dataGridView1.Rows[rows].Cells[1].Value.ToString();
+                int Quantity = (int)dataGridView1.Rows[rows].Cells[4].Value;
+
+                bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
+                if (bookStore == null)
+                {
+                    if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                    {
+                        BookStore bookStore1 = new BookStore();
+                        bookStore1.ISBN = ISBN;
+                        bookStore1.Quantity = Quantity;
+                        rs = bookStoreDAL.CreateBookStore(bookStore1);
+                        if (!rs)
+                        {
+                            error = "Không thể thêm sách tại dòng " + rows;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        rs = false;
+                        error = "Không thể xuất sách không có trong kho";
+                        break;
+                    } 
+                }
+                else
+                {
+                    if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                    {
+                        bookStore.Quantity += Quantity;
+                    }
+                    else
+                    {
+                        if (bookStore.Quantity >= Quantity)
+                        {
+                            bookStore.Quantity -= Quantity;
+                        }
+                        else
+                        {
+                            rs = false;
+                            error = "Số lượng sách tại dòng " + rows + " lớn hơn số lượng có trong kho";
+                            break;
+                        }
+                    }
+
+                    rs = bookStoreDAL.UpdateBookStore(bookStore);
+                    if (!rs)
+                    {
+                        error = "Không thể cập nhật sách tại dòng " + rows;
+                        break;
+                    }
+                }
+
+            }
+            if (!rs)
+            {
+                MessageBox.Show(error + ". Vui lòng xem lại !");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật xuống kho thành công !");
+            }
+
+        }
     }
     public class GridViewRow
     {
