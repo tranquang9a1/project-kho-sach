@@ -107,6 +107,7 @@ namespace CocBook
             }
             
             importExportDAL.CreateIE(importExport);
+            // Nếu là sửa thì UpdateIE
             billDetail.importExport = this.importExport;
             if (!add)
             {

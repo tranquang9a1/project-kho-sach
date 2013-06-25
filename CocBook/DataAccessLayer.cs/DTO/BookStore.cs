@@ -7,7 +7,7 @@ namespace DataAccessLayer.cs.DTO
 {
     public class BookStore
     {
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
         public int Quantity { get; set; }
     }
 }

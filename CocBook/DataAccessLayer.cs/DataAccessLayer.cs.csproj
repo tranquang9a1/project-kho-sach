@@ -48,7 +48,7 @@
     <Compile Include="DAL\ImportExportDAL.cs" />
     <Compile Include="DAL\IEDetailDAL.cs" />
     <Compile Include="DAL\UserInfoDAL.cs" />
-    <Compile Include="DTO\Book.cs" />
+    <Compile Include="DAL\Book.cs" />
     <Compile Include="DTO\BookStore.cs" />
     <Compile Include="DTO\Customer.cs" />
     <Compile Include="DTO\ImportExport.cs" />

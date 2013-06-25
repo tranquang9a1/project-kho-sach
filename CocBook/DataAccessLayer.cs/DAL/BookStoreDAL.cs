@@ -17,7 +17,7 @@ namespace DataAccessLayer.DAL
             {
                 string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Insert into BookStore values (@ISBN, @Quantity)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO BookStore VALUES (@ISBN, @Quantity)", con);
 
                 cmd.Parameters.AddWithValue("ISBN", bookstore.ISBN);
                 cmd.Parameters.AddWithValue("Quantity", bookstore.Quantity);
@@ -79,6 +79,7 @@ namespace DataAccessLayer.DAL
             }
 
         }
+        //Use in ViewStore
         public Store GetBookStorebyISBN(string ISBNBookStore)
         {
 
@@ -109,6 +110,31 @@ namespace DataAccessLayer.DAL
             con.Close();
             return null;
         }
+        //View in BillDetail
+        public BookStore GetBookStorebyISBNBook(string ISBNBookStore)
+        {
+
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+
+            SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
+            cmd.Parameters.AddWithValue("ISBN", ISBNBookStore);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            BookStore bookStore = new BookStore();
+
+            if (sdr.HasRows)
+            {
+                sdr.Read();
+                bookStore.ISBN = (string)sdr["ISBN"];
+                bookStore.Quantity = (int)sdr["Quantity"];
+                return bookStore;
+            }
+            con.Close();
+            return null;
+        }
+
+
         public List<Store> GetAllStore()
         {
 
