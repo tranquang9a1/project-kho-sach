@@ -122,5 +122,46 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
+        public ImportExport GetImport()
+        {
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @I", con);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            ImportExport ie = new ImportExport();
+            if (sdr.HasRows)
+            {
+                ie.CheckNo = (int)sdr["CheckNo"];
+                ie.Date = (DateTime)sdr["Date"];
+                ie.Type = (string)sdr["Type"];
+                ie.ImEx = (string)sdr["ImEx"];
+                ie.CustomerID = (int)sdr["CustomerID"];
+                return ie;
+                
+            }
+            con.Close();
+            return null;
+        }
+        public ImportExport GetExport()
+        {
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @E", con);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            ImportExport ie = new ImportExport();
+            if (sdr.HasRows)
+            {
+                ie.CheckNo = (int)sdr["CheckNo"];
+                ie.Date = (DateTime)sdr["Date"];
+                ie.Type = (string)sdr["Type"];
+                ie.ImEx = (string)sdr["ImEx"];
+                ie.CustomerID = (int)sdr["CustomerID"];
+                return ie;
+            }
+            con.Close();
+            return null;
+        }
     }
 }

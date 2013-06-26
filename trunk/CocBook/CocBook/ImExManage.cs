@@ -77,6 +77,52 @@ namespace CocBook
             string CusName = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             importExport.CustomerID = cusDAL.GetCustomerbyName(CusName).CustomerID;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (rbExport.Checked)
+            {
+                ImportExportDAL IEDAL = new ImportExportDAL();
+
+                if (IEDAL.GetExport() != null)
+                {
+                    importExport = IEDAL.GetExport();
+                    List<ImportExport> list = new List<ImportExport>();
+                    list.Add(importExport);
+                    dataGridView1.DataSource = list;
+                    dataGridView1.Refresh();
+
+                }
+                else
+                {
+                    MessageBox.Show("Không có kết quả được tìm thấy");
+                }
+            }
+            else if (rbImport.Checked)
+            {
+                 ImportExportDAL IEDAL = new ImportExportDAL();
+
+                if (IEDAL.GetExport() != null)
+                {
+                    importExport = IEDAL.GetExport();
+                    List<ImportExport> list = new List<ImportExport>();
+                    list.Add(importExport);
+                    dataGridView1.DataSource = list;
+                    dataGridView1.Refresh();
+
+                }
+                else
+                {
+                    MessageBox.Show("Không có kết quả được tìm thấy");
+                }
+            }
+            else if (rbExport.Checked == false && rbImport.Checked == false)
+            {
+                MessageBox.Show("Vui lòng chọn kiểu tìm kiếm!");
+            }
+                
+        }
+
     }
     public class LoadResult
     {
