@@ -86,9 +86,8 @@ namespace CocBook
 
                 if (IEDAL.GetExport() != null)
                 {
-                    importExport = IEDAL.GetExport();
                     List<ImportExport> list = new List<ImportExport>();
-                    list.Add(importExport);
+                    list = IEDAL.GetExport();
                     dataGridView1.DataSource = list;
                     dataGridView1.Refresh();
 
@@ -97,16 +96,17 @@ namespace CocBook
                 {
                     MessageBox.Show("Không có kết quả được tìm thấy");
                 }
+
+
             }
             else if (rbImport.Checked)
             {
-                 ImportExportDAL IEDAL = new ImportExportDAL();
+                ImportExportDAL IEDAL = new ImportExportDAL();
 
-                if (IEDAL.GetExport() != null)
+                if (IEDAL.GetImport() != null)
                 {
-                    importExport = IEDAL.GetExport();
                     List<ImportExport> list = new List<ImportExport>();
-                    list.Add(importExport);
+                    list = IEDAL.GetImport();
                     dataGridView1.DataSource = list;
                     dataGridView1.Refresh();
 
@@ -116,20 +116,15 @@ namespace CocBook
                     MessageBox.Show("Không có kết quả được tìm thấy");
                 }
             }
-            else if (rbExport.Checked == false && rbImport.Checked == false)
-            {
-                MessageBox.Show("Vui lòng chọn kiểu tìm kiếm!");
-            }
-                
-        }
 
-    }
-    public class LoadResult
-    {
-        public int CheckNo { get; set; }
-        public DateTime Date { get; set; }
-        public string Type { get; set; }
-        public string ImEx { get; set; }
-        public string CustomerName { get; set; }
+        }
+        public class LoadResult
+        {
+            public int CheckNo { get; set; }
+            public DateTime Date { get; set; }
+            public string Type { get; set; }
+            public string ImEx { get; set; }
+            public string CustomerName { get; set; }
+        }
     }
 }

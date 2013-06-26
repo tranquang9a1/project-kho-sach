@@ -122,46 +122,54 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
-        public ImportExport GetImport()
+        public List<ImportExport> GetImport()
         {
+            List<ImportExport> list = new List<ImportExport>();
+            ImportExportDAL IEDAL = new ImportExportDAL();
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @I", con);
+            cmd.Parameters.AddWithValue("I", "Nhập");
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            ImportExport ie = new ImportExport();
-            if (sdr.HasRows)
+
+            while (sdr.Read())
             {
+                ImportExport ie = new ImportExport();
                 ie.CheckNo = (int)sdr["CheckNo"];
                 ie.Date = (DateTime)sdr["Date"];
                 ie.Type = (string)sdr["Type"];
-                ie.ImEx = (string)sdr["ImEx"];
+                ie.ImEx = (string)sdr["ImportExport"];
                 ie.CustomerID = (int)sdr["CustomerID"];
-                return ie;
-                
+                list.Add(ie);
             }
             con.Close();
-            return null;
+            return list;
         }
-        public ImportExport GetExport()
+        public List<ImportExport> GetExport()
         {
+            List<ImportExport> list = new List<ImportExport>();
+            ImportExportDAL IEDAL = new ImportExportDAL();
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @E", con);
+            cmd.Parameters.AddWithValue("E","Xuất");
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            ImportExport ie = new ImportExport();
-            if (sdr.HasRows)
+            
+            while (sdr.Read())
             {
+                ImportExport ie = new ImportExport();
                 ie.CheckNo = (int)sdr["CheckNo"];
                 ie.Date = (DateTime)sdr["Date"];
                 ie.Type = (string)sdr["Type"];
-                ie.ImEx = (string)sdr["ImEx"];
+                ie.ImEx = (string)sdr["ImportExport"];
                 ie.CustomerID = (int)sdr["CustomerID"];
-                return ie;
+                list.Add(ie);
             }
             con.Close();
-            return null;
+            return list;
+            
         }
     }
 }
