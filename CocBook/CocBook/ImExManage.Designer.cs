@@ -67,6 +67,7 @@
             this.CustomerName});
             this.dataGridView1.Location = new System.Drawing.Point(56, 104);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(643, 139);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
