@@ -108,13 +108,14 @@ namespace CocBook
                     txtCustomerName.Focus();
                 }
                 importExportDAL.CreateIE(importExport);
-                billDetail.importExport = this.importExport;
+                
             }
             else 
             {
                 importExportDAL.UpdateIE(importExport);
-                //Chưa chắc chỗ này tại Database chưa chính xác nên chưa test
             }
+            billDetail.importExport = this.importExport;
+            billDetail.OrderLoadData();
             billDetail.Show();
             this.Close();
         }
