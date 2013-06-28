@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
 using DataAccessLayer.DAL;
+using Excel = Microsoft.Office.Interop.Excel; 
 
 namespace CocBook
 {
@@ -196,6 +197,122 @@ namespace CocBook
             if (rs)
             {
                 //Hiện thực hàm lưu file Excel
+                
+                Excel.Application xlApp;
+
+                Excel.Workbook xlWorkBook;
+
+                Excel.Worksheet xlWorkSheet;
+
+                object misValue = System.Reflection.Missing.Value;
+
+
+
+                xlApp = new Excel.Application();
+                xlApp.Visible = false;
+
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                string title = label1.Text;
+
+                //set thuoc tinh cho tieu de
+                xlWorkSheet.get_Range("A1", Convert.ToChar(dataGridView1.ColumnCount + 65) + "1").Merge(false);
+                Excel.Range caption = xlWorkSheet.get_Range("A1", Convert.ToChar(dataGridView1.ColumnCount + 65) + "1");
+                caption.Select();
+                caption.FormulaR1C1 = title;
+                //căn lề cho tiêu đề
+                caption.HorizontalAlignment = Excel.Constants.xlCenter;
+                caption.Font.Bold = true;
+                caption.VerticalAlignment = Excel.Constants.xlCenter;
+                caption.Font.Size = 25;
+                //màu nền cho tiêu đề
+                //caption.Interior.ColorIndex = 21;
+                //caption.RowHeight = 30;
+
+                Excel.Range header = xlWorkSheet.get_Range("A4", Convert.ToChar(dataGridView1.ColumnCount + 64) + "4");
+                header.Select();
+                header.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                header.HorizontalAlignment = Excel.Constants.xlCenter;
+                header.Font.Bold = true;
+                header.Font.Italic = true;
+                header.Font.Size = 12;
+
+                int i = 0;
+
+                int j = 0;
+
+                for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                {
+                    string s = this.dataGridView1.Columns[k].HeaderText;
+                    xlWorkSheet.Cells[4, k + 1] = s;
+                }
+
+
+
+
+                for (i = 0; i <= dataGridView1.RowCount - 1; i++)
+                {
+
+                    for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                    {
+                        
+                        DataGridViewCell cell = dataGridView1[j, i];
+                        
+                        xlWorkSheet.Cells[i + 5, j + 1] = cell.Value;
+
+                    }
+                    // Ô bắt đầu điền dữ liệu
+                 //   Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowStart, columnStart];
+                    // Ô kết thúc điền dữ liệu
+                 //   Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnEnd];
+                 //   Microsoft.Office.Interop.Excel.Range range = xlWorkSheet.get_Range(c1, c2);
+
+                }
+
+                for (i = 0; i < dataGridView1.RowCount + 1; i++)
+                {
+                    for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                    {
+                        ((Excel.Range)xlWorkSheet.Cells[4, j + 1]).EntireColumn.AutoFit();
+                    }
+                }
+
+                xlWorkBook.SaveAs("D:\\datatest.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+                xlWorkBook.Close(true, misValue, misValue);
+
+                xlApp.Quit();
+
+
+
+                releaseObject(xlWorkSheet);
+
+                releaseObject(xlWorkBook);
+
+                releaseObject(xlApp);
+
+
+
+                MessageBox.Show("Excel file created , you can find the file c:\\csharp.net-informations.xls");
+            }
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
             }
         }
     }
@@ -209,5 +326,6 @@ namespace CocBook
         public int Discount { get; set; }
         public int Value { get; set; }
     }
+
 
 }

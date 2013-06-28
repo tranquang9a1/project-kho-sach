@@ -118,6 +118,7 @@ namespace CocBook
             }
 
         }
+        
         public class LoadResult
         {
             public int CheckNo { get; set; }
