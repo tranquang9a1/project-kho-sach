@@ -121,6 +121,7 @@
             this.Controls.Add(this.txtBookName);
             this.Controls.Add(this.btnChooseBook);
             this.Name = "EditRow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chỉnh sửa dòng";
             this.ResumeLayout(false);
             this.PerformLayout();

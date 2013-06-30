@@ -60,7 +60,7 @@
             this.btnStore.Text = "Lưu kho";
             this.btnStore.UseVisualStyleBackColor = true;
             // 
-            // _5_1AddExport
+            // AddImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -68,7 +68,8 @@
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.btnSale);
             this.Controls.Add(this.btnConsign);
-            this.Name = "_5_1AddExport";
+            this.Name = "AddImport";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lựa chọn nhập";
             this.ResumeLayout(false);
 

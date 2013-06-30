@@ -172,6 +172,7 @@
             this.Controls.Add(this.txtCheckNo);
             this.Controls.Add(this.label1);
             this.Name = "InfoDetail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin phiếu";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

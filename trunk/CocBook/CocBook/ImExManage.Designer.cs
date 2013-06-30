@@ -48,9 +48,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(299, 45);
+            this.btnAdd.Location = new System.Drawing.Point(299, 48);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -65,10 +65,10 @@
             this.Type,
             this.IE,
             this.CustomerName});
-            this.dataGridView1.Location = new System.Drawing.Point(56, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(56, 112);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 139);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 150);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -106,9 +106,9 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(186, 45);
+            this.btnEdit.Location = new System.Drawing.Point(186, 48);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 21);
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(66, 44);
+            this.btnView.Location = new System.Drawing.Point(66, 47);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(75, 21);
+            this.btnView.Size = new System.Drawing.Size(75, 23);
             this.btnView.TabIndex = 3;
             this.btnView.Text = "Xem";
             this.btnView.UseVisualStyleBackColor = true;
@@ -129,16 +129,16 @@
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.rbExport);
             this.panel1.Controls.Add(this.rbImport);
-            this.panel1.Location = new System.Drawing.Point(396, 12);
+            this.panel1.Location = new System.Drawing.Point(396, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(303, 71);
+            this.panel1.Size = new System.Drawing.Size(303, 76);
             this.panel1.TabIndex = 4;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(108, 45);
+            this.btnSearch.Location = new System.Drawing.Point(108, 48);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(75, 25);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             // rbExport
             // 
             this.rbExport.AutoSize = true;
-            this.rbExport.Location = new System.Drawing.Point(197, 13);
+            this.rbExport.Location = new System.Drawing.Point(197, 14);
             this.rbExport.Name = "rbExport";
-            this.rbExport.Size = new System.Drawing.Size(47, 17);
+            this.rbExport.Size = new System.Drawing.Size(47, 18);
             this.rbExport.TabIndex = 1;
             this.rbExport.TabStop = true;
             this.rbExport.Text = "Xuất";
@@ -158,9 +158,9 @@
             // rbImport
             // 
             this.rbImport.AutoSize = true;
-            this.rbImport.Location = new System.Drawing.Point(39, 13);
+            this.rbImport.Location = new System.Drawing.Point(39, 14);
             this.rbImport.Name = "rbImport";
-            this.rbImport.Size = new System.Drawing.Size(51, 17);
+            this.rbImport.Size = new System.Drawing.Size(50, 18);
             this.rbImport.TabIndex = 0;
             this.rbImport.TabStop = true;
             this.rbImport.Text = "Nhập";
@@ -168,15 +168,16 @@
             // 
             // ImExManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 278);
+            this.ClientSize = new System.Drawing.Size(756, 299);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ImExManage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí nhập/xuất";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);

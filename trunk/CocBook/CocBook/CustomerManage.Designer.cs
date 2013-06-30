@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.CustomerDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnChoose = new System.Windows.Forms.Button();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnChoose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +57,42 @@
             this.CustomerDataGridView.Size = new System.Drawing.Size(424, 182);
             this.CustomerDataGridView.TabIndex = 0;
             this.CustomerDataGridView.Click += new System.EventHandler(this.CustomerDataGridView_Click);
+            // 
+            // CustomerID
+            // 
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "Mã KH";
+            this.CustomerID.Name = "CustomerID";
+            this.CustomerID.ReadOnly = true;
+            this.CustomerID.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "CustomerName";
+            this.Column1.HeaderText = "Tên";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Address";
+            this.Column2.HeaderText = "Địa chỉ";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Phone";
+            this.Column3.HeaderText = "Số ĐT";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "TaxNo";
+            this.Column4.HeaderText = "MST";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // btnAdd
             // 
@@ -98,42 +134,6 @@
             this.btnChoose.UseVisualStyleBackColor = true;
             this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
-            // CustomerID
-            // 
-            this.CustomerID.DataPropertyName = "CustomerID";
-            this.CustomerID.HeaderText = "Mã KH";
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.ReadOnly = true;
-            this.CustomerID.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "CustomerName";
-            this.Column1.HeaderText = "Tên";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Address";
-            this.Column2.HeaderText = "Địa chỉ";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Phone";
-            this.Column3.HeaderText = "Số ĐT";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TaxNo";
-            this.Column4.HeaderText = "MST";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // CustomerManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -145,6 +145,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.CustomerDataGridView);
             this.Name = "CustomerManage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí khách hàng";
             ((System.ComponentModel.ISupportInitialize)(this.CustomerDataGridView)).EndInit();
             this.ResumeLayout(false);
