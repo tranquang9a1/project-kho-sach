@@ -15,8 +15,12 @@ namespace CocBook
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            /*
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            */
+            ConnectDBForm form1 = new ConnectDBForm();
+            form1.Show();
             Application.Run();
             
         }

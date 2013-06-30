@@ -71,11 +71,30 @@
     <Compile Include="CustomerManage.Designer.cs">
       <DependentUpon>CustomerManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAL\BookDAL.cs" />
+    <Compile Include="DAL\BookStoreDAL.cs" />
+    <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\IEDetailDAL.cs" />
+    <Compile Include="DAL\ImportExportDAL.cs" />
+    <Compile Include="DAL\UserInfoDAL.cs" />
+    <Compile Include="DTO\Book.cs" />
+    <Compile Include="DTO\BookStore.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\IEDetail.cs" />
+    <Compile Include="DTO\ImportExport.cs" />
+    <Compile Include="DTO\Store.cs" />
+    <Compile Include="DTO\UserInfo.cs" />
     <Compile Include="EditRow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditRow.Designer.cs">
       <DependentUpon>EditRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoDetail.cs">
       <SubType>Form</SubType>
@@ -83,6 +102,7 @@
     <Compile Include="InfoDetail.Designer.cs">
       <DependentUpon>InfoDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogFile.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +165,9 @@
     <EmbeddedResource Include="EditRow.resx">
       <DependentUpon>EditRow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoDetail.resx">
       <DependentUpon>InfoDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,12 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer.cs\DataAccessLayer.cs.csproj">
-      <Project>{F67D7753-5655-49D7-B090-15A2EB935650}</Project>
-      <Name>DataAccessLayer.cs</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

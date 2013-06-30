@@ -191,6 +191,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "ViewStore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết kho";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
