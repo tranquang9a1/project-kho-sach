@@ -48,6 +48,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,7 +60,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(6, 69);
+            this.linkLabel1.Location = new System.Drawing.Point(6, 64);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(180, 17);
             this.linkLabel1.TabIndex = 5;
@@ -78,10 +79,10 @@
             this.RowPrice,
             this.RowDiscount,
             this.RowValue});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 164);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 152);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(939, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(939, 336);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
@@ -149,18 +150,18 @@
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Location = new System.Drawing.Point(96, 554);
+            this.groupBox1.Location = new System.Drawing.Point(96, 514);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 100);
+            this.groupBox1.Size = new System.Drawing.Size(336, 93);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chỉnh sửa đơn hàng";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(226, 42);
+            this.btnDelete.Location = new System.Drawing.Point(226, 39);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(75, 21);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Xóa dòng";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -168,9 +169,9 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(127, 42);
+            this.btnEdit.Location = new System.Drawing.Point(127, 39);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(75, 21);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Sửa dòng";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -178,9 +179,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(32, 42);
+            this.btnAdd.Location = new System.Drawing.Point(32, 39);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 21);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Thêm dòng";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -190,18 +191,18 @@
             // 
             this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.btnSave);
-            this.groupBox2.Location = new System.Drawing.Point(513, 554);
+            this.groupBox2.Location = new System.Drawing.Point(513, 514);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 100);
+            this.groupBox2.Size = new System.Drawing.Size(339, 93);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lựa chọn";
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(170, 42);
+            this.btnExport.Location = new System.Drawing.Point(170, 39);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(75, 21);
             this.btnExport.TabIndex = 1;
             this.btnExport.Text = "Xuất Excel";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -209,9 +210,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(36, 42);
+            this.btnSave.Location = new System.Drawing.Point(36, 39);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 21);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Lưu";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -221,26 +222,30 @@
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Location = new System.Drawing.Point(98, 25);
+            this.panel1.Location = new System.Drawing.Point(98, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.Size = new System.Drawing.Size(200, 93);
             this.panel1.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 50);
+            this.label1.Location = new System.Drawing.Point(375, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "CHI TIẾT ĐƠN HÀNG";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2003|*.xls";
+            // 
             // BillDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 718);
+            this.ClientSize = new System.Drawing.Size(969, 667);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
@@ -282,5 +287,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RowPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowValue;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

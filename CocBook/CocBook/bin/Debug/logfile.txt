@@ -9,3 +9,8 @@
 6/30/2013 4:11:10 PM' Error 'Login failed for user 'sa'.'
 6/30/2013 4:12:31 PM' Error 'Login failed for user 'sa'.'
 6/30/2013 4:12:39 PM' Error 'Login failed for user 'sa'.'
+7/1/2013 11:09:13 PM' Error 'Microsoft Excel cannot access the file 'C:\Users\Robe Hoai\Documents\2013002_23\06\'. There are several possible reasons:
+
+• The file name or path does not exist.
+• The file is being used by another program.
+• The workbook you are trying to save has the same name as a currently open workbook.'
