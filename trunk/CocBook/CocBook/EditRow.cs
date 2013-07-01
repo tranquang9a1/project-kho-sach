@@ -14,6 +14,7 @@ namespace CocBook
     public delegate void ImportRow();
     public partial class EditRow : Form
     {
+        LogFile logger = new LogFile();
         public event ImportRow importRowEvent;
         public IEDetail ieDetail = new IEDetail();
         IEDetailDAL ieDetailDAL = new IEDetailDAL();
@@ -28,40 +29,65 @@ namespace CocBook
 
         private void btnChooseBook_Click(object sender, EventArgs e)
         {
-            chooseBook.importEvent += new ImportEvent(chooseBook_importEvent);
-            chooseBook.ShowDialog();
+            try
+            {
+                chooseBook.importEvent += new ImportEvent(chooseBook_importEvent);
+                chooseBook.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
 
         void chooseBook_importEvent()
         {
-            ieDetail.ISBNBook = chooseBook.book.ISBNBook;
-            txtBookName.Text = chooseBook.book.BookName;
+            try
+            {
+                ieDetail.ISBNBook = chooseBook.book.ISBNBook;
+                txtBookName.Text = chooseBook.book.BookName;
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Add)
+            try
+            {
+                if (Add)
+                {
+
+                    ieDetail.Quantity = int.Parse(txtQuantity.Text);
+                    ieDetail.Discount = int.Parse(txtDiscount.Text);
+                    book = bookDAL.GetBookbyISBN(ieDetail.ISBNBook);
+                    ieDetail.Value = (book.Price * ieDetail.Quantity * (100 - ieDetail.Discount)) / 100;
+                    ieDetailDAL.CreateIEDetail(ieDetail);
+
+                }
+                else
+                {
+
+                    ieDetail.ISBNBook = book.ISBNBook;
+                    ieDetail.Quantity = int.Parse(txtQuantity.Text);
+                    ieDetail.Discount = int.Parse(txtDiscount.Text);
+                    ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
+                    ieDetailDAL.UpdateIEDetail(ieDetail);
+                }
+                Close();
+                if (importRowEvent != null)
+                {
+                    importRowEvent();
+                }
+            }
+            catch (Exception ex)
             {
 
-                ieDetail.Quantity = int.Parse(txtQuantity.Text);
-                ieDetail.Discount = int.Parse(txtDiscount.Text);
-                book = bookDAL.GetBookbyISBN(ieDetail.ISBNBook);
-                ieDetail.Value = (book.Price * ieDetail.Quantity * (100-ieDetail.Discount)) / 100;
-                ieDetailDAL.CreateIEDetail(ieDetail);
-
-            }
-            else
-            {
-
-                ieDetail.ISBNBook=book.ISBNBook;
-                ieDetail.Quantity=int.Parse(txtQuantity.Text);
-                ieDetail.Discount=int.Parse(txtDiscount.Text);
-                ieDetail.Value = (book.Price * ieDetail.Quantity * ieDetail.Discount) / 100;
-                ieDetailDAL.UpdateIEDetail(ieDetail);
-            }
-            Close();
-            if(importRowEvent!=null){
-                importRowEvent();
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
 
@@ -72,16 +98,25 @@ namespace CocBook
 
         public void LoadData()
         {
-            if (!Add)
+
+            try
             {
-                txtBookName.Text = book.BookName;
-                txtBookName.ReadOnly = true;
-                txtDiscount.Text = ieDetail.Discount.ToString();
-                txtQuantity.Text = ieDetail.Quantity.ToString();
+                if (!Add)
+                {
+                    txtBookName.Text = book.BookName;
+                    txtBookName.ReadOnly = true;
+                    txtDiscount.Text = ieDetail.Discount.ToString();
+                    txtQuantity.Text = ieDetail.Quantity.ToString();
+                }
+                else
+                {
+                    txtBookName.ReadOnly = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtBookName.ReadOnly = false;
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
     }

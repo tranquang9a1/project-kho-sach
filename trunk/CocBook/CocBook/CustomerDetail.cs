@@ -14,6 +14,7 @@ namespace CocBook
     public delegate void Notify();
     public partial class CustomerDetail : Form
     {
+        LogFile logger = new LogFile();
         public bool Add { get; set; }
         public Customer customer = new Customer();
         public event Notify NotifyEvent;
@@ -24,42 +25,60 @@ namespace CocBook
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            CustomerDAL customerDAL = new CustomerDAL();
-            if (txtName.Text == "")
+            try
             {
-                MessageBox.Show("Hãy nhập tên");
-                txtName.Focus();
+                CustomerDAL customerDAL = new CustomerDAL();
+                if (txtName.Text == "")
+                {
+                    MessageBox.Show("Hãy nhập tên");
+                    txtName.Focus();
+                }
+                else
+                {
+                    customer.CustomerName = txtName.Text;
+                }
+                customer.Address = txtAddress.Text;
+                customer.Phone = txtPhone.Text;
+                customer.TaxNo = txtTaxNo.Text;
+                if (Add)
+                {
+                    customerDAL.CreateCustomer(customer);
+                }
+                else
+                {
+                    customerDAL.UpdateCustomer(customer);
+                }
+                if (NotifyEvent != null)
+                {
+                    NotifyEvent();
+                }
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                customer.CustomerName = txtName.Text;
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-            customer.Address = txtAddress.Text;
-            customer.Phone = txtPhone.Text;
-            customer.TaxNo = txtTaxNo.Text;
-            if (Add)
-            {
-                customerDAL.CreateCustomer(customer);
-            }
-            else
-            {
-                customerDAL.UpdateCustomer(customer);
-            }
-            if (NotifyEvent != null)
-            {
-                NotifyEvent();
-            }
-            Close();
         }
         public void LoadData()
         {
-            if (!Add)
+            try
             {
-                txtName.Text = customer.CustomerName;
-                txtAddress.Text = customer.Address;
-                txtPhone.Text = customer.Phone;
-                txtTaxNo.Text = customer.TaxNo;
+                if (!Add)
+                {
+                    txtName.Text = customer.CustomerName;
+                    txtAddress.Text = customer.Address;
+                    txtPhone.Text = customer.Phone;
+                    txtTaxNo.Text = customer.TaxNo;
+                }
             }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
+
+            
 
         }
 
