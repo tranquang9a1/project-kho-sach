@@ -77,8 +77,6 @@ D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.exe
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
 D:\Working\CocBook\CocBook\bin\Debug\CocBook.exe
 D:\Working\CocBook\CocBook\bin\Debug\CocBook.pdb
-D:\Working\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.dll
-D:\Working\CocBook\CocBook\bin\Debug\DataAccessLayer.cs.pdb
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.ChooseBook.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerDetail.resources
@@ -98,3 +96,4 @@ D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerDetail.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.EditRow.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
+D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
