@@ -13,45 +13,54 @@ namespace CocBook
 {
     public partial class LoginForm : Form
     {
+        LogFile logger = new LogFile();
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = txtUsername.Text.ToString();
-            string passWord = txtPassword.Text.ToString();
-            UserInfoDAL userInfoDAL = new UserInfoDAL();
-            List<UserInfo> result = new List<UserInfo>();
-            // Get all account info
-            result = userInfoDAL.GetAllUserInfo();
-            bool flag = true;
-            // Scan all account
-            foreach (var userinfo in result)
+            try
             {
-                if (String.Compare(userinfo.Username, txtUsername.Text, true) == 0)
+                string userName = txtUsername.Text.ToString();
+                string passWord = txtPassword.Text.ToString();
+                UserInfoDAL userInfoDAL = new UserInfoDAL();
+                List<UserInfo> result = new List<UserInfo>();
+                // Get all account info
+                result = userInfoDAL.GetAllUserInfo();
+                bool flag = true;
+                // Scan all account
+                foreach (var userinfo in result)
                 {
-                    if (String.Compare(userinfo.Password, txtPassword.Text, true) == 0)
+                    if (String.Compare(userinfo.Username, txtUsername.Text, true) == 0)
                     {
-                        flag = false;
-                        MainMenuForm main = new MainMenuForm();
-                        main.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Mật khẩu sai. Vui lòng nhập lại !");
-                        txtPassword.Focus();
-                        flag = false;
-                        break;
+                        if (String.Compare(userinfo.Password, txtPassword.Text, true) == 0)
+                        {
+                            flag = false;
+                            MainMenuForm main = new MainMenuForm();
+                            main.Show();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mật khẩu sai. Vui lòng nhập lại !");
+                            txtPassword.Focus();
+                            flag = false;
+                            break;
+                        }
                     }
                 }
+                if (flag)
+                {
+                    MessageBox.Show("Không tồn tại tài khoản này !");
+                    txtUsername.Focus();
+                }
             }
-            if (flag)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không tồn tại tài khoản này !");
-                txtUsername.Focus();
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
     }

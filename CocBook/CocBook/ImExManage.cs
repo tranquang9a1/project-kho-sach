@@ -11,8 +11,10 @@ using DataAccessLayer.cs.DAL;
 
 namespace CocBook
 {
+    
     public partial class ImExManage : Form
     {
+        LogFile logger = new LogFile();
         ImportExport importExport = new ImportExport();
         public ImExManage()
         {
@@ -22,101 +24,140 @@ namespace CocBook
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            InfoDetail infoDetail = new InfoDetail();
-            infoDetail.add = true;
-            infoDetail.Show();
-            this.Close();
+            try
+            {
+                InfoDetail infoDetail = new InfoDetail();
+                infoDetail.add = true;
+                infoDetail.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
         private void LoadAllData()
         {
-            List<ImportExport> list1 = new List<ImportExport>();
-            List<LoadResult> list2 = new List<LoadResult>();
-            ImportExportDAL importexportDAL = new ImportExportDAL();
-            list1 = importexportDAL.GetAllIE();
-            foreach (var ie in list1)
+            try
             {
-                LoadResult loadResult = new LoadResult();
-                CustomerDAL customerDAL = new CustomerDAL();
-                loadResult.CheckNo = ie.CheckNo;
-                loadResult.Date = ie.Date;
-                loadResult.Type = ie.Type;
-                loadResult.ImEx = ie.ImEx;
-                loadResult.CustomerName = customerDAL.GetCustomerbyID(ie.CustomerID).CustomerName;
-                list2.Add(loadResult);
+                List<ImportExport> list1 = new List<ImportExport>();
+                List<LoadResult> list2 = new List<LoadResult>();
+                ImportExportDAL importexportDAL = new ImportExportDAL();
+                list1 = importexportDAL.GetAllIE();
+                foreach (var ie in list1)
+                {
+                    LoadResult loadResult = new LoadResult();
+                    CustomerDAL customerDAL = new CustomerDAL();
+                    loadResult.CheckNo = ie.CheckNo;
+                    loadResult.Date = ie.Date;
+                    loadResult.Type = ie.Type;
+                    loadResult.ImEx = ie.ImEx;
+                    loadResult.CustomerName = customerDAL.GetCustomerbyID(ie.CustomerID).CustomerName;
+                    list2.Add(loadResult);
+                }
+                dataGridView1.DataSource = list2;
             }
-            dataGridView1.DataSource = list2;
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (importExport == null)
-            {
-                MessageBox.Show("Vui lòng chọn phiếu muốn chỉnh sửa !");
-            }
-            else
-            {
-                InfoDetail infoDetail = new InfoDetail();
-                infoDetail.add = false;
-                infoDetail.importExport = importExport;
-                CustomerDAL cusDAL = new CustomerDAL();
-                infoDetail.customer = cusDAL.GetCustomerbyID(importExport.CustomerID);
-                infoDetail.LoadData();
-                infoDetail.Show();
-                this.Close();
-            }
 
+            try
+            {
+                if (importExport == null)
+                {
+                    MessageBox.Show("Vui lòng chọn phiếu muốn chỉnh sửa !");
+                }
+                else
+                {
+                    InfoDetail infoDetail = new InfoDetail();
+                    infoDetail.add = false;
+                    infoDetail.importExport = importExport;
+                    CustomerDAL cusDAL = new CustomerDAL();
+                    infoDetail.customer = cusDAL.GetCustomerbyID(importExport.CustomerID);
+                    infoDetail.LoadData();
+                    infoDetail.Show();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            importExport.CheckNo = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-            importExport.Date = (DateTime)dataGridView1.SelectedRows[0].Cells[1].Value;
-            importExport.Type = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            importExport.ImEx = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            CustomerDAL cusDAL = new CustomerDAL();
-            string CusName = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            importExport.CustomerID = cusDAL.GetCustomerbyName(CusName).CustomerID;
+            try
+            {
+                importExport.CheckNo = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+                importExport.Date = (DateTime)dataGridView1.SelectedRows[0].Cells[1].Value;
+                importExport.Type = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                importExport.ImEx = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                CustomerDAL cusDAL = new CustomerDAL();
+                string CusName = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                importExport.CustomerID = cusDAL.GetCustomerbyName(CusName).CustomerID;
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (rbExport.Checked)
+            try
             {
-                ImportExportDAL IEDAL = new ImportExportDAL();
-
-                if (IEDAL.GetExport() != null)
+                if (rbExport.Checked)
                 {
-                    List<ImportExport> list = new List<ImportExport>();
-                    list = IEDAL.GetExport();
-                    dataGridView1.DataSource = list;
-                    dataGridView1.Refresh();
+                    ImportExportDAL IEDAL = new ImportExportDAL();
+
+                    if (IEDAL.GetExport() != null)
+                    {
+                        List<ImportExport> list = new List<ImportExport>();
+                        list = IEDAL.GetExport();
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có kết quả được tìm thấy");
+                    }
+
 
                 }
-                else
+                else if (rbImport.Checked)
                 {
-                    MessageBox.Show("Không có kết quả được tìm thấy");
+                    ImportExportDAL IEDAL = new ImportExportDAL();
+
+                    if (IEDAL.GetImport() != null)
+                    {
+                        List<ImportExport> list = new List<ImportExport>();
+                        list = IEDAL.GetImport();
+                        dataGridView1.DataSource = list;
+                        dataGridView1.Refresh();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không có kết quả được tìm thấy");
+                    }
                 }
-
-
             }
-            else if (rbImport.Checked)
+            catch (Exception ex)
             {
-                ImportExportDAL IEDAL = new ImportExportDAL();
 
-                if (IEDAL.GetImport() != null)
-                {
-                    List<ImportExport> list = new List<ImportExport>();
-                    list = IEDAL.GetImport();
-                    dataGridView1.DataSource = list;
-                    dataGridView1.Refresh();
-
-                }
-                else
-                {
-                    MessageBox.Show("Không có kết quả được tìm thấy");
-                }
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-
         }
         
         public class LoadResult

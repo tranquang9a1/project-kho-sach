@@ -11,6 +11,7 @@ namespace CocBook
 {
     public partial class MainMenuForm : Form
     {
+        LogFile logger = new LogFile();
         public MainMenuForm()
         {
             InitializeComponent();

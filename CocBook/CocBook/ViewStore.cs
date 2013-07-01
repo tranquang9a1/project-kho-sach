@@ -13,6 +13,7 @@ namespace CocBook
 {
     public partial class ViewStore : Form
     {
+        LogFile logger = new LogFile();
         public ViewStore()
         {
             InitializeComponent();
@@ -28,84 +29,101 @@ namespace CocBook
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearch.Text != "")
+            try
             {
-                string search = txtSearch.Text;
-                // Search by ISBN
-                if (rdISBN.Checked)
+                if (txtSearch.Text != "")
                 {
-                    Store store = new Store();
-                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
-                    if (bookstoreDAL.GetBookStorebyISBN(search) != null)
+                    string search = txtSearch.Text;
+                    // Search by ISBN
+                    if (rdISBN.Checked)
                     {
-                        store = bookstoreDAL.GetBookStorebyISBN(search);
-                        List<Store> list = new List<Store>();
-                        list.Add(store);
-                        dataGridView1.DataSource = list;
-                        dataGridView1.Refresh();
+                        Store store = new Store();
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyISBN(search) != null)
+                        {
+                            store = bookstoreDAL.GetBookStorebyISBN(search);
+                            List<Store> list = new List<Store>();
+                            list.Add(store);
+                            dataGridView1.DataSource = list;
+                            dataGridView1.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác ISBN !");
+                        }
                     }
-                    else
+                    // Search By Name
+                    if (rdName.Checked)
                     {
-                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác ISBN !");
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyName(search) != null)
+                        {
+                            List<Store> list = bookstoreDAL.GetBookStorebyName(search);
+                            dataGridView1.DataSource = list;
+                            dataGridView1.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác tên sách !");
+                        }
+                    }
+                    // Search by Publisher
+                    if (rdPulisher.Checked)
+                    {
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyPublisher(search) != null)
+                        {
+                            List<Store> list = bookstoreDAL.GetBookStorebyPublisher(search);
+                            dataGridView1.DataSource = list;
+                            dataGridView1.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác nhà xuất bản !");
+                        }
+                    }
+                    // Search by Price. Need edit price from to
+                    if (rdPrice.Checked)
+                    {
+                        int price = int.Parse(search);
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyPrice(price) != null)
+                        {
+                            List<Store> list = bookstoreDAL.GetBookStorebyPrice(price);
+                            dataGridView1.DataSource = list;
+                            dataGridView1.Refresh();
+                        }
+
+                    }
+                    if (rdISBN.Checked == false && rdName.Checked == false && rdPrice.Checked == false && rdPulisher.Checked == false)
+                    {
+                        MessageBox.Show("Hãy chọn mục tìm kiếm !");
                     }
                 }
-                // Search By Name
-                if (rdName.Checked)
+                else
                 {
-                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
-                    if (bookstoreDAL.GetBookStorebyName(search) != null)
-                    {
-                        List<Store> list = bookstoreDAL.GetBookStorebyName(search);
-                        dataGridView1.DataSource = list;
-                        dataGridView1.Refresh();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác tên sách !");
-                    }
-                }
-                // Search by Publisher
-                if (rdPulisher.Checked)
-                {
-                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
-                    if (bookstoreDAL.GetBookStorebyPublisher(search) != null)
-                    {
-                        List<Store> list = bookstoreDAL.GetBookStorebyPublisher(search);
-                        dataGridView1.DataSource = list;
-                        dataGridView1.Refresh();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác nhà xuất bản !");
-                    }
-                }
-                // Search by Price. Need edit price from to
-                if (rdPrice.Checked)
-                {
-                    int price = int.Parse(search);
-                    BookStoreDAL bookstoreDAL = new BookStoreDAL();
-                    if (bookstoreDAL.GetBookStorebyPrice(price) != null)
-                    {
-                        List<Store> list = bookstoreDAL.GetBookStorebyPrice(price);
-                        dataGridView1.DataSource = list;
-                        dataGridView1.Refresh();
-                    }
-                    
-                }
-                if(rdISBN.Checked==false && rdName.Checked==false && rdPrice.Checked==false && rdPulisher.Checked == false){
-                    MessageBox.Show("Hãy chọn mục tìm kiếm !");
+                    MessageBox.Show("Vui lòng nhập giá trị tìm kiếm !");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng nhập giá trị tìm kiếm !");
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            LoadAllData();
-            dataGridView1.Refresh();
+            try
+            {
+                LoadAllData();
+                dataGridView1.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'"); ;
+            }
         }
     }
 }
