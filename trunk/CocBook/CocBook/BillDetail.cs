@@ -268,147 +268,196 @@ namespace CocBook
                 bool rs = UpdateStore();
                 if (rs)
                 {
-
-                    Excel.Application xlApp;
-
-                    Excel.Workbook xlWorkBook;
-
-                    Excel.Worksheet xlWorkSheet;
-
-                    object misValue = System.Reflection.Missing.Value;
+                   
+                    saveFileDialog1.ShowDialog();
+                    bool check = saveFileDialog1.CheckPathExists;
 
 
-
-                    xlApp = new Excel.Application();
-                    xlApp.Visible = false;
-
-                    xlWorkBook = xlApp.Workbooks.Add(misValue);
-
-                    xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-                    string title = label1.Text;
-
-
-
-
-                    //set thuoc tinh cho tieu de
-                    xlWorkSheet.get_Range("A1", Convert.ToChar(dataGridView1.ColumnCount + 65) + "1").Merge(false);
-                    Excel.Range caption = xlWorkSheet.get_Range("A1", Convert.ToChar(dataGridView1.ColumnCount + 65) + "1");
-                    caption.Select();
-                    caption.FormulaR1C1 = title;
-                    //căn lề cho tiêu đề
-                    caption.HorizontalAlignment = Excel.Constants.xlCenter;
-                    caption.Font.Bold = true;
-                    caption.VerticalAlignment = Excel.Constants.xlCenter;
-                    caption.Font.Size = 25;
-                    //màu nền cho tiêu đề
-                    //caption.Interior.ColorIndex = 21;
-                    //caption.RowHeight = 30;
-
-                    Excel.Range header = xlWorkSheet.get_Range("A14", Convert.ToChar(dataGridView1.ColumnCount + 64) + "14");
-                    header.Select();
-                    header.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-                    header.HorizontalAlignment = Excel.Constants.xlCenter;
-                    header.Font.Bold = true;
-                    header.Font.Italic = true;
-                    header.Font.Size = 12;
-
-                    int i = 0;
-
-                    int j = 0;
-
-                    for (int k = 0; k < dataGridView1.ColumnCount; k++)
-                    {
-                        string s = this.dataGridView1.Columns[k].HeaderText;
-                        xlWorkSheet.Cells[14, k + 1] = s;
-                    }
-
-
-                    //Thiết lập vùng điền dữ liệu
-                    int rowStart = 15;
-                    int columnStart = 1;
-
-                    int rowEnd = rowStart + dataGridView1.Rows.Count - 1;
-                    int columnEnd = dataGridView1.Columns.Count;
-
-                    // Ô bắt đầu điền dữ liệu
-                    Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowStart, columnStart];
-                    // Ô kết thúc điền dữ liệu
-                    Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnEnd];
-                    // Lấy về vùng điền dữ liệu
-                    Microsoft.Office.Interop.Excel.Range range = xlWorkSheet.get_Range(c1, c2);
-
-                    // Kẻ viền
-                    range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-
-                    // Căn lề các ô điền dữ liệu
-                    Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnStart];
-                    Microsoft.Office.Interop.Excel.Range c4 = xlWorkSheet.get_Range(c1, c2);
-                    xlWorkSheet.get_Range(c3, c4).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-                    string line1 = "Khách hàng";
-                    string line2 = "Địa chỉ";
-                    string line3 = "Điện thoại";
-                    string line4 = "MST";
-                    string line5 = "Xuất từ kho";
-                    string line6 = "Hình thức thanh toán";
-
-
-                    xlWorkSheet.Cells[7, 2] = line1;
-                    xlWorkSheet.Cells[8, 2] = line2;
-                    xlWorkSheet.Cells[9, 2] = line3;
-                    xlWorkSheet.Cells[10, 2] = line4;
-                    xlWorkSheet.Cells[11, 2] = line5;
-                    xlWorkSheet.Cells[12, 2] = line6;
-
-                    xlWorkSheet.Cells[7, 3] = ":" + customer.CustomerName;
-                    xlWorkSheet.Cells[8, 3] = ":" + customer.Address;
-                    xlWorkSheet.Cells[9, 3] = ":" + customer.Phone;
-                    xlWorkSheet.Cells[10, 3] = ":" + customer.TaxNo;
-                    xlWorkSheet.Cells[11, 3] = ":";
-                    xlWorkSheet.Cells[12, 3] = ":" + customer.CustomerName;
-
-
-                    for (i = 0; i <= dataGridView1.RowCount - 1; i++)
+                    if (check)
                     {
 
-                        for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                        string filepath = saveFileDialog1.FileName;
+
+                        Excel.Application xlApp;
+
+                        Excel.Workbook xlWorkBook;
+
+                        Excel.Worksheet xlWorkSheet;
+
+                        object misValue = System.Reflection.Missing.Value;
+
+
+
+                        xlApp = new Excel.Application();
+                        xlApp.Visible = false;
+
+                        xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                        string title = "PHIẾU " + importExport.ImEx.ToUpper() + " KHO";
+
+
+                        //set thuoc tinh cho tieu de
+                        xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3").Merge(false);
+                        Excel.Range caption = xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3");
+                        caption.Select();
+                        caption.FormulaR1C1 = title;
+                        //căn lề cho tiêu đề
+                        caption.HorizontalAlignment = Excel.Constants.xlCenter;
+                        caption.Font.Bold = true;
+                        caption.VerticalAlignment = Excel.Constants.xlCenter;
+                        caption.Font.Size = 18;
+                        //màu nền cho tiêu đề
+                        //caption.Interior.ColorIndex = 21;
+                        //caption.RowHeight = 30;
+
+                        Excel.Range header = xlWorkSheet.get_Range("A14", Convert.ToChar(dataGridView1.ColumnCount + 64) + "14");
+                        header.Select();
+                        header.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                        header.HorizontalAlignment = Excel.Constants.xlCenter;
+                        header.Font.Bold = true;
+                        header.Font.Italic = true;
+                        header.Font.Size = 10;
+
+                        string dates = "Ngày: " + (importExport.Date.ToString("dd/MM/yyyy"));
+
+                        xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4").Merge(false);
+                        Excel.Range date = xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4");
+                        date.Select();
+                        date.FormulaR1C1 = dates;
+
+                        date.HorizontalAlignment = Excel.Constants.xlCenter;
+                        date.Font.Bold = true;
+                        date.VerticalAlignment = Excel.Constants.xlCenter;
+                        date.Font.Size = 11;
+
+                        string websites = "    www.facebook.com/cocbook";
+
+
+                        xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5").Merge(false);
+                        Excel.Range website = xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5");
+                        website.Select();
+                        website.FormulaR1C1 = websites;
+
+                        website.Font.Bold = true;
+                        website.Font.Size = 11;
+
+                        int i = 0;
+
+                        int j = 0;
+
+                        for (int k = 0; k < dataGridView1.ColumnCount; k++)
                         {
-
-                            DataGridViewCell cell = dataGridView1[j, i];
-
-                            xlWorkSheet.Cells[i + 15, j + 1] = cell.Value;
-
+                            string s = this.dataGridView1.Columns[k].HeaderText;
+                            xlWorkSheet.Cells[14, k + 1] = s;
                         }
 
 
-                    }
+                        //Thiết lập vùng điền dữ liệu
+                        int rowStart = 15;
+                        int columnStart = 1;
 
-                    for (i = 0; i < dataGridView1.RowCount + 1; i++)
-                    {
-                        for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                        int rowEnd = rowStart + dataGridView1.Rows.Count - 1;
+                        int columnEnd = dataGridView1.Columns.Count;
+
+                        // Ô bắt đầu điền dữ liệu
+                        Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowStart, columnStart];
+                        // Ô kết thúc điền dữ liệu
+                        Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnEnd];
+                        // Lấy về vùng điền dữ liệu
+                        Microsoft.Office.Interop.Excel.Range range = xlWorkSheet.get_Range(c1, c2);
+
+                        // Kẻ viền
+                        range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+                        // Căn lề các ô điền dữ liệu
+                        Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnStart];
+                        Microsoft.Office.Interop.Excel.Range c4 = xlWorkSheet.get_Range(c1, c2);
+                        xlWorkSheet.get_Range(c3, c4).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                        string line1 = "Khách hàng";
+                        string line2 = "Địa chỉ";
+                        string line3 = "Điện thoại";
+                        string line4 = "MST";
+                        string line5 = "Xuất từ kho";
+                        string line6 = "Hình thức thanh toán";
+
+
+                        xlWorkSheet.Cells[7, 2] = line1;
+                        xlWorkSheet.Cells[8, 2] = line2;
+                        xlWorkSheet.Cells[9, 2] = line3;
+                        xlWorkSheet.Cells[10, 2] = line4;
+                        xlWorkSheet.Cells[11, 2] = line5;
+                        xlWorkSheet.Cells[12, 2] = line6;
+
+                        xlWorkSheet.Cells[7, 3] = ": " + customer.CustomerName;
+                        xlWorkSheet.Cells[8, 3] = ": " + customer.Address;
+                        xlWorkSheet.Cells[9, 3] = ": " + customer.Phone;
+                        xlWorkSheet.Cells[10, 3] = ": " + customer.TaxNo;
+                        xlWorkSheet.Cells[11, 3] = ": " + "Trụ sở 182/49 Lê Văn Sỹ";
+                        xlWorkSheet.Cells[12, 3] = ": " + importExport.Type;
+
+                        string rline1 = "Số phiếu";
+                        string rline2 = "Số chứng từ";
+                        string rline3 = "Ký hiệu HĐ";
+                        string rline4 = "Phương thức xuất";
+
+                        xlWorkSheet.Cells[1, 6] = rline1;
+                        xlWorkSheet.Cells[2, 6] = rline2;
+                        xlWorkSheet.Cells[3, 6] = rline3;
+                        xlWorkSheet.Cells[4, 6] = rline4;
+
+
+                        xlWorkSheet.Cells[1, 9] = ": " + importExport.CheckNo;
+                        xlWorkSheet.Cells[2, 9] = ": ";
+                        xlWorkSheet.Cells[3, 9] = ": ";
+                        xlWorkSheet.Cells[4, 9] = ": ";
+
+
+                        for (i = 0; i <= dataGridView1.RowCount - 1; i++)
                         {
-                            ((Excel.Range)xlWorkSheet.Cells[14, j + 1]).EntireColumn.AutoFit();
+
+                            for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                            {
+
+                                DataGridViewCell cell = dataGridView1[j, i];
+
+                                xlWorkSheet.Cells[i + 15, j + 1] = cell.Value;
+
+                            }
+
+
                         }
+
+                        for (i = 0; i < dataGridView1.RowCount + 1; i++)
+                        {
+                            for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                            {
+                                ((Excel.Range)xlWorkSheet.Cells[14, j + 1]).EntireColumn.AutoFit();
+                            }
+                        }
+
+
+
+                        xlWorkBook.SaveAs(filepath, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+                        xlWorkBook.Close(true, misValue, misValue);
+
+                        xlApp.Quit();
+
+
+
+                        releaseObject(xlWorkSheet);
+
+                        releaseObject(xlWorkBook);
+
+                        releaseObject(xlApp);
+
+
+
+                        MessageBox.Show("Đã xuất file. Bạn có thể tìm file ở " + filepath);
                     }
-
-                    xlWorkBook.SaveAs("D:\\datatest.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-
-                    xlWorkBook.Close(true, misValue, misValue);
-
-                    xlApp.Quit();
-
-
-
-                    releaseObject(xlWorkSheet);
-
-                    releaseObject(xlWorkBook);
-
-                    releaseObject(xlApp);
-
-
-
-                    MessageBox.Show("Excel file created , you can find the file c:\\csharp.net-informations.xls");
                 }
             }
             catch (Exception ex)
