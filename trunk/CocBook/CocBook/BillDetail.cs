@@ -262,13 +262,29 @@ namespace CocBook
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            Excel.Application xlApp;
+
+            Excel.Workbook xlWorkBook;
+
+            Excel.Worksheet xlWorkSheet;
+
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Excel.Application();
+            xlApp.Visible = false;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
             try
             {
+
+
                 bool rs = UpdateStore();
                 if (rs)
                 {
-                   
+
                     saveFileDialog1.ShowDialog();
                     bool check = saveFileDialog1.CheckPathExists;
 
@@ -277,23 +293,8 @@ namespace CocBook
                     {
 
                         string filepath = saveFileDialog1.FileName;
-
-                        Excel.Application xlApp;
-
-                        Excel.Workbook xlWorkBook;
-
-                        Excel.Worksheet xlWorkSheet;
-
-                        object misValue = System.Reflection.Missing.Value;
-
-
-
-                        xlApp = new Excel.Application();
-                        xlApp.Visible = false;
-
-                        xlWorkBook = xlApp.Workbooks.Add(misValue);
-
-                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                                                                                     
+                                                
 
                         string title = "PHIẾU " + importExport.ImEx.ToUpper() + " KHO";
 
@@ -358,7 +359,7 @@ namespace CocBook
                         int rowStart = 15;
                         int columnStart = 1;
 
-                        int rowEnd = rowStart + dataGridView1.Rows.Count - 1;
+                        int rowEnd = rowStart + dataGridView1.Rows.Count - 1 + 6;
                         int columnEnd = dataGridView1.Columns.Count;
 
                         // Ô bắt đầu điền dữ liệu
@@ -442,19 +443,6 @@ namespace CocBook
 
                         xlWorkBook.SaveAs(filepath, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
 
-                        xlWorkBook.Close(true, misValue, misValue);
-
-                        xlApp.Quit();
-
-
-
-                        releaseObject(xlWorkSheet);
-
-                        releaseObject(xlWorkBook);
-
-                        releaseObject(xlApp);
-
-
 
                         MessageBox.Show("Đã xuất file. Bạn có thể tìm file ở " + filepath);
                     }
@@ -465,7 +453,20 @@ namespace CocBook
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
+            finally
+            {
+                xlWorkBook.Close(true, misValue, misValue);
 
+                xlApp.Quit();
+
+
+
+                releaseObject(xlWorkSheet);
+
+                releaseObject(xlWorkBook);
+
+                releaseObject(xlApp);
+            }
             
         }
         private void releaseObject(object obj)

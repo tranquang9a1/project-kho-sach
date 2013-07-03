@@ -54,6 +54,7 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
                 retVal = false;
             }
+            
             return retVal;
         }
 
@@ -102,6 +103,7 @@ namespace CocBook
                 // Write Log File
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
+
 
         }
 
