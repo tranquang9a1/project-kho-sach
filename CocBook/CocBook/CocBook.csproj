@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetail.Designer.cs">
+      <DependentUpon>BookDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChooseBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,12 +127,6 @@
     <Compile Include="BookManange.Designer.cs">
       <DependentUpon>BookManange.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookDetail.Designer.cs">
-      <DependentUpon>BookDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewStore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +153,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BookDetail.resx">
+      <DependentUpon>BookDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseBook.resx">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookManange.resx">
       <DependentUpon>BookManange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BookDetail.resx">
-      <DependentUpon>BookDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewStore.resx">
       <DependentUpon>ViewStore.cs</DependentUpon>

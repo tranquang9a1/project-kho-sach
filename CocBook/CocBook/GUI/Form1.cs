@@ -24,29 +24,32 @@ namespace CocBook
             bool retVal = false;
             try
             {
-                //The application configuration file name
-                string FILE_NANME = string.Concat(Application.StartupPath, "\\", AppName.Trim(), ".exe.Config");
-                XmlTextReader reader = new XmlTextReader(FILE_NANME);
-                XmlDocument doc = new XmlDocument();
-                doc.Load(reader);
-                reader.Close();
-                string nodeRoute = string.Concat("connectionStrings/add");
+                ////The application configuration file name
+                //string FILE_NANME = string.Concat(Application.StartupPath, "\\", AppName.Trim(), ".exe.Config");
+                //XmlTextReader reader = new XmlTextReader(FILE_NANME);
+                //XmlDocument doc = new XmlDocument();
+                //doc.Load(reader);
+                //reader.Close();
+                //string nodeRoute = string.Concat("connectionStrings/add");
 
-                XmlNode cnnStr = null;
-                XmlElement root = doc.DocumentElement;
-                XmlNodeList Settings = root.SelectNodes(nodeRoute);
+                //XmlNode cnnStr = null;
+                //XmlElement root = doc.DocumentElement;
+                //XmlNodeList Settings = root.SelectNodes(nodeRoute);
 
-                for (int i = 0; i < Settings.Count; i++)
-                {
-                    cnnStr = Settings[i];
-                    if (cnnStr.Attributes["name"].Value.Equals(Name))
-                        break;
-                    cnnStr = null;
-                }
+                //for (int i = 0; i < Settings.Count; i++)
+                //{
+                //    cnnStr = Settings[i];
+                //    if (cnnStr.Attributes["name"].Value.Equals(Name))
+                //        break;
+                //    cnnStr = null;
+                //}
 
-                cnnStr.Attributes["connectionString"].Value = value;
-                doc.Save(FILE_NANME);
-                retVal = true;
+                //cnnStr.Attributes["connectionString"].Value = value;
+                //doc.Save(FILE_NANME);
+                //retVal = true;
+                StringBuilder BookStoreCS = new StringBuilder("Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI");
+                string strCon = BookStoreCS.ToString();
+                updateConfigFile(strCon);
             }
             catch (Exception ex)
             {
@@ -54,8 +57,25 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
                 retVal = false;
             }
-            
             return retVal;
+        }
+
+        private void updateConfigFile(string BookStoreCS)
+        {
+            //updating config file
+            XmlDocument XmlDoc = new XmlDocument();
+            //Loading the Config file
+            XmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+            foreach (XmlElement xElement in XmlDoc.DocumentElement)
+            {
+                if (xElement.Name == "connectionStrings")
+                {
+                    //setting the coonection string
+                    xElement.FirstChild.Attributes[2].Value = BookStoreCS;
+                }
+            }
+            //writing the connection string in config file
+            XmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,18 +83,19 @@ namespace CocBook
             try
             {
                 bool rs;
-                if (comboBox1.SelectedIndex == 0)
-                {
-                    string username = txtUsername.Text;
-                    string password = txtPassword.Text;
-                    string cs = "Server=(local);Database = CocBook;uid=" + username + ";pwd=" + password;
-                    ChangConnectionString("BookStoreCS", cs, "CocBook");
-                }
-                else
-                {
-                    string cs = "Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI";
-                    ChangConnectionString("BookStoreCS", cs, "CocBook");
-                }
+                string cs = "";
+                //if (comboBox1.SelectedIndex == 0)
+                //{
+                //    string username = txtUsername.Text;
+                //    string password = txtPassword.Text;
+                //    string cs = "Server=(local);Database = CocBook;uid=" + username + ";pwd=" + password;
+                ChangConnectionString("BookStoreCS", cs, "CocBook");
+                //}
+                //else
+                //{
+                //    string cs = "Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI";
+                //    ChangConnectionString("BookStoreCS", cs, "CocBook");
+                //}
                 try
                 {
                     //Test connect to DB
@@ -104,7 +125,6 @@ namespace CocBook
                 // Write Log File
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-
 
         }
 

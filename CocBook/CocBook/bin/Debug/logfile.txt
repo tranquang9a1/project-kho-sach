@@ -14,3 +14,22 @@
 • The file name or path does not exist.
 • The file is being used by another program.
 • The workbook you are trying to save has the same name as a currently open workbook.'
+7/3/2013 10:22:36 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 10:57:27 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 10:58:34 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:00:00 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:02:23 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:05:54 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:07:19 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:09:04 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:11:09 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:25:13 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:29:27 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:50:07 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:51:12 PM' Error 'Object reference not set to an instance of an object.'
+7/3/2013 11:55:29 PM' Error 'Object reference not set to an instance of an object.'
+7/4/2013 12:24:31 AM' Error 'Object reference not set to an instance of an object.'
+7/4/2013 1:19:48 AM' Error ''openFileDialog1.xlsx' could not be found. Check the spelling of the file name, and verify that the file location is correct.
+
+If you are trying to open the file from your list of most recently used files, make sure that the file has not been renamed, moved, or deleted.'
+7/4/2013 1:40:27 AM' Error 'Object reference not set to an instance of an object.'
