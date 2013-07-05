@@ -53,28 +53,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDetail.cs">
+    <Compile Include="DTO\OpenImportExport.cs" />
+    <Compile Include="GUI\BookDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookDetail.Designer.cs">
+    <Compile Include="GUI\BookDetail.Designer.cs">
       <DependentUpon>BookDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseBook.cs">
+    <Compile Include="GUI\ChooseBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChooseBook.Designer.cs">
+    <Compile Include="GUI\ChooseBook.Designer.cs">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerDetail.cs">
+    <Compile Include="GUI\CustomerDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerDetail.Designer.cs">
+    <Compile Include="GUI\CustomerDetail.Designer.cs">
       <DependentUpon>CustomerDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerManage.cs">
+    <Compile Include="GUI\CustomerManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerManage.Designer.cs">
+    <Compile Include="GUI\CustomerManage.Designer.cs">
       <DependentUpon>CustomerManage.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\BookDAL.cs" />
@@ -90,109 +91,109 @@
     <Compile Include="DTO\ImportExport.cs" />
     <Compile Include="DTO\Store.cs" />
     <Compile Include="DTO\UserInfo.cs" />
-    <Compile Include="EditRow.cs">
+    <Compile Include="GUI\EditRow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditRow.Designer.cs">
+    <Compile Include="GUI\EditRow.Designer.cs">
       <DependentUpon>EditRow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="GUI\ConnectDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\ConnectDBForm.Designer.cs">
+      <DependentUpon>ConnectDBForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InfoDetail.cs">
+    <Compile Include="GUI\InfoDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InfoDetail.Designer.cs">
+    <Compile Include="GUI\InfoDetail.Designer.cs">
       <DependentUpon>InfoDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="LogFile.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="GUI\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="GUI\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuForm.cs">
+    <Compile Include="GUI\MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenuForm.Designer.cs">
+    <Compile Include="GUI\MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookManange.cs">
+    <Compile Include="GUI\BookManange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookManange.Designer.cs">
+    <Compile Include="GUI\BookManange.Designer.cs">
       <DependentUpon>BookManange.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewStore.cs">
+    <Compile Include="GUI\ViewStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewStore.Designer.cs">
+    <Compile Include="GUI\ViewStore.Designer.cs">
       <DependentUpon>ViewStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImExManage.cs">
+    <Compile Include="GUI\ImExManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImExManage.Designer.cs">
+    <Compile Include="GUI\ImExManage.Designer.cs">
       <DependentUpon>ImExManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="BillDetail.cs">
+    <Compile Include="GUI\BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BillDetail.Designer.cs">
+    <Compile Include="GUI\BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddImport.cs">
+    <Compile Include="GUI\AddImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddImport.Designer.cs">
+    <Compile Include="GUI\AddImport.Designer.cs">
       <DependentUpon>AddImport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BookDetail.resx">
+    <EmbeddedResource Include="GUI\BookDetail.resx">
       <DependentUpon>BookDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseBook.resx">
+    <EmbeddedResource Include="GUI\ChooseBook.resx">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerDetail.resx">
+    <EmbeddedResource Include="GUI\CustomerDetail.resx">
       <DependentUpon>CustomerDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerManage.resx">
+    <EmbeddedResource Include="GUI\CustomerManage.resx">
       <DependentUpon>CustomerManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditRow.resx">
+    <EmbeddedResource Include="GUI\EditRow.resx">
       <DependentUpon>EditRow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ConnectDBForm.resx">
+      <DependentUpon>ConnectDBForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InfoDetail.resx">
+    <EmbeddedResource Include="GUI\InfoDetail.resx">
       <DependentUpon>InfoDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="GUI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenuForm.resx">
+    <EmbeddedResource Include="GUI\MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookManange.resx">
+    <EmbeddedResource Include="GUI\BookManange.resx">
       <DependentUpon>BookManange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewStore.resx">
+    <EmbeddedResource Include="GUI\ViewStore.resx">
       <DependentUpon>ViewStore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImExManage.resx">
+    <EmbeddedResource Include="GUI\ImExManage.resx">
       <DependentUpon>ImExManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BillDetail.resx">
+    <EmbeddedResource Include="GUI\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddImport.resx">
+    <EmbeddedResource Include="GUI\AddImport.resx">
       <DependentUpon>AddImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

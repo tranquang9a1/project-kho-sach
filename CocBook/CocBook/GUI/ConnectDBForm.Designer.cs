@@ -34,7 +34,7 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbAuthentication = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -45,7 +45,7 @@
             this.btnConnect.TabIndex = 0;
             this.btnConnect.Text = "Kết nối";
             this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.button1_Click);
+            this.btnConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
             // label1
             // 
@@ -92,24 +92,25 @@
             this.txtPassword.TabIndex = 6;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
-            // comboBox1
+            // cbAuthentication
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbAuthentication.FormattingEnabled = true;
+            this.cbAuthentication.Items.AddRange(new object[] {
             "SQL Server Authentication",
             "Windows Authentication"});
-            this.comboBox1.Location = new System.Drawing.Point(129, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 22);
-            this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbAuthentication.Location = new System.Drawing.Point(129, 45);
+            this.cbAuthentication.Name = "cbAuthentication";
+            this.cbAuthentication.Size = new System.Drawing.Size(200, 22);
+            this.cbAuthentication.TabIndex = 7;
+            this.cbAuthentication.SelectedIndexChanged += new System.EventHandler(this.cbAuthentication_SelectedIndexChanged);
             // 
             // ConnectDBForm
             // 
+            this.AcceptButton = this.btnConnect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 261);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbAuthentication);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
@@ -132,6 +133,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbAuthentication;
     }
 }
