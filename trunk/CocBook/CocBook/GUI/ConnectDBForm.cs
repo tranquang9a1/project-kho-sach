@@ -54,40 +54,16 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
                 retVal = false;
             }
-            
+
             return retVal;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConnect_Click(object sender, EventArgs e)
         {
             try
             {
-                bool rs;
-                if (comboBox1.SelectedIndex == 0)
-                {
-                    string username = txtUsername.Text;
-                    string password = txtPassword.Text;
-                    string cs = "Server=(local);Database = CocBook;uid=" + username + ";pwd=" + password;
-                    ChangConnectionString("BookStoreCS", cs, "CocBook");
-                }
-                else
-                {
-                    string cs = "Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI";
-                    ChangConnectionString("BookStoreCS", cs, "CocBook");
-                }
-                try
-                {
-                    //Test connect to DB
-                    string connect = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                    SqlConnection con = new SqlConnection(connect);
-                    con.Open();
-                    con.Close();
-                    rs = true;
-                }
-                catch (Exception)
-                {
-                    rs = false ;
-                }
+                CustomizeConnectionString();
+                bool rs = TestConnectToDB();
                 if (rs)
                 {
                     LoginForm loginForm = new LoginForm();
@@ -104,15 +80,47 @@ namespace CocBook
                 // Write Log File
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-
-
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CustomizeConnectionString()
+        {
+            if (cbAuthentication.SelectedIndex == 0)
+            {
+                string username = txtUsername.Text;
+                string password = txtPassword.Text;
+                string cs = "Server=(local);Database = CocBook;uid=" + username + ";pwd=" + password;
+                ChangConnectionString("BookStoreCS", cs, "CocBook");
+            }
+            else
+            {
+                string cs = "Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI";
+                ChangConnectionString("BookStoreCS", cs, "CocBook");
+            }
+        }
+
+        private bool TestConnectToDB()
         {
             try
             {
-                if (comboBox1.SelectedIndex == 0)
+                string connect = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(connect);
+                con.Open();
+                con.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Write Log File
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+
+                return false;
+            }
+        }
+        private void cbAuthentication_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbAuthentication.SelectedIndex == 0)
                 {
                     lbUsername.Text = "Login:";
                     txtUsername.Enabled = true;

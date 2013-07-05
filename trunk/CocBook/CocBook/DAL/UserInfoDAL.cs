@@ -27,5 +27,25 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
+        public bool IsLogin(string username, string password)
+        {
+            try
+            {
+                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                SqlConnection con = new SqlConnection(cs);
+                SqlCommand cmd = new SqlCommand("SELECT COUNT (Username) FROM UserInfo WHERE Username = @username AND Password = @password", con);
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters.AddWithValue("password", password);
+                con.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
+                return (count == 1);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
     }
 }

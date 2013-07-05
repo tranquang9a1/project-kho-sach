@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DataAccessLayer.cs.DTO;
 using System.Configuration;
+using CocBook.DTO;
 
 namespace DataAccessLayer.cs.DAL
 {
@@ -122,10 +123,26 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
-        public List<ImportExport> GetImport()
+        public List<OpenImportExport> GetAllOpenIE(List<ImportExport>listIE)
         {
-            List<ImportExport> list = new List<ImportExport>();
-            ImportExportDAL IEDAL = new ImportExportDAL();
+            List<OpenImportExport> result = new List<OpenImportExport>();
+            listIE = GetAllIE();
+            foreach (var item in listIE)
+            {
+                OpenImportExport openIE = new OpenImportExport();
+                CustomerDAL customerDAL = new CustomerDAL();
+                openIE.CheckNo = item.CheckNo;
+                openIE.Date = item.Date;
+                openIE.Type = item.Type;
+                openIE.ImEx = item.ImEx;
+                openIE.CustomerName = customerDAL.GetCustomerbyID(item.CustomerID).CustomerName;
+                result.Add(openIE);
+            }
+            return result;
+        }
+        public List<OpenImportExport> GetImport()
+        {
+            List<OpenImportExport> list = new List<OpenImportExport>();
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @I", con);
@@ -135,41 +152,44 @@ namespace DataAccessLayer.cs.DAL
 
             while (sdr.Read())
             {
-                ImportExport ie = new ImportExport();
-                ie.CheckNo = (int)sdr["CheckNo"];
-                ie.Date = (DateTime)sdr["Date"];
-                ie.Type = (string)sdr["Type"];
-                ie.ImEx = (string)sdr["ImportExport"];
-                ie.CustomerID = (int)sdr["CustomerID"];
-                list.Add(ie);
+                OpenImportExport openIE = new OpenImportExport();
+                CustomerDAL customerDAL = new CustomerDAL();
+                openIE.CheckNo = (int)sdr["CheckNo"];
+                openIE.Date = (DateTime)sdr["Date"];
+                openIE.Type = (string)sdr["Type"];
+                openIE.ImEx = (string)sdr["ImportExport"];
+                int customerID = (int)sdr["CustomerID"];
+                openIE.CustomerName = customerDAL.GetCustomerbyID(customerID).CustomerName;
+                list.Add(openIE);
             }
             con.Close();
             return list;
         }
-        public List<ImportExport> GetExport()
+        public List<OpenImportExport> GetExport()
         {
-            List<ImportExport> list = new List<ImportExport>();
+            List<OpenImportExport> list = new List<OpenImportExport>();
             ImportExportDAL IEDAL = new ImportExportDAL();
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @E", con);
-            cmd.Parameters.AddWithValue("E","Xuất");
+            cmd.Parameters.AddWithValue("E", "Xuất");
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
-            
+
             while (sdr.Read())
             {
-                ImportExport ie = new ImportExport();
-                ie.CheckNo = (int)sdr["CheckNo"];
-                ie.Date = (DateTime)sdr["Date"];
-                ie.Type = (string)sdr["Type"];
-                ie.ImEx = (string)sdr["ImportExport"];
-                ie.CustomerID = (int)sdr["CustomerID"];
-                list.Add(ie);
+                OpenImportExport openIE = new OpenImportExport();
+                CustomerDAL customerDAL = new CustomerDAL();
+                openIE.CheckNo = (int)sdr["CheckNo"];
+                openIE.Date = (DateTime)sdr["Date"];
+                openIE.Type = (string)sdr["Type"];
+                openIE.ImEx = (string)sdr["ImportExport"];
+                int customerID = (int)sdr["CustomerID"];
+                openIE.CustomerName = customerDAL.GetCustomerbyID(customerID).CustomerName;
+                list.Add(openIE);
             }
             con.Close();
             return list;
-            
         }
     }
 }

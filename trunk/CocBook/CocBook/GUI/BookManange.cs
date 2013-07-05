@@ -15,12 +15,14 @@ namespace CocBook
     public partial class BookManage : Form
     {
         LogFile logger = new LogFile();
-        Book book = new Book();
+        bool isAdd = false;
+
         public BookManage()
         {
             InitializeComponent();
             LoadAllData();
         }
+
         public void LoadAllData()
         {
             BookDAL BookDAL = new BookDAL();
@@ -30,60 +32,22 @@ namespace CocBook
 
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                BookDetail bookDetail = new BookDetail();
-                bookDetail.Add = true;
-                bookDetail.NotifyEvent += new NotifyLoadData(BookDetail_NotifyEvent);
-                bookDetail.Show();
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }        
-        }
-
-        void BookDetail_NotifyEvent()
-        {
-           LoadAllData();
-        }
-
-       private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                BookDetail bookDetail = new BookDetail();
-                bookDetail.book = book;
-                bookDetail.Add = false;
-                bookDetail.LoadData();
-                bookDetail.NotifyEvent += new NotifyLoadData(BookDetail_NotifyEvent);
-                bookDetail.Show();
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
-        }
-
         private void BookGridView_Click(object sender, EventArgs e)
         {
             try
             {
-                book.ISBNBook = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
-                book.BookName = BookGridView.SelectedRows[0].Cells[1].Value.ToString();
-                book.PublisherName = BookGridView.SelectedRows[0].Cells[2].Value.ToString();
-                book.Unit = BookGridView.SelectedRows[0].Cells[3].Value.ToString();
-                book.Price = (int)BookGridView.SelectedRows[0].Cells[4].Value;
+                txtISBN.ReadOnly = true;
+                txtISBN.Text = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
+                txtBookName.Text = BookGridView.SelectedRows[0].Cells[1].Value.ToString();
+                txtPublisher.Text = BookGridView.SelectedRows[0].Cells[2].Value.ToString();
+                txtUnit.Text = BookGridView.SelectedRows[0].Cells[3].Value.ToString();
+                txtPrice.Text = BookGridView.SelectedRows[0].Cells[4].Value.ToString();
             }
             catch (Exception ex)
             {
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }          
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -96,6 +60,7 @@ namespace CocBook
                     BookDAL bookDAL = new BookDAL();
                     bookDAL.DeleteBook(isbn);
                 }
+                makeAllBlank();
                 LoadAllData();
             }
             catch (Exception ex)
@@ -165,7 +130,7 @@ namespace CocBook
             {
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }        
+            }
         }
 
 
@@ -186,6 +151,101 @@ namespace CocBook
                 GC.Collect();
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Book book1 = new Book();
+            int price = 0;
+            if (txtISBN.Text == "")
+            {
+                MessageBox.Show("Hãy nhập mã số ISBN");
+                txtISBN.Focus();
+            }
+            else
+            {
+                book1.ISBNBook = txtISBN.Text;
+            }
+
+            if (txtBookName.Text == "")
+            {
+                MessageBox.Show("Hãy nhập tên sách !");
+                txtBookName.Focus();
+            }
+
+
+            else
+            {
+                book1.BookName = txtBookName.Text;
+                book1.PublisherName = txtPublisher.Text;
+                book1.Unit = txtUnit.Text;
+
+                try
+                {
+                    price = int.Parse(txtPrice.Text);
+                }
+                catch (Exception)
+                {
+                    txtPrice.Text = "";
+                }
+                if (price < 0)
+                {
+                    txtPrice.Text = "";
+                    MessageBox.Show("Hãy nhập giá tiền bằng số dương!");
+                }
+                else if (price > 0)
+                {
+                    book1.Price = price;
+                    BookDAL bookDAL = new BookDAL();
+                    bool rs;
+                    if (isAdd)
+                    {
+                        rs = bookDAL.CreateBook(book1);
+                    }
+                    else
+                    {
+                        rs = bookDAL.UpdateBook(book1);
+                    }
+                    if (rs)
+                    {
+                        MessageBox.Show("Đã lưu !");
+                        LoadAllData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể lưu !");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Hãy nhập giá tiền bằng số !");
+                }
+            }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            makeAllBlank();
+        }
+        private void makeAllBlank()
+        {
+            txtISBN.ReadOnly = false;
+            txtISBN.Text = "";
+            txtBookName.Text = "";
+            txtPrice.Text = "";
+            txtPublisher.Text = "";
+            txtUnit.Text = "";
+            isAdd = true;
+        }
+
+        private void txtUnit_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPublisher_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+}

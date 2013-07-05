@@ -51,7 +51,7 @@
             // 
             // btnImportExport
             // 
-            this.btnImportExport.Location = new System.Drawing.Point(22, 147);
+            this.btnImportExport.Location = new System.Drawing.Point(22, 128);
             this.btnImportExport.Name = "btnImportExport";
             this.btnImportExport.Size = new System.Drawing.Size(178, 23);
             this.btnImportExport.TabIndex = 2;
@@ -61,7 +61,7 @@
             // 
             // btnBookManage
             // 
-            this.btnBookManage.Location = new System.Drawing.Point(22, 74);
+            this.btnBookManage.Location = new System.Drawing.Point(22, 55);
             this.btnBookManage.Name = "btnBookManage";
             this.btnBookManage.Size = new System.Drawing.Size(178, 23);
             this.btnBookManage.TabIndex = 1;
@@ -71,7 +71,7 @@
             // 
             // btnViewStore
             // 
-            this.btnViewStore.Location = new System.Drawing.Point(22, 108);
+            this.btnViewStore.Location = new System.Drawing.Point(22, 89);
             this.btnViewStore.Name = "btnViewStore";
             this.btnViewStore.Size = new System.Drawing.Size(178, 23);
             this.btnViewStore.TabIndex = 0;
