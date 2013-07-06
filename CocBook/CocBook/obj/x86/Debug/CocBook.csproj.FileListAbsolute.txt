@@ -39,14 +39,11 @@ F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBoo
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources
-F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BookDetail.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ViewStore.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ImExManage.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
-F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.AddImport.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
-F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ChooseBook.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerManage.resources
 D:\CocBook\CocBook\CocBook\bin\Debug\CocBook.exe.config
 D:\CocBook\CocBook\CocBook\bin\Debug\CocBook.exe
@@ -92,6 +89,5 @@ D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.AddImport.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
-F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.EditRow.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources

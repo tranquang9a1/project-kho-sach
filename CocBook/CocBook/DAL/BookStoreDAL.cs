@@ -15,7 +15,7 @@ namespace DataAccessLayer.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("INSERT INTO BookStore VALUES (@ISBN, @Quantity)", con);
 
@@ -40,7 +40,7 @@ namespace DataAccessLayer.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from BookStore where ISBN = @ISBN", con);
                 cmd.Parameters.AddWithValue("ISBN", ISBN);
@@ -60,7 +60,7 @@ namespace DataAccessLayer.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Update BookStore set Quantity = @Quantity where ISBN = @ISBN", con);
                 cmd.Parameters.AddWithValue("Quantity", bookstore.Quantity);
@@ -83,7 +83,7 @@ namespace DataAccessLayer.DAL
         public Store GetBookStorebyISBN(string ISBNBookStore)
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
            
             SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
@@ -114,7 +114,7 @@ namespace DataAccessLayer.DAL
         public BookStore GetBookStorebyISBNBook(string ISBNBookStore)
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
 
             SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
@@ -138,7 +138,7 @@ namespace DataAccessLayer.DAL
         public List<Store> GetAllStore()
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from BookStore", con);
             con.Open();
@@ -178,7 +178,7 @@ namespace DataAccessLayer.DAL
                 store.Unit = book.Unit;
                 store.Price = book.Price;
                 string ISBN = book.ISBNBook;
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
            
                 SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
@@ -211,7 +211,7 @@ namespace DataAccessLayer.DAL
                 store.Unit = book.Unit;
                 store.Price = book.Price;
                 string ISBN = book.ISBNBook;
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
 
                 SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);
@@ -244,7 +244,7 @@ namespace DataAccessLayer.DAL
                 store.Unit = book.Unit;
                 store.Price = book.Price;
                 string ISBN = book.ISBNBook;
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
 
                 SqlCommand cmd = new SqlCommand("Select * from BookStore where ISBN = @ISBN", con);

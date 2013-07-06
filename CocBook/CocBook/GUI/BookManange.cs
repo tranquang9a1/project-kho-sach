@@ -10,17 +10,31 @@ using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
+using DataAccessLayer.DAL;
 
 namespace CocBook
 {
+    public delegate void ChooseBook();
     public partial class BookManage : Form
     {
         LogFile logger = new LogFile();
+        public event ChooseBook chooseEvent;
         bool isAdd = false;
+        public bool CanDeleted = true;
+        public Book book = new Book();
 
-        public BookManage()
+        public BookManage(bool delete)
         {
             InitializeComponent();
+            CanDeleted = delete;
+            if (CanDeleted)
+            {
+                btnDelete.Text = "Xóa";
+            }
+            else
+            {
+                btnDelete.Text = "Chọn";
+            }
             LoadAllData();
         }
 
@@ -45,6 +59,12 @@ namespace CocBook
                 txtPrice.Text = BookGridView.SelectedRows[0].Cells[4].Value.ToString();
 
                 groupBoxDetail.Enabled = true;
+
+                book.BookName = BookGridView.SelectedRows[0].Cells[1].Value.ToString();
+                book.ISBNBook = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
+                book.Price = int.Parse(BookGridView.SelectedRows[0].Cells[4].Value.ToString());
+                book.PublisherName = BookGridView.SelectedRows[0].Cells[2].Value.ToString();
+                book.Unit = BookGridView.SelectedRows[0].Cells[3].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -55,26 +75,46 @@ namespace CocBook
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            if (CanDeleted)
             {
-                if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
                 {
-                    string isbn = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
-                    BookDAL bookDAL = new BookDAL();
-                    bookDAL.DeleteBook(isbn);
-                }
-                makeAllBlank();
-                LoadAllData();
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show("Không thể xóa vì sách đã có trong phiếu !");
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + sqlEx.Message + "'");
-            }
-            catch (Exception ex)
-            {
 
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+                    if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        string isbn = BookGridView.SelectedRows[0].Cells[0].Value.ToString();
+                        BookDAL bookDAL = new BookDAL();
+                        bookDAL.DeleteBook(isbn);
+                    }
+                    makeAllBlank();
+                    LoadAllData();
+                }
+                catch (SqlException sqlEx)
+                {
+                    MessageBox.Show("Không thể xóa vì sách đã có trong phiếu !");
+                    logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + sqlEx.Message + "'");
+                }
+                catch (Exception ex)
+                {
+
+                    logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+                }
+            }
+            else
+            {
+                try
+                {
+                    Close();
+                    if (chooseEvent != null)
+                    {
+                        chooseEvent();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+                }
             }
         }
 
@@ -224,6 +264,7 @@ namespace CocBook
                 {
                     MessageBox.Show("Đã lưu !");
                     LoadAllData();
+                    makeAllBlank();
                 }
                 else
                 {
@@ -240,16 +281,77 @@ namespace CocBook
         {
             groupBoxDetail.Enabled = true;
             makeAllBlank();
+            txtISBN.ReadOnly = false;
+            isAdd = true;
         }
         private void makeAllBlank()
         {
-            txtISBN.ReadOnly = false;
+            txtISBN.ReadOnly = true;
             txtISBN.Text = "";
             txtBookName.Text = "";
             txtPrice.Text = "";
             txtPublisher.Text = "";
             txtUnit.Text = "";
-            isAdd = true;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtSearch.Text != "")
+                {
+                    string search = txtSearch.Text;
+                    // Search by ISBN
+                    if (rdISBN.Checked)
+                    {
+                        Store store = new Store();
+                        BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                        if (bookstoreDAL.GetBookStorebyISBN(search) != null)
+                        {
+                            store = bookstoreDAL.GetBookStorebyISBN(search);
+                            List<Store> list = new List<Store>();
+                            list.Add(store);
+                            BookGridView.DataSource = list;
+                            BookGridView.Refresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác ISBN!");
+                        }
+                    }
+                    else
+                    {
+                        // search by BookName
+                        if (rdBookName.Checked)
+                        {
+                            BookStoreDAL bookstoreDAL = new BookStoreDAL();
+                            if (bookstoreDAL.GetBookStorebyName(search) != null)
+                            {
+                                List<Store> list = bookstoreDAL.GetBookStorebyName(search);
+                                BookGridView.DataSource = list;
+                                BookGridView.Refresh();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Không tìm thấy kết quả. Vui lòng nhập chính xác tên sách!");
+                            }
+                        }
+                        if (rdISBN.Checked == false && rdBookName.Checked == false)
+                        {
+                            MessageBox.Show("Hãy chọn mục tìm kiếm !");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập giá trị tìm kiếm !");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
     }
 

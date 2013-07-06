@@ -14,7 +14,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("INSERT INTO Customer (CustomerName,Address,Phone,TaxNo) VALUES (@CustomerName, @Address, @Phone, @TaxNo)", con);
                 cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
@@ -38,7 +38,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerID = @CustomerID", con);
                 cmd.Parameters.AddWithValue("CustomerID", CustomerID);
@@ -58,7 +58,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("UPDATE Customer SET CustomerName = @CustomerName, Address = @Address, Phone = @Phone, TaxNo = @TaxNo WHERE CustomerID = @CustomerID", con);
                 cmd.Parameters.AddWithValue("CustomerName", customer.CustomerName);
@@ -80,7 +80,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public Customer GetCustomerbyName(string CustomerName)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("SELECT * FROM Customer WHERE CustomerName = @CustomerName", con);
             cmd.Parameters.AddWithValue("CustomerName", CustomerName);
@@ -102,7 +102,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public Customer GetCustomerbyID(int CustomerID)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("SELECT * FROM Customer WHERE CustomerID = @CustomerID", con);
             cmd.Parameters.AddWithValue("CustomerID", CustomerID);
@@ -124,7 +124,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Customer> GetAllCustomer()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("SELECT * FROM Customer", con);
             con.Open();

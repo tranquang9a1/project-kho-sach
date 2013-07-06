@@ -15,7 +15,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Insert into ImportExport values (@CheckNo, @Date, @Type, @ImportExport, @CustomerID)", con);
                 cmd.Parameters.AddWithValue("CheckNo", ie.CheckNo);
@@ -37,7 +37,7 @@ namespace DataAccessLayer.cs.DAL
         public bool DeleteIE(int No)
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Delete from ImportExport where CheckNo = @No", con);
             cmd.Parameters.AddWithValue("No", No);
@@ -50,7 +50,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Update ImportExport set Date = @Date, Type = @Type, ImportExport = @ImportExport, CustomerID = @CustomerID where CheckNo = @No", con);
                 cmd.Parameters.AddWithValue("Date", ie.Date);
@@ -72,7 +72,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public ImportExport GetIEbyCheckNo(int No)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where CheckNo = @No", con);
             cmd.Parameters.AddWithValue("No", No);
@@ -94,7 +94,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<ImportExport> GetAllIE()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport", con);
             con.Open();
@@ -134,7 +134,7 @@ namespace DataAccessLayer.cs.DAL
         public List<OpenImportExport> GetImport()
         {
             List<OpenImportExport> list = new List<OpenImportExport>();
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @I", con);
             cmd.Parameters.AddWithValue("I", "Nhập");
@@ -160,7 +160,7 @@ namespace DataAccessLayer.cs.DAL
         {
             List<OpenImportExport> list = new List<OpenImportExport>();
             ImportExportDAL IEDAL = new ImportExportDAL();
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from ImportExport where ImportExport = @E", con);
             cmd.Parameters.AddWithValue("E", "Xuất");
