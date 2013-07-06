@@ -328,7 +328,10 @@ namespace CocBook
 
         private void btnCheckDetail_Click(object sender, EventArgs e)
         {
-            SaveToDB();
+            if (MessageBox.Show("Bạn có muốn lưu thông tin thay đổi không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SaveToDB();
+            }
             BillDetail billDetail = new BillDetail();
             billDetail.importExport = this.importExport;
             billDetail.OrderLoadData();
