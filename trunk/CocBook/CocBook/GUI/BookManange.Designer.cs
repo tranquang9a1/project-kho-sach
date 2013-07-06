@@ -51,9 +51,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtISBN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdISBN = new System.Windows.Forms.RadioButton();
+            this.rdBookName = new System.Windows.Forms.RadioButton();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBoxDetail.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // BookGridView
@@ -68,11 +74,11 @@
             this.Publisher,
             this.Unit,
             this.Price});
-            this.BookGridView.Location = new System.Drawing.Point(18, 29);
+            this.BookGridView.Location = new System.Drawing.Point(23, 133);
             this.BookGridView.Name = "BookGridView";
             this.BookGridView.ReadOnly = true;
             this.BookGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.BookGridView.Size = new System.Drawing.Size(662, 321);
+            this.BookGridView.Size = new System.Drawing.Size(662, 291);
             this.BookGridView.TabIndex = 0;
             this.BookGridView.Click += new System.EventHandler(this.BookGridView_Click);
             // 
@@ -116,7 +122,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(301, 389);
+            this.btnDelete.Location = new System.Drawing.Point(292, 453);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 3;
@@ -126,7 +132,7 @@
             // 
             // btnImportFromExcel
             // 
-            this.btnImportFromExcel.Location = new System.Drawing.Point(423, 387);
+            this.btnImportFromExcel.Location = new System.Drawing.Point(414, 451);
             this.btnImportFromExcel.Name = "btnImportFromExcel";
             this.btnImportFromExcel.Size = new System.Drawing.Size(115, 25);
             this.btnImportFromExcel.TabIndex = 4;
@@ -141,13 +147,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.BookGridView);
             this.groupBox1.Controls.Add(this.btnImportFromExcel);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Location = new System.Drawing.Point(23, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(705, 441);
+            this.groupBox1.Size = new System.Drawing.Size(705, 502);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách";
@@ -155,7 +162,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(154, 389);
+            this.btnAdd.Location = new System.Drawing.Point(145, 453);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 5;
@@ -281,6 +288,58 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã ISBN :";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Controls.Add(this.rdBookName);
+            this.groupBox2.Controls.Add(this.rdISBN);
+            this.groupBox2.Location = new System.Drawing.Point(38, 35);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(647, 59);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tìm kiếm";
+            // 
+            // rdISBN
+            // 
+            this.rdISBN.AutoSize = true;
+            this.rdISBN.Location = new System.Drawing.Point(44, 19);
+            this.rdISBN.Name = "rdISBN";
+            this.rdISBN.Size = new System.Drawing.Size(48, 18);
+            this.rdISBN.TabIndex = 0;
+            this.rdISBN.TabStop = true;
+            this.rdISBN.Text = "ISBN";
+            this.rdISBN.UseVisualStyleBackColor = true;
+            // 
+            // rdBookName
+            // 
+            this.rdBookName.AutoSize = true;
+            this.rdBookName.Location = new System.Drawing.Point(158, 19);
+            this.rdBookName.Name = "rdBookName";
+            this.rdBookName.Size = new System.Drawing.Size(70, 18);
+            this.rdBookName.TabIndex = 1;
+            this.rdBookName.TabStop = true;
+            this.rdBookName.Text = "Tên sách";
+            this.rdBookName.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(296, 19);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(145, 20);
+            this.txtSearch.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(512, 15);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // BookManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -295,6 +354,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBoxDetail.ResumeLayout(false);
             this.groupBoxDetail.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +385,10 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rdISBN;
+        private System.Windows.Forms.RadioButton rdBookName;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

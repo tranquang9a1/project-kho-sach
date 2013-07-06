@@ -54,18 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\OpenImportExport.cs" />
-    <Compile Include="GUI\BookDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\BookDetail.Designer.cs">
-      <DependentUpon>BookDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\ChooseBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\ChooseBook.Designer.cs">
-      <DependentUpon>ChooseBook.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\CustomerManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +73,6 @@
     <Compile Include="DTO\ImportExport.cs" />
     <Compile Include="DTO\Store.cs" />
     <Compile Include="DTO\UserInfo.cs" />
-    <Compile Include="GUI\EditRow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\EditRow.Designer.cs">
-      <DependentUpon>EditRow.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\ConnectDBForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,25 +116,10 @@
     <Compile Include="GUI\BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AddImport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\AddImport.Designer.cs">
-      <DependentUpon>AddImport.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\BookDetail.resx">
-      <DependentUpon>BookDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ChooseBook.resx">
-      <DependentUpon>ChooseBook.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomerManage.resx">
       <DependentUpon>CustomerManage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\EditRow.resx">
-      <DependentUpon>EditRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ConnectDBForm.resx">
       <DependentUpon>ConnectDBForm.cs</DependentUpon>
@@ -174,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\AddImport.resx">
-      <DependentUpon>AddImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

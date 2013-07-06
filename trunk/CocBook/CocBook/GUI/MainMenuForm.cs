@@ -24,7 +24,7 @@ namespace CocBook
 
         private void txtBookManage_Click(object sender, EventArgs e)
         {
-            BookManage bookManageForm = new BookManage();
+            BookManage bookManageForm = new BookManage(true);
             bookManageForm.Show();
         }
 

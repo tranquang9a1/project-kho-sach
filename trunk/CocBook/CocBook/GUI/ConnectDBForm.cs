@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CocBook
 {
@@ -19,51 +20,13 @@ namespace CocBook
         {
             InitializeComponent();
         }
-        public bool ChangConnectionString(string Name, string value, string AppName)
-        {
-            bool retVal = false;
-            try
-            {
-                //The application configuration file name
-                string FILE_NANME = string.Concat(Application.StartupPath, "\\", AppName.Trim(), ".exe.Config");
-                XmlTextReader reader = new XmlTextReader(FILE_NANME);
-                XmlDocument doc = new XmlDocument();
-                doc.Load(reader);
-                reader.Close();
-                string nodeRoute = string.Concat("connectionStrings/add");
-
-                XmlNode cnnStr = null;
-                XmlElement root = doc.DocumentElement;
-                XmlNodeList Settings = root.SelectNodes(nodeRoute);
-
-                for (int i = 0; i < Settings.Count; i++)
-                {
-                    cnnStr = Settings[i];
-                    if (cnnStr.Attributes["name"].Value.Equals(Name))
-                        break;
-                    cnnStr = null;
-                }
-
-                cnnStr.Attributes["connectionString"].Value = value;
-                doc.Save(FILE_NANME);
-                retVal = true;
-            }
-            catch (Exception ex)
-            {
-                // Write Log File
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-                retVal = false;
-            }
-
-            return retVal;
-        }
-
         private void buttonConnect_Click(object sender, EventArgs e)
         {
             try
             {
                 CustomizeConnectionString();
                 bool rs = TestConnectToDB();
+
                 if (rs)
                 {
                     LoginForm loginForm = new LoginForm();
@@ -84,25 +47,29 @@ namespace CocBook
 
         private void CustomizeConnectionString()
         {
+            string cs;
+            string dbName = txtDBName.Text;
             if (cbAuthentication.SelectedIndex == 0)
             {
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;
-                string cs = "Server=(local);Database = CocBook;uid=" + username + ";pwd=" + password;
-                ChangConnectionString("BookStoreCS", cs, "CocBook");
+                
+                cs = "Server=(local);Database = " + dbName + ";uid=" + username + ";pwd=" + password;
             }
             else
             {
-                string cs = "Data Source=(local); Initial Catalog=CocBook; Integrated Security=SSPI";
-                ChangConnectionString("BookStoreCS", cs, "CocBook");
+                cs = "Data Source=(local); Initial Catalog="+dbName+"; Integrated Security=SSPI";
             }
+            
+            Properties.Settings.Default.connectionString = cs;
+            Properties.Settings.Default.Save();
         }
 
         private bool TestConnectToDB()
         {
             try
             {
-                string connect = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string connect = Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(connect);
                 con.Open();
                 con.Close();
@@ -130,6 +97,8 @@ namespace CocBook
                 else
                 {
                     lbUsername.Text = "Username:";
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
                     txtPassword.Enabled = false;
                     txtUsername.Enabled = false;
                 }

@@ -14,13 +14,9 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                // ConnectionString to DB
-                /*ConnectionString Error
-                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
-                */
-                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
-                //
+               
 
                 //Insert Command
                 SqlCommand cmd = new SqlCommand("Insert into IEDetail values (@CheckNo,@ISBNBook,@Quantity,@Discount,@Value)", con);
@@ -46,12 +42,8 @@ namespace DataAccessLayer.cs.DAL
 
             try
             {
-                // ConnectionString to DB
-                /*ConnectionString Error
-                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
-                */
-                SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
                 //Update Command
                 SqlCommand cmd = new SqlCommand("UPDATE IEDetail SET Quantity = @quantity, Discount = @discount, Value = @value WHERE CheckNo = @no AND ISBNBook = @isbn", con);
@@ -76,8 +68,8 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                
-                string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 
                // SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
@@ -101,8 +93,8 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<IEDetail> GetAllIEDetail()
         {
-           
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
@@ -133,7 +125,7 @@ namespace DataAccessLayer.cs.DAL
         {
 
 
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
 
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
@@ -164,8 +156,8 @@ namespace DataAccessLayer.cs.DAL
         public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
         {
 
-            
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
@@ -184,13 +176,14 @@ namespace DataAccessLayer.cs.DAL
                 iedetail.Quantity = (int)sdr["Quantity"];
                 iedetail.Discount = (int)sdr["Discount"];
                 iedetail.Value = (int)sdr["Value"];
+                return iedetail;
             }
             con.Close();
-            return iedetail;
+            return null;
         }
         public bool HasIEWithCheckNo(int no)
         {
-            string cs = ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
 
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");

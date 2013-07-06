@@ -106,3 +106,22 @@ Parameter name: index'
 Parameter name: index'
 7/6/2013 3:46:32 PM' Error 'Index was out of range. Must be non-negative and less than the size of the collection.
 Parameter name: index'
+7/6/2013 9:30:51 PM' Error 'Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index'
+7/6/2013 9:34:36 PM' Error 'Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index'
+7/6/2013 9:35:19 PM' Error 'The parameterized query '(@ISBN nvarchar(4000))Select * from BookStore where ISBN = @ISBN' expects the parameter '@ISBN', which was not supplied.'
+7/6/2013 9:42:49 PM' Error 'Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index'
+7/6/2013 10:44:38 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:45:17 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:45:31 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:46:56 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:47:11 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:47:14 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:47:29 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:47:36 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:47:38 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 10:51:44 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 11:27:59 PM' Error 'Login failed for user 'sa'.'
+7/6/2013 11:28:51 PM' Error 'Login failed for user 'sa'.'

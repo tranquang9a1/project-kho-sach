@@ -13,7 +13,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Insert into Book values (@ISBN, @Name, @PublisherName, @Unit, @Price)", con);
 
@@ -38,7 +38,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public bool DeleteBook(string ISBNBook)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Delete from Book where ISBNBook = @ISBN", con);
             cmd.Parameters.AddWithValue("ISBN", ISBNBook);
@@ -51,7 +51,7 @@ namespace DataAccessLayer.cs.DAL
         {
             try
             {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+                string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Update Book set BookName = @Name, PublisherName = @PublisherName, Unit = @Unit, Price = @Price where ISBNBook = @ISBN", con);
                 cmd.Parameters.AddWithValue("Name", book.BookName);
@@ -75,7 +75,7 @@ namespace DataAccessLayer.cs.DAL
         public Book GetBookbyISBN(string ISBNBook)
         {
 
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book where ISBNBook = @ISBN", con);
             cmd.Parameters.AddWithValue("ISBN", ISBNBook);
@@ -98,7 +98,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Book> GetAllBook()
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book", con);
             con.Open();
@@ -120,7 +120,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Book> GetBookbyName(string name)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book where BookName = @Name", con);
             cmd.Parameters.AddWithValue("Name", name);
@@ -142,7 +142,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Book> GetBookbyPublisherName(string publisher)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book where PublisherName = @Name", con);
             cmd.Parameters.AddWithValue("Name", publisher);
@@ -164,7 +164,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public List<Book> GetBookbyPrice(int price)
         {
-            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("Select * from Book where Price = @Price", con);
             cmd.Parameters.AddWithValue("Price", price);

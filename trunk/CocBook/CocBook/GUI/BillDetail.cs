@@ -22,8 +22,9 @@ namespace CocBook
         Book book = new Book();
         BookDAL bookDAL = new BookDAL();
         IEDetailDAL ieDAL = new IEDetailDAL();
-        IEDetail iedetail = new IEDetail();
+        IEDetail ieDetail = new IEDetail();
         bool isADD = false;
+        BookManage chooseBook = new BookManage(false);
         public BillDetail()
         {
             InitializeComponent();
@@ -33,8 +34,8 @@ namespace CocBook
         {
             try
             {
-                lbDetail.Text = "Phiếu " + importExport.ImEx + " số " + importExport.CheckNo;
-                iedetail.CheckNo = importExport.CheckNo;
+                lbDetail.Text = "Phiếu " + importExport.ImEx + "\nKiểu " + importExport.Type + "\nSố " + importExport.CheckNo;
+                ieDetail.CheckNo = importExport.CheckNo;
                 customer = customerDAL.GetCustomerbyID(importExport.CustomerID);
                 List<GridViewRow> list = new List<GridViewRow>();
                 List<IEDetail> iedetail1 = new List<IEDetail>();
@@ -74,6 +75,8 @@ namespace CocBook
                 //editrow.ShowDialog();
 
                 txtBookName.ReadOnly = false;
+                btnChooseBook.Enabled = true;
+                groupBoxDetail.Enabled = true;
                 isADD = true;
                 ClearAll();
             }
@@ -91,25 +94,7 @@ namespace CocBook
             txtQuantity.Text = "";
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                EditRow editrow = new EditRow();
-                editrow.ieDetail = iedetail;
-                editrow.book = book;
-                editrow.Add = false;
-                editrow.LoadData();
-                editrow.importRowEvent += new ImportRow(editrow_importRowEvent);
-                editrow.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
-        }
-
+        
         void editrow_importRowEvent()
         {
             OrderLoadData();
@@ -120,14 +105,14 @@ namespace CocBook
             try
             {
                 groupBoxDetail.Enabled = true;
-                iedetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                book.ISBNBook = iedetail.ISBNBook;
+                ieDetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                book.ISBNBook = ieDetail.ISBNBook;
                 book.BookName = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 book.Unit = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                iedetail.Quantity = (int)dataGridView1.SelectedRows[0].Cells[3].Value;
+                ieDetail.Quantity = (int)dataGridView1.SelectedRows[0].Cells[3].Value;
                 book.Price = (int)dataGridView1.SelectedRows[0].Cells[4].Value;
-                iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
-                iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
+                ieDetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
+                ieDetail.Value = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
 
                 txtBookName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 txtQuantity.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -147,7 +132,7 @@ namespace CocBook
             {
                 if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, iedetail.ISBNBook);
+                    ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, ieDetail.ISBNBook);
                 }
                 ClearAll();
                 OrderLoadData();
@@ -158,89 +143,68 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
-        
-        private void btnSaveAll_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                bool rs = UpdateStore();
-                if (rs)
-                {
-                    MessageBox.Show("Cập nhật thành công !");
-                }
-            }
-            catch (Exception ex)
-            {
 
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
-        }
+
         private bool UpdateStore()
         {
 
             try
             {
                 bool rs = true;
-                int rows;
-                string error = "";
-                for (rows = 0; rows < dataGridView1.Rows.Count; rows++)
-                {
-                    BookStore bookStore = new BookStore();
-                    BookStoreDAL bookStoreDAL = new BookStoreDAL();
-                    string ISBN = dataGridView1.Rows[rows].Cells[0].Value.ToString();
-                    int Quantity = (int)dataGridView1.Rows[rows].Cells[3].Value;
 
-                    bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
-                    if (bookStore == null)
+                string error = "";
+
+                BookStore bookStore = new BookStore();
+                BookStoreDAL bookStoreDAL = new BookStoreDAL();
+                string ISBN = ieDetail.ISBNBook;
+                int Quantity = ieDetail.Quantity;
+                bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
+                if (bookStore == null)
+                {
+                    if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
                     {
-                        if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                        BookStore bookStore1 = new BookStore();
+                        bookStore1.ISBN = ISBN;
+                        bookStore1.Quantity = Quantity;
+                        rs = bookStoreDAL.CreateBookStore(bookStore1);
+                        if (!rs)
                         {
-                            BookStore bookStore1 = new BookStore();
-                            bookStore1.ISBN = ISBN;
-                            bookStore1.Quantity = Quantity;
-                            rs = bookStoreDAL.CreateBookStore(bookStore1);
-                            if (!rs)
-                            {
-                                error = "Không thể thêm sách tại dòng " + (rows+1);
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            rs = false;
-                            error = "Không thể xuất sách không có trong kho";
-                            break;
+                            error = "Không thể thêm sách tại dòng ";
                         }
                     }
                     else
                     {
-                        if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                        rs = false;
+                        error = "Không thể xuất sách không có trong kho";
+                    }
+                }
+                else
+                {
+                    if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
+                    {
+                        bookStore.Quantity += Quantity;
+                    }
+                    else
+                    {
+                        if (bookStore.Quantity >= Quantity)
                         {
-                            bookStore.Quantity += Quantity;
+                            bookStore.Quantity -= Quantity;
                         }
                         else
                         {
-                            if (bookStore.Quantity >= Quantity)
-                            {
-                                bookStore.Quantity -= Quantity;
-                            }
-                            else
-                            {
-                                rs = false;
-                                error = "Số lượng sách tại dòng " + rows + " lớn hơn số lượng có trong kho";
-                                break;
-                            }
-                        }
-
-                        rs = bookStoreDAL.UpdateBookStore(bookStore);
-                        if (!rs)
-                        {
-                            error = "Không thể cập nhật sách tại dòng " + rows;
-                            break;
+                            rs = false;
+                            error = "Số lượng sách lớn hơn số lượng có trong kho";
                         }
                     }
 
+                    rs = bookStoreDAL.UpdateBookStore(bookStore);
+                    if (!rs)
+                    {
+                        error = "Không thể cập nhật sách.";
+                    }
                 }
+
+
                 if (!rs)
                 {
                     MessageBox.Show(error + ". Vui lòng xem lại !");
@@ -249,7 +213,6 @@ namespace CocBook
             }
             catch (Exception ex)
             {
-
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
                 return false;
             }
@@ -484,11 +447,99 @@ namespace CocBook
 
         private void btnSaveDetail_Click(object sender, EventArgs e)
         {
+            if (ValidateData())
+            {
+                SaveToDB();
+            }
 
         }
-        private void ValidateData()
+        private bool ValidateData()
         {
+            if (txtBookName == null)
+            {
+                MessageBox.Show("Vui lòng chọn sách !");
+                return false;
+            }
+            if (txtDiscount == null)
+            {
+                MessageBox.Show("Vui lòng nhập chiết khấu !");
+                return false;
+            }
+            if (txtQuantity == null)
+            {
+                MessageBox.Show("Vui lòng nhập số lượng !");
+                return false;
+            }
+            return true;
+        }
+        private void SaveToDB()
+        {
+            ieDetail.Quantity = int.Parse(txtQuantity.Text);
+            ieDetail.Discount = int.Parse(txtDiscount.Text);
+            ieDetail.Value = (book.Price * ieDetail.Quantity * (100 - ieDetail.Discount)) / 100;
+            if (UpdateStore())
+            {
+                bool rs;
+                if (isADD)
+                {
+                    if (ieDAL.GetIEDetailByCheckNoAndISBN(ieDetail.CheckNo, ieDetail.ISBNBook) == null)
+                    {
+                        rs = ieDAL.CreateIEDetail(ieDetail);
+                    }
+                    else
+                    {
+                        rs = false;
+                        MessageBox.Show("Đã có sách trong phiếu. Vui lòng chỉnh sửa từ danh sách !");
+                    }
+                }
+                else
+                {
+                    rs = ieDAL.UpdateIEDetail(ieDetail);
+                }
+                if (rs)
+                {
+                    MessageBox.Show("Đã lưu !");
+                    OrderLoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lưu !");
+                }
+            }
+        }
 
+        private void btnChooseBook_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                chooseBook.chooseEvent += new ChooseBook(chooseBook_importEvent);
+                chooseBook.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
+        }
+        private void chooseBook_importEvent()
+        {
+            try
+            {
+                book = chooseBook.book;
+                ieDetail.ISBNBook = book.ISBNBook;
+                txtBookName.Text = book.BookName;
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
+        }
+
+        private void btnViewStore_Click(object sender, EventArgs e)
+        {
+            ViewStore viewStore = new ViewStore();
+            viewStore.Show();
         }
     }
     public class GridViewRow

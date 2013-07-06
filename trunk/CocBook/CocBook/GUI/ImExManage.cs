@@ -32,18 +32,21 @@ namespace CocBook
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ClearAll();
+            groupBoxDetail.Enabled = true;
+            txtCheckNo.ReadOnly = false;
             isAdd = true;
         }
         private void ClearAll()
         {
             try
             {
-                txtCheckNo.ReadOnly = false;
+                txtCheckNo.ReadOnly = true;
                 txtCheckNo.Text = "";
                 txtDay.Text = "";
                 radioButtonImport.Checked = false;
                 radioButtonExport.Checked = false;
                 txtCustomerName.Text = "";
+                cbType.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
