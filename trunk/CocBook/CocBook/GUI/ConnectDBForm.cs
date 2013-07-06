@@ -49,16 +49,17 @@ namespace CocBook
         {
             string cs;
             string dbName = txtDBName.Text;
+            string serverName = txtServerName.Text;
             if (cbAuthentication.SelectedIndex == 0)
             {
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;
                 
-                cs = "Server=(local);Database = " + dbName + ";uid=" + username + ";pwd=" + password;
+                cs = "Server="+serverName+";Database = " + dbName + ";uid=" + username + ";pwd=" + password;
             }
             else
             {
-                cs = "Data Source=(local); Initial Catalog="+dbName+"; Integrated Security=SSPI";
+                cs = "Data Source="+serverName+"; Initial Catalog="+dbName+"; Integrated Security=SSPI";
             }
             
             Properties.Settings.Default.connectionString = cs;
