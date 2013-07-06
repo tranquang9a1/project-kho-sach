@@ -37,11 +37,13 @@
             this.cbAuthentication = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDBName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtServerName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(167, 192);
+            this.btnConnect.Location = new System.Drawing.Point(167, 222);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 0;
@@ -63,7 +65,7 @@
             // 
             this.lbUsername.AutoSize = true;
             this.lbUsername.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsername.Location = new System.Drawing.Point(40, 83);
+            this.lbUsername.Location = new System.Drawing.Point(40, 113);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(63, 15);
             this.lbUsername.TabIndex = 3;
@@ -72,7 +74,7 @@
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(129, 83);
+            this.txtUsername.Location = new System.Drawing.Point(129, 113);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 22);
             this.txtUsername.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 114);
+            this.label2.Location = new System.Drawing.Point(41, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 15);
             this.label2.TabIndex = 5;
@@ -90,7 +92,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(129, 114);
+            this.txtPassword.Location = new System.Drawing.Point(129, 144);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(200, 22);
             this.txtPassword.TabIndex = 6;
@@ -113,7 +115,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 145);
+            this.label3.Location = new System.Drawing.Point(7, 175);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 8;
@@ -122,11 +124,30 @@
             // txtDBName
             // 
             this.txtDBName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDBName.Location = new System.Drawing.Point(129, 145);
+            this.txtDBName.Location = new System.Drawing.Point(129, 175);
             this.txtDBName.Name = "txtDBName";
             this.txtDBName.Size = new System.Drawing.Size(200, 22);
             this.txtDBName.TabIndex = 9;
             this.txtDBName.Text = "CocBook";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(25, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 15);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Server name :";
+            // 
+            // txtServerName
+            // 
+            this.txtServerName.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerName.Location = new System.Drawing.Point(129, 80);
+            this.txtServerName.Name = "txtServerName";
+            this.txtServerName.Size = new System.Drawing.Size(200, 22);
+            this.txtServerName.TabIndex = 11;
+            this.txtServerName.Text = "(local)";
             // 
             // ConnectDBForm
             // 
@@ -134,6 +155,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 261);
+            this.Controls.Add(this.txtServerName);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDBName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbAuthentication);
@@ -162,5 +185,7 @@
         private System.Windows.Forms.ComboBox cbAuthentication;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDBName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtServerName;
     }
 }
