@@ -16,7 +16,7 @@ namespace DataAccessLayer.cs.DAL
                 string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Insert into Book values (@ISBN, @Name, @PublisherName, @Unit, @Price)", con);
-                
+
                 cmd.Parameters.AddWithValue("ISBN", book.ISBNBook);
                 cmd.Parameters.AddWithValue("Name", book.BookName);
                 cmd.Parameters.AddWithValue("PublisherName", book.PublisherName);
@@ -38,23 +38,14 @@ namespace DataAccessLayer.cs.DAL
         }
         public bool DeleteBook(string ISBNBook)
         {
-            try
-            {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Delete from Book where ISBNBook = @ISBN", con);
-                cmd.Parameters.AddWithValue("ISBN", ISBNBook);
-                con.Open();
-                int count = cmd.ExecuteNonQuery();
-                con.Close();
-                return (count == 1);
-
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Delete from Book where ISBNBook = @ISBN", con);
+            cmd.Parameters.AddWithValue("ISBN", ISBNBook);
+            con.Open();
+            int count = cmd.ExecuteNonQuery();
+            con.Close();
+            return (count == 1);
         }
         public bool UpdateBook(Book book)
         {
@@ -125,8 +116,8 @@ namespace DataAccessLayer.cs.DAL
             }
             con.Close();
             return list;
-        
-    }
+
+        }
         public List<Book> GetBookbyName(string name)
         {
             string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;

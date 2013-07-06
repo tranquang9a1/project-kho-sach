@@ -17,6 +17,8 @@ namespace CocBook
         LogFile logger = new LogFile();
         public event LoadCustomerName loadCustomerNameEvent;
         public Customer customer = new Customer();
+        bool isAdd = false;
+
         public CustomerManage()
         {
             InitializeComponent();
@@ -33,39 +35,27 @@ namespace CocBook
         {
             try
             {
-                CustomerDetail customerDetail = new CustomerDetail();
-                customerDetail.Add = true;
-                customerDetail.NotifyEvent += new Notify(CustomerDetail_NotifyEvent);
-                customerDetail.Show();
+                groupBoxDetail.Enabled = true;
+                ClearAll();
+                isAdd = true;
             }
             catch (Exception ex)
             {
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
+        }
+        private void ClearAll()
+        {
+            txtName.Text = "";
+            txtAddress.Text = "";
+            txtPhone.Text = "";
+            txtTaxNo.Text = "";
         }
 
         void CustomerDetail_NotifyEvent()
         {
             loadAllData();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CustomerDetail customerDetail = new CustomerDetail();
-                customerDetail.customer = customer;
-                customerDetail.Add = false;
-                customerDetail.LoadData();
-                customerDetail.NotifyEvent += new Notify(CustomerDetail_NotifyEvent);
-                customerDetail.Show();
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -96,6 +86,13 @@ namespace CocBook
                 customer.Address = CustomerDataGridView.SelectedRows[0].Cells[2].Value.ToString();
                 customer.Phone = CustomerDataGridView.SelectedRows[0].Cells[3].Value.ToString();
                 customer.TaxNo = CustomerDataGridView.SelectedRows[0].Cells[4].Value.ToString();
+
+                
+                txtName.Text = CustomerDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                txtAddress.Text = CustomerDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+                txtPhone.Text = CustomerDataGridView.SelectedRows[0].Cells[3].Value.ToString();
+                txtTaxNo.Text = CustomerDataGridView.SelectedRows[0].Cells[4].Value.ToString();
+                groupBoxDetail.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -103,7 +100,7 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
-
+        
         private void btnChoose_Click(object sender, EventArgs e)
         {
             try
@@ -129,5 +126,57 @@ namespace CocBook
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validate())
+                {
+                    SaveToDB();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
+
+        }
+        private bool ValidateData()
+        {
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Hãy nhập tên");
+                txtName.Focus();
+                return false;
+            }
+            return true;
+        }
+        private void SaveToDB()
+        {
+            customer.CustomerName = txtName.Text;
+            customer.Address = txtAddress.Text;
+            customer.Phone = txtPhone.Text;
+            customer.TaxNo = txtTaxNo.Text;
+            CustomerDAL customerDAL = new CustomerDAL();
+            bool rs;
+            if (isAdd)
+            {
+                rs = customerDAL.CreateCustomer(customer);
+            }
+            else
+            {
+                rs = customerDAL.UpdateCustomer(customer);
+            }
+            if (rs)
+            {
+                MessageBox.Show("Đã lưu !");
+                loadAllData();
+            }
+            else
+            {
+                MessageBox.Show("Không thể lưu !");
+            }
+        }
     }
 }
