@@ -34,3 +34,11 @@
 If you are trying to open the file from your list of most recently used files, make sure that the file has not been renamed, moved, or deleted.'
 7/4/2013 1:40:27 AM' Error 'Object reference not set to an instance of an object.'
 7/4/2013 11:27:24 PM' Error 'Object reference not set to an instance of an object.'
+7/6/2013 12:47:25 PM' Error 'The DELETE statement conflicted with the REFERENCE constraint "FK_IEDetail_ImportExport". The conflict occurred in database "CocBook", table "dbo.IEDetail", column 'CheckNo'.
+The statement has been terminated.'
+7/6/2013 12:54:33 PM' Error 'The DELETE statement conflicted with the REFERENCE constraint "FK_IEDetail_ImportExport". The conflict occurred in database "CocBook", table "dbo.IEDetail", column 'CheckNo'.
+The statement has been terminated.'
+7/6/2013 1:06:21 PM' Error 'The DELETE statement conflicted with the REFERENCE constraint "FK_CheckDetail_Book". The conflict occurred in database "CocBook", table "dbo.IEDetail", column 'ISBNBook'.
+The statement has been terminated.'
+7/6/2013 1:20:32 PM' Error 'The DELETE statement conflicted with the REFERENCE constraint "FK_IEDetail_ImportExport". The conflict occurred in database "CocBook", table "dbo.IEDetail", column 'CheckNo'.
+The statement has been terminated.'

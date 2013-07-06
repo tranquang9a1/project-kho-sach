@@ -10,10 +10,13 @@ using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
 using CocBook.DTO;
 using System.Globalization;
+using System.Data.SqlClient;
 
 namespace CocBook
 {
-
+    /// <summary>
+    /// If have time change txtDay to MonthCalendar
+    /// </summary>
     public partial class ImExManage : Form
     {
         LogFile logger = new LogFile();
@@ -28,26 +31,24 @@ namespace CocBook
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            ClearAll();
+            isAdd = true;
+        }
+        private void ClearAll()
+        {
             try
             {
-                InfoDetail infoDetail = new InfoDetail();
-                infoDetail.add = true;
-
-                isAdd = true;
-                txtCheckNo.Text = "";
                 txtCheckNo.ReadOnly = false;
+                txtCheckNo.Text = "";
                 txtDay.Text = "";
-                radioButtonExport.Checked = false;
                 radioButtonImport.Checked = false;
-                cbType.Items.Clear();
+                radioButtonExport.Checked = false;
                 txtCustomerName.Text = "";
-                infoDetail.Show();
-                //this.Close();
             }
             catch (Exception ex)
             {
 
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'"); ;
             }
         }
         private void LoadAllData()
@@ -68,34 +69,6 @@ namespace CocBook
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                if (importExport == null)
-                {
-                    MessageBox.Show("Vui lòng chọn phiếu muốn chỉnh sửa !");
-                }
-                else
-                {
-                    InfoDetail infoDetail = new InfoDetail();
-                    infoDetail.add = false;
-                    infoDetail.importExport = importExport;
-                    CustomerDAL cusDAL = new CustomerDAL();
-                    infoDetail.customer = cusDAL.GetCustomerbyID(importExport.CustomerID);
-                    infoDetail.LoadData();
-                    infoDetail.Show();
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
-        }
-
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             try
@@ -105,6 +78,7 @@ namespace CocBook
                 importExport.ImEx = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 importExport.Type = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
 
+                groupBoxDetail.Enabled = true;
                 CustomerDAL cusDAL = new CustomerDAL();
                 string CusName = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 importExport.CustomerID = cusDAL.GetCustomerbyName(CusName).CustomerID;
@@ -206,6 +180,7 @@ namespace CocBook
             {
                 if (radioButtonImport.Checked == true)
                 {
+                    cbType.SelectedIndex = -1;
                     cbType.Items.Clear();
                     cbType.Items.Add("Ký gửi");
                     cbType.Items.Add("Bán lẻ");
@@ -213,6 +188,7 @@ namespace CocBook
                 }
                 else if (radioButtonExport.Checked == true)
                 {
+                    cbType.SelectedIndex = -1;
                     cbType.Items.Clear();
                     cbType.Items.Add("Ký gửi");
                     cbType.Items.Add("Bán lẻ");
@@ -229,64 +205,104 @@ namespace CocBook
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveToDB();
+            if (ValidateData())
+            {
+                SaveToDB();
+            }            
         }
         private void SaveToDB()
         {
-            ImportExportDAL importExportDAL = new ImportExportDAL();
-            if (txtCheckNo.Text != null)
+            try
             {
-                importExport.CheckNo = int.Parse(txtCheckNo.Text);
+                ImportExportDAL importExportDAL = new ImportExportDAL();
+                if (ValidateData())
+                {
+                    importExport.CheckNo = int.Parse(txtCheckNo.Text);
+                    importExport.Date = DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    if (radioButtonImport.Checked)
+                    {
+                        importExport.ImEx = "Nhập";
+                    }
+                    else if (radioButtonExport.Checked)
+                    {
+                        importExport.ImEx = "Xuất";
+                    }
+                    importExport.Type = cbType.SelectedItem.ToString();
+                    CustomerDAL customerDAL = new CustomerDAL();
+                    importExport.CustomerID = customerDAL.GetCustomerbyName(txtCustomerName.Text).CustomerID;
+                }
+                bool rs;
+                if (isAdd)
+                {
+                    rs = importExportDAL.CreateIE(importExport);
+                }
+                else
+                {
+                    rs = importExportDAL.UpdateIE(importExport);
+                }
+                if (rs)
+                {
+                    MessageBox.Show("Đã lưu !");
+                    LoadAllData();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lưu !");
+                }
             }
-            else
+            catch (Exception ex)
+            {
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
+        }
+        private bool ValidateData()
+        {
+            if (txtCheckNo.Text == null)
             {
                 MessageBox.Show("Bạn chưa điền số phiếu! Vui lòng nhập lại! ");
                 txtCheckNo.Focus();
+                return false;
             }
-            if (txtDay.Text != null)
+            if (txtDay.Text == null)
             {
-                importExport.Date = DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                MessageBox.Show("Vui lòng nhập thời gian !");
+                txtDay.Focus();
+                return false;
             }
-            else
+            try
+            {
+                DateTime.ParseExact(txtDay.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Vui lòng nhập thời gian dạng 25/12/1993 !");
                 txtDay.Focus();
+                return false;
             }
-
-            if (radioButtonImport.Checked)
+            if (!radioButtonImport.Checked && !radioButtonExport.Checked)
             {
-                importExport.ImEx = "Nhập";
+                MessageBox.Show("Vui lòng chọn Nhập hay Xuất !");
+                return false;
             }
-            else if (radioButtonExport.Checked)
+            if (cbType.SelectedIndex == -1)
             {
-                importExport.ImEx = "Xuất";
+                MessageBox.Show("Vui lòng chọn loại phiếu !");
+                cbType.Focus();
+                return false;
             }
-            importExport.Type = cbType.SelectedItem.ToString();
-            if (txtCustomerName != null)
-            {
-                CustomerDAL customerDAL = new CustomerDAL();
-                importExport.CustomerID = customerDAL.GetCustomerbyName(txtCustomerName.Text).CustomerID;
-            }
-            else
+            if (txtCustomerName.Text == null)
             {
                 MessageBox.Show("Bạn chưa chọn khách hàng. Vui lòng chọn!");
                 txtCustomerName.Focus();
+                return false;
             }
-            if (isAdd)
-            {
-                importExportDAL.CreateIE(importExport);
-            }
-            else
-            {
-                importExportDAL.UpdateIE(importExport);
-            }
+            return true;
         }
 
         private void btnChooseCustomer_Click(object sender, EventArgs e)
         {
             try
             {
-                
                 customerManage.loadCustomerNameEvent += new LoadCustomerName(loadCustomerName);
                 customerManage.ShowDialog();
             }
@@ -296,11 +312,12 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
-        void loadCustomerName()
+        private void loadCustomerName()
         {
             try
             {
                 txtCustomerName.Text = customerManage.customer.CustomerName.ToString();
+                LoadAllData();
             }
             catch (Exception ex)
             {
@@ -317,6 +334,36 @@ namespace CocBook
             billDetail.OrderLoadData();
             billDetail.Show();
             this.Close();
+        }
+
+        private void btnLoadAll_Click(object sender, EventArgs e)
+        {
+            LoadAllData();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int no = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                    ImportExportDAL DAL = new ImportExportDAL();
+                    DAL.DeleteIE(no);
+                }
+                ClearAll();
+                LoadAllData();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Vui lòng xóa toàn bộ sách trong phiếu trước khi xóa phiếu !");
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + sqlEx.Message + "'");
+            }
+            catch (Exception ex)
+            {
+
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
+            }
         }
     }
 }

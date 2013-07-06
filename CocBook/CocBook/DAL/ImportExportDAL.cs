@@ -36,24 +36,15 @@ namespace DataAccessLayer.cs.DAL
         }
         public bool DeleteIE(int No)
         {
-            try
-            {
-                string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
-                SqlConnection con = new SqlConnection(cs);
-                SqlCommand cmd = new SqlCommand("Delete from ImportExport where CheckNo = @No", con);
-                cmd.Parameters.AddWithValue("No", No);
-                con.Open();
-                int count = cmd.ExecuteNonQuery();
-                con.Close();
-                return (count == 1);
-            }
-            catch (Exception)
-            {
 
-                return false;
-            }
-
-
+            string cs = System.Configuration.ConfigurationManager.ConnectionStrings["BookStoreCS"].ConnectionString;
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Delete from ImportExport where CheckNo = @No", con);
+            cmd.Parameters.AddWithValue("No", No);
+            con.Open();
+            int count = cmd.ExecuteNonQuery();
+            con.Close();
+            return (count == 1);
         }
         public bool UpdateIE(ImportExport ie)
         {
@@ -123,7 +114,7 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
-        public List<OpenImportExport> GetAllOpenIE(List<ImportExport>listIE)
+        public List<OpenImportExport> GetAllOpenIE(List<ImportExport> listIE)
         {
             List<OpenImportExport> result = new List<OpenImportExport>();
             listIE = GetAllIE();

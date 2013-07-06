@@ -35,13 +35,14 @@
             this.IE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.rbExport = new System.Windows.Forms.RadioButton();
             this.rbImport = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnLoadAll = new System.Windows.Forms.Button();
+            this.groupBoxDetail = new System.Windows.Forms.GroupBox();
             this.btnCheckDetail = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
@@ -58,13 +59,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupBoxDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(67, 394);
+            this.btnAdd.Location = new System.Drawing.Point(289, 404);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 0;
@@ -96,45 +97,40 @@
             this.CheckNo.DataPropertyName = "CheckNo";
             this.CheckNo.HeaderText = "Số phiếu";
             this.CheckNo.Name = "CheckNo";
+            this.CheckNo.ReadOnly = true;
             // 
             // Day
             // 
             this.Day.DataPropertyName = "Date";
             this.Day.HeaderText = "Ngày";
             this.Day.Name = "Day";
+            this.Day.ReadOnly = true;
             // 
             // IE
             // 
             this.IE.DataPropertyName = "ImEx";
             this.IE.HeaderText = "Nhập/Xuất";
             this.IE.Name = "IE";
+            this.IE.ReadOnly = true;
             // 
             // Type
             // 
             this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "Loại";
             this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
             // 
             // CustomerName
             // 
             this.CustomerName.DataPropertyName = "CustomerName";
             this.CustomerName.HeaderText = "Tên khách hàng";
             this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
             this.CustomerName.Width = 200;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(202, 394);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(209, 16);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 25);
@@ -167,8 +163,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(27, 31);
@@ -178,39 +174,63 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(395, 404);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnLoadAll);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.rbImport);
             this.groupBox2.Controls.Add(this.rbExport);
             this.groupBox2.Location = new System.Drawing.Point(44, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(318, 48);
+            this.groupBox2.Size = new System.Drawing.Size(411, 48);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lọc";
             // 
-            // groupBox3
+            // btnLoadAll
             // 
-            this.groupBox3.Controls.Add(this.btnCheckDetail);
-            this.groupBox3.Controls.Add(this.btnSave);
-            this.groupBox3.Controls.Add(this.txtCustomerName);
-            this.groupBox3.Controls.Add(this.btnChooseCustomer);
-            this.groupBox3.Controls.Add(this.cbType);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.radioButtonExport);
-            this.groupBox3.Controls.Add(this.radioButtonImport);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.txtDay);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.txtCheckNo);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(756, 31);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(300, 448);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Chi tiết";
+            this.btnLoadAll.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadAll.Location = new System.Drawing.Point(303, 16);
+            this.btnLoadAll.Name = "btnLoadAll";
+            this.btnLoadAll.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadAll.TabIndex = 3;
+            this.btnLoadAll.Text = "Toàn bộ";
+            this.btnLoadAll.UseVisualStyleBackColor = true;
+            this.btnLoadAll.Click += new System.EventHandler(this.btnLoadAll_Click);
+            // 
+            // groupBoxDetail
+            // 
+            this.groupBoxDetail.Controls.Add(this.btnCheckDetail);
+            this.groupBoxDetail.Controls.Add(this.btnSave);
+            this.groupBoxDetail.Controls.Add(this.txtCustomerName);
+            this.groupBoxDetail.Controls.Add(this.btnChooseCustomer);
+            this.groupBoxDetail.Controls.Add(this.cbType);
+            this.groupBoxDetail.Controls.Add(this.label4);
+            this.groupBoxDetail.Controls.Add(this.radioButtonExport);
+            this.groupBoxDetail.Controls.Add(this.radioButtonImport);
+            this.groupBoxDetail.Controls.Add(this.label3);
+            this.groupBoxDetail.Controls.Add(this.txtDay);
+            this.groupBoxDetail.Controls.Add(this.label2);
+            this.groupBoxDetail.Controls.Add(this.txtCheckNo);
+            this.groupBoxDetail.Controls.Add(this.label1);
+            this.groupBoxDetail.Enabled = false;
+            this.groupBoxDetail.Location = new System.Drawing.Point(756, 31);
+            this.groupBoxDetail.Name = "groupBoxDetail";
+            this.groupBoxDetail.Size = new System.Drawing.Size(300, 448);
+            this.groupBoxDetail.TabIndex = 6;
+            this.groupBoxDetail.TabStop = false;
+            this.groupBoxDetail.Text = "Chi tiết";
             // 
             // btnCheckDetail
             // 
@@ -346,7 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1090, 507);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxDetail);
             this.Controls.Add(this.groupBox1);
             this.Name = "ImExManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -355,8 +375,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupBoxDetail.ResumeLayout(false);
+            this.groupBoxDetail.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -365,13 +385,12 @@
 
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.RadioButton rbExport;
         private System.Windows.Forms.RadioButton rbImport;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxDetail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCheckNo;
         private System.Windows.Forms.Label label2;
@@ -390,5 +409,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IE;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.Button btnLoadAll;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

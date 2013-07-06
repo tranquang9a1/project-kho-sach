@@ -39,7 +39,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDetail = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtUnit = new System.Windows.Forms.TextBox();
@@ -53,7 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // BookGridView
@@ -115,7 +115,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(301, 389);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
@@ -161,27 +161,28 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // groupBox2
+            // groupBoxDetail
             // 
-            this.groupBox2.Controls.Add(this.btnSave);
-            this.groupBox2.Controls.Add(this.txtPrice);
-            this.groupBox2.Controls.Add(this.txtUnit);
-            this.groupBox2.Controls.Add(this.txtPublisher);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtBookName);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtISBN);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(735, 43);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(250, 441);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông tin chi tiết";
+            this.groupBoxDetail.Controls.Add(this.btnSave);
+            this.groupBoxDetail.Controls.Add(this.txtPrice);
+            this.groupBoxDetail.Controls.Add(this.txtUnit);
+            this.groupBoxDetail.Controls.Add(this.txtPublisher);
+            this.groupBoxDetail.Controls.Add(this.label5);
+            this.groupBoxDetail.Controls.Add(this.label4);
+            this.groupBoxDetail.Controls.Add(this.label3);
+            this.groupBoxDetail.Controls.Add(this.txtBookName);
+            this.groupBoxDetail.Controls.Add(this.label2);
+            this.groupBoxDetail.Controls.Add(this.txtISBN);
+            this.groupBoxDetail.Controls.Add(this.label1);
+            this.groupBoxDetail.Enabled = false;
+            this.groupBoxDetail.Location = new System.Drawing.Point(735, 43);
+            this.groupBoxDetail.Name = "groupBoxDetail";
+            this.groupBoxDetail.Size = new System.Drawing.Size(250, 441);
+            this.groupBoxDetail.TabIndex = 6;
+            this.groupBoxDetail.TabStop = false;
+            this.groupBoxDetail.Text = "Thông tin chi tiết";
             // 
             // btnSave
             // 
@@ -207,7 +208,6 @@
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(140, 20);
             this.txtUnit.TabIndex = 8;
-            this.txtUnit.TextChanged += new System.EventHandler(this.txtUnit_TextChanged);
             // 
             // txtPublisher
             // 
@@ -215,7 +215,6 @@
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(140, 20);
             this.txtPublisher.TabIndex = 7;
-            this.txtPublisher.TextChanged += new System.EventHandler(this.txtPublisher_TextChanged);
             // 
             // label5
             // 
@@ -287,15 +286,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 557);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxDetail);
             this.Controls.Add(this.groupBox1);
             this.Name = "BookManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí sách";
             ((System.ComponentModel.ISupportInitialize)(this.BookGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxDetail.ResumeLayout(false);
+            this.groupBoxDetail.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,7 +311,7 @@
         private System.Windows.Forms.Button btnImportFromExcel;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxDetail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtISBN;
         private System.Windows.Forms.Label label2;

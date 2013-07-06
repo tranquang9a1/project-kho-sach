@@ -66,12 +66,6 @@
     <Compile Include="GUI\ChooseBook.Designer.cs">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CustomerDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\CustomerDetail.Designer.cs">
-      <DependentUpon>CustomerDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\CustomerManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +96,6 @@
     </Compile>
     <Compile Include="GUI\ConnectDBForm.Designer.cs">
       <DependentUpon>ConnectDBForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\InfoDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\InfoDetail.Designer.cs">
-      <DependentUpon>InfoDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="LogFile.cs" />
     <Compile Include="GUI\LoginForm.cs">
@@ -160,9 +148,6 @@
     <EmbeddedResource Include="GUI\ChooseBook.resx">
       <DependentUpon>ChooseBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\CustomerDetail.resx">
-      <DependentUpon>CustomerDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\CustomerManage.resx">
       <DependentUpon>CustomerManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,9 +156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ConnectDBForm.resx">
       <DependentUpon>ConnectDBForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\InfoDetail.resx">
-      <DependentUpon>InfoDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

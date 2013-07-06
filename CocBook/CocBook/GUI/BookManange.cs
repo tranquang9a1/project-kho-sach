@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Data.SqlClient;
 
 namespace CocBook
 {
@@ -42,6 +43,8 @@ namespace CocBook
                 txtPublisher.Text = BookGridView.SelectedRows[0].Cells[2].Value.ToString();
                 txtUnit.Text = BookGridView.SelectedRows[0].Cells[3].Value.ToString();
                 txtPrice.Text = BookGridView.SelectedRows[0].Cells[4].Value.ToString();
+
+                groupBoxDetail.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -62,6 +65,11 @@ namespace CocBook
                 }
                 makeAllBlank();
                 LoadAllData();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Không thể xóa vì sách đã có trong phiếu !");
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + sqlEx.Message + "'");
             }
             catch (Exception ex)
             {
@@ -154,76 +162,83 @@ namespace CocBook
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Book book1 = new Book();
-            int price = 0;
+            if (ValidateData())
+            {
+                SaveToDB();
+            }
+        }
+        private bool ValidateData()
+        {
             if (txtISBN.Text == "")
             {
                 MessageBox.Show("Hãy nhập mã số ISBN");
                 txtISBN.Focus();
+                return false;
             }
-            else
-            {
-                book1.ISBNBook = txtISBN.Text;
-            }
-
             if (txtBookName.Text == "")
             {
                 MessageBox.Show("Hãy nhập tên sách !");
                 txtBookName.Focus();
+                return false;
+            }
+            int price = 0;
+            try
+            {
+                price = int.Parse(txtPrice.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui lòng nhập giá bằng số nguyên!");
+                return false;
+            }
+            if (price < 0)
+            {
+                txtPrice.Text = "";
+                MessageBox.Show("Hãy nhập giá tiền bằng số dương!");
+                return false;
             }
 
-
-            else
+            return true;
+        }
+        private void SaveToDB()
+        {
+            Book book = new Book();
+            BookDAL bookDAL = new BookDAL();
+            try
             {
-                book1.BookName = txtBookName.Text;
-                book1.PublisherName = txtPublisher.Text;
-                book1.Unit = txtUnit.Text;
-
-                try
+                book.ISBNBook = txtISBN.Text;
+                book.BookName = txtBookName.Text;
+                book.PublisherName = txtPublisher.Text;
+                book.Unit = txtUnit.Text;
+                book.Price = int.Parse(txtPrice.Text);
+                bool rs;
+                if (isAdd)
                 {
-                    price = int.Parse(txtPrice.Text);
-                }
-                catch (Exception)
-                {
-                    txtPrice.Text = "";
-                }
-                if (price < 0)
-                {
-                    txtPrice.Text = "";
-                    MessageBox.Show("Hãy nhập giá tiền bằng số dương!");
-                }
-                else if (price > 0)
-                {
-                    book1.Price = price;
-                    BookDAL bookDAL = new BookDAL();
-                    bool rs;
-                    if (isAdd)
-                    {
-                        rs = bookDAL.CreateBook(book1);
-                    }
-                    else
-                    {
-                        rs = bookDAL.UpdateBook(book1);
-                    }
-                    if (rs)
-                    {
-                        MessageBox.Show("Đã lưu !");
-                        LoadAllData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thể lưu !");
-                    }
+                    rs = bookDAL.CreateBook(book);
                 }
                 else
                 {
-                    MessageBox.Show("Hãy nhập giá tiền bằng số !");
+                    rs = bookDAL.UpdateBook(book);
+                }
+                if (rs)
+                {
+                    MessageBox.Show("Đã lưu !");
+                    LoadAllData();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể lưu !");
                 }
             }
-        }
+            catch (Exception ex)
+            {
 
-        private void button1_Click(object sender, EventArgs e)
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'"); ;
+            }
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            groupBoxDetail.Enabled = true;
             makeAllBlank();
         }
         private void makeAllBlank()
@@ -235,16 +250,6 @@ namespace CocBook
             txtPublisher.Text = "";
             txtUnit.Text = "";
             isAdd = true;
-        }
-
-        private void txtUnit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPublisher_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 
