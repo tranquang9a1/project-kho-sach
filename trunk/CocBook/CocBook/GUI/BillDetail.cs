@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
 using DataAccessLayer.DAL;
-using Excel = Microsoft.Office.Interop.Excel; 
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CocBook
 {
@@ -23,15 +23,17 @@ namespace CocBook
         BookDAL bookDAL = new BookDAL();
         IEDetailDAL ieDAL = new IEDetailDAL();
         IEDetail iedetail = new IEDetail();
+        bool isADD = false;
         public BillDetail()
         {
             InitializeComponent();
         }
-            
+
         public void OrderLoadData()
         {
             try
             {
+                lbDetail.Text = "Phiếu " + importExport.ImEx + " số " + importExport.CheckNo;
                 iedetail.CheckNo = importExport.CheckNo;
                 customer = customerDAL.GetCustomerbyID(importExport.CustomerID);
                 List<GridViewRow> list = new List<GridViewRow>();
@@ -58,27 +60,36 @@ namespace CocBook
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-            
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                EditRow editrow = new EditRow();
-                editrow.ieDetail.CheckNo = importExport.CheckNo;
-                editrow.Add = true;
-                editrow.importRowEvent += new ImportRow(OrderLoadData);
-                editrow.ShowDialog();
+                //EditRow editrow = new EditRow();
+                //editrow.ieDetail.CheckNo = importExport.CheckNo;
+                //editrow.Add = true;
+                //editrow.importRowEvent += new ImportRow(OrderLoadData);
+                //editrow.ShowDialog();
+
+                txtBookName.ReadOnly = false;
+                isADD = true;
+                ClearAll();
             }
             catch (Exception ex)
             {
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
-            
-        }
 
+        }
+        private void ClearAll()
+        {
+            txtBookName.Text = "";
+            txtDiscount.Text = "";
+            txtQuantity.Text = "";
+        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -108,14 +119,19 @@ namespace CocBook
         {
             try
             {
-                iedetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                groupBoxDetail.Enabled = true;
+                iedetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 book.ISBNBook = iedetail.ISBNBook;
-                book.BookName = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                book.Unit = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                iedetail.Quantity = (int)dataGridView1.SelectedRows[0].Cells[4].Value;
-                book.Price = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
-                iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
-                iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[7].Value;
+                book.BookName = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                book.Unit = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                iedetail.Quantity = (int)dataGridView1.SelectedRows[0].Cells[3].Value;
+                book.Price = (int)dataGridView1.SelectedRows[0].Cells[4].Value;
+                iedetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
+                iedetail.Value = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
+
+                txtBookName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                txtQuantity.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                txtDiscount.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
 
             }
             catch (Exception ex)
@@ -129,15 +145,11 @@ namespace CocBook
         {
             try
             {
-                bool del = ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, iedetail.ISBNBook);
-                if (del)
-                    {
-                        MessageBox.Show("Đã xóa!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Có lỗi xảy ra, vui lòng kiểm tra lại.");
-                    }
+                if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, iedetail.ISBNBook);
+                }
+                ClearAll();
                 OrderLoadData();
             }
             catch (Exception ex)
@@ -146,34 +158,16 @@ namespace CocBook
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
         }
-        public void AutoNumberRowsForGridView(DataGridView dataGridView)
-        {
-            try
-            {
-                if (dataGridView != null)
-                {
-                    for (int count = 0; (count <= (dataGridView.Rows.Count - 2)); count++)
-                    {
-                        dataGridView.Rows[count].HeaderCell.Value = string.Format((count + 1).ToString(), "0");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        
+        private void btnSaveAll_Click(object sender, EventArgs e)
         {
             try
             {
                 bool rs = UpdateStore();
                 if (rs)
-                    {
-                        MessageBox.Show("Cập nhật thành công !");
-                    }
+                {
+                    MessageBox.Show("Cập nhật thành công !");
+                }
             }
             catch (Exception ex)
             {
@@ -193,8 +187,8 @@ namespace CocBook
                 {
                     BookStore bookStore = new BookStore();
                     BookStoreDAL bookStoreDAL = new BookStoreDAL();
-                    string ISBN = dataGridView1.Rows[rows].Cells[1].Value.ToString();
-                    int Quantity = (int)dataGridView1.Rows[rows].Cells[4].Value;
+                    string ISBN = dataGridView1.Rows[rows].Cells[0].Value.ToString();
+                    int Quantity = (int)dataGridView1.Rows[rows].Cells[3].Value;
 
                     bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
                     if (bookStore == null)
@@ -207,7 +201,7 @@ namespace CocBook
                             rs = bookStoreDAL.CreateBookStore(bookStore1);
                             if (!rs)
                             {
-                                error = "Không thể thêm sách tại dòng " + rows;
+                                error = "Không thể thêm sách tại dòng " + (rows+1);
                                 break;
                             }
                         }
@@ -258,7 +252,7 @@ namespace CocBook
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
                 return false;
-            }       
+            }
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -294,8 +288,8 @@ namespace CocBook
                     {
 
                         string filepath = saveFileDialog1.FileName;
-                                                                                     
-                                                
+
+
 
                         string title = "PHIẾU " + importExport.ImEx.ToUpper() + " KHO";
 
@@ -468,7 +462,7 @@ namespace CocBook
 
                 releaseObject(xlApp);
             }
-            
+
         }
         private void releaseObject(object obj)
         {
@@ -486,6 +480,15 @@ namespace CocBook
             {
                 GC.Collect();
             }
+        }
+
+        private void btnSaveDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void ValidateData()
+        {
+
         }
     }
     public class GridViewRow

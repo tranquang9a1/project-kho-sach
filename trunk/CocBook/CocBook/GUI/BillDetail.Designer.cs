@@ -30,7 +30,19 @@
         {
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.RowID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnSaveAll = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.lbDetail = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDetail = new System.Windows.Forms.GroupBox();
+            this.btnChooseBook = new System.Windows.Forms.Button();
             this.RowISBN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,29 +50,24 @@
             this.RowPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.txtBookName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.btnSaveDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBoxDetail.SuspendLayout();
             this.SuspendLayout();
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(6, 64);
+            this.linkLabel1.Location = new System.Drawing.Point(6, 69);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(180, 17);
             this.linkLabel1.TabIndex = 5;
@@ -71,7 +78,6 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RowID,
             this.RowISBN,
             this.RowBookName,
             this.RowUnit,
@@ -79,18 +85,147 @@
             this.RowPrice,
             this.RowDiscount,
             this.RowValue});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 152);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 29);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(939, 336);
+            this.dataGridView1.Size = new System.Drawing.Size(894, 238);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // RowID
+            // pictureBox1
             // 
-            this.RowID.HeaderText = "Stt";
-            this.RowID.Name = "RowID";
-            this.RowID.Width = 50;
+            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(380, 315);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Xóa dòng";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(281, 315);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Sửa dòng";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(186, 315);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Thêm dòng";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(692, 315);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.Text = "Xuất Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnSaveAll
+            // 
+            this.btnSaveAll.Location = new System.Drawing.Point(558, 315);
+            this.btnSaveAll.Name = "btnSaveAll";
+            this.btnSaveAll.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveAll.TabIndex = 0;
+            this.btnSaveAll.Text = "Lưu toàn bộ";
+            this.btnSaveAll.UseVisualStyleBackColor = true;
+            this.btnSaveAll.Click += new System.EventHandler(this.btnSaveAll_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Location = new System.Drawing.Point(98, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(427, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 24);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "CHI TIẾT ĐƠN HÀNG";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Excel 2003|*.xls";
+            // 
+            // lbDetail
+            // 
+            this.lbDetail.AutoSize = true;
+            this.lbDetail.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDetail.Location = new System.Drawing.Point(427, 85);
+            this.lbDetail.Name = "lbDetail";
+            this.lbDetail.Size = new System.Drawing.Size(63, 24);
+            this.lbDetail.TabIndex = 12;
+            this.lbDetail.Text = "label2";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnExport);
+            this.groupBox3.Controls.Add(this.btnDelete);
+            this.groupBox3.Controls.Add(this.btnSaveAll);
+            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.btnEdit);
+            this.groupBox3.Controls.Add(this.btnAdd);
+            this.groupBox3.Location = new System.Drawing.Point(12, 142);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(962, 370);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Danh sách";
+            // 
+            // groupBoxDetail
+            // 
+            this.groupBoxDetail.Controls.Add(this.btnSaveDetail);
+            this.groupBoxDetail.Controls.Add(this.txtDiscount);
+            this.groupBoxDetail.Controls.Add(this.txtQuantity);
+            this.groupBoxDetail.Controls.Add(this.label3);
+            this.groupBoxDetail.Controls.Add(this.label2);
+            this.groupBoxDetail.Controls.Add(this.txtBookName);
+            this.groupBoxDetail.Controls.Add(this.btnChooseBook);
+            this.groupBoxDetail.Enabled = false;
+            this.groupBoxDetail.Location = new System.Drawing.Point(994, 142);
+            this.groupBoxDetail.Name = "groupBoxDetail";
+            this.groupBoxDetail.Size = new System.Drawing.Size(246, 370);
+            this.groupBoxDetail.TabIndex = 14;
+            this.groupBoxDetail.TabStop = false;
+            this.groupBoxDetail.Text = "Chi tiết";
+            // 
+            // btnChooseBook
+            // 
+            this.btnChooseBook.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseBook.Location = new System.Drawing.Point(16, 29);
+            this.btnChooseBook.Name = "btnChooseBook";
+            this.btnChooseBook.Size = new System.Drawing.Size(75, 23);
+            this.btnChooseBook.TabIndex = 0;
+            this.btnChooseBook.Text = "Chọn sách :";
+            this.btnChooseBook.UseVisualStyleBackColor = true;
             // 
             // RowISBN
             // 
@@ -135,131 +270,78 @@
             this.RowValue.HeaderText = "Thành tiền";
             this.RowValue.Name = "RowValue";
             // 
-            // pictureBox1
+            // txtBookName
             // 
-            this.pictureBox1.Image = global::CocBook.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.txtBookName.Location = new System.Drawing.Point(120, 29);
+            this.txtBookName.Multiline = true;
+            this.txtBookName.Name = "txtBookName";
+            this.txtBookName.ReadOnly = true;
+            this.txtBookName.Size = new System.Drawing.Size(107, 58);
+            this.txtBookName.TabIndex = 1;
             // 
-            // groupBox1
+            // label2
             // 
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Location = new System.Drawing.Point(96, 514);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 93);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chỉnh sửa đơn hàng";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(16, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Số lượng :";
             // 
-            // btnDelete
+            // label3
             // 
-            this.btnDelete.Location = new System.Drawing.Point(226, 39);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 21);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Xóa dòng";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 162);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 14);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Chiết khấu (%) :";
             // 
-            // btnEdit
+            // txtQuantity
             // 
-            this.btnEdit.Location = new System.Drawing.Point(127, 39);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 21);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Sửa dòng";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.txtQuantity.Location = new System.Drawing.Point(120, 108);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(107, 20);
+            this.txtQuantity.TabIndex = 4;
             // 
-            // btnAdd
+            // txtDiscount
             // 
-            this.btnAdd.Location = new System.Drawing.Point(32, 39);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 21);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm dòng";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.txtDiscount.Location = new System.Drawing.Point(120, 162);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(107, 20);
+            this.txtDiscount.TabIndex = 5;
             // 
-            // groupBox2
+            // btnSaveDetail
             // 
-            this.groupBox2.Controls.Add(this.btnExport);
-            this.groupBox2.Controls.Add(this.btnSave);
-            this.groupBox2.Location = new System.Drawing.Point(513, 514);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 93);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Lựa chọn";
-            // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(170, 39);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 21);
-            this.btnExport.TabIndex = 1;
-            this.btnExport.Text = "Xuất Excel";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(36, 39);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 21);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Location = new System.Drawing.Point(98, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 93);
-            this.panel1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 24);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "CHI TIẾT ĐƠN HÀNG";
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Filter = "Excel 2003|*.xls";
+            this.btnSaveDetail.Location = new System.Drawing.Point(91, 219);
+            this.btnSaveDetail.Name = "btnSaveDetail";
+            this.btnSaveDetail.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveDetail.TabIndex = 6;
+            this.btnSaveDetail.Text = "Lưu đơn hàng";
+            this.btnSaveDetail.UseVisualStyleBackColor = true;
+            this.btnSaveDetail.Click += new System.EventHandler(this.btnSaveDetail_Click);
             // 
             // BillDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 667);
+            this.ClientSize = new System.Drawing.Size(1252, 538);
+            this.Controls.Add(this.groupBoxDetail);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.lbDetail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "BillDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BillDetail";
+            this.Text = "Chi tiết đơn hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBoxDetail.ResumeLayout(false);
+            this.groupBoxDetail.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,16 +352,18 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnSaveAll;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RowID;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lbDetail;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBoxDetail;
+        private System.Windows.Forms.Button btnChooseBook;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowISBN;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowBookName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowUnit;
@@ -287,6 +371,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RowPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn RowValue;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TextBox txtBookName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Button btnSaveDetail;
     }
 }
