@@ -35,7 +35,6 @@ F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBoo
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\CocBook.exe
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\bin\Debug\CocBook.pdb
-F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.csprojResolveAssemblyReference.cache
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources

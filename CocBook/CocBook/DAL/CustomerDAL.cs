@@ -36,8 +36,7 @@ namespace DataAccessLayer.cs.DAL
         }
         public bool DeleteCustomer(int CustomerID)
         {
-            try
-            {
+           
                 string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
                 SqlCommand cmd = new SqlCommand("Delete from Customer where CustomerID = @CustomerID", con);
@@ -47,12 +46,7 @@ namespace DataAccessLayer.cs.DAL
                 con.Close();
                 return (count == 1);
 
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
+            
         }
         public bool UpdateCustomer(Customer customer)
         {
