@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DataAccessLayer.cs.DTO;
 using DataAccessLayer.cs.DAL;
+using System.Data.SqlClient;
 
 namespace CocBook
 {
@@ -69,6 +70,11 @@ namespace CocBook
                     customerDAL.DeleteCustomer(customerID);
                 }
                 loadAllData();
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("Vui lòng xóa toàn bộ các đơn hàng của khách hàng này trước khi xóa !");
+                logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + sqlEx.Message + "'");
             }
             catch (Exception ex)
             {

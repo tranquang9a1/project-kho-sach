@@ -166,6 +166,10 @@
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnConnect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(395, 290);
+            this.MinimumSize = new System.Drawing.Size(395, 290);
             this.Name = "ConnectDBForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liên kết cơ sở dữ liệu";

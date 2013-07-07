@@ -1,0 +1,2 @@
+7/7/2013 8:22:02 PM' Error 'The DELETE statement conflicted with the REFERENCE constraint "FK_ImportExport_Customer". The conflict occurred in database "CocBook", table "dbo.ImportExport", column 'CustomerID'.
+The statement has been terminated.'

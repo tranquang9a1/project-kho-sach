@@ -35,12 +35,13 @@ namespace CocBook
             groupBoxDetail.Enabled = true;
             txtCheckNo.ReadOnly = false;
             isAdd = true;
+            radioButtonExport.Enabled = true;
+            radioButtonImport.Enabled = true;
         }
         private void ClearAll()
         {
             try
             {
-                txtCheckNo.ReadOnly = true;
                 txtCheckNo.Text = "";
                 txtDay.Text = "";
                 radioButtonImport.Checked = false;
@@ -76,6 +77,8 @@ namespace CocBook
         {
             try
             {
+                radioButtonExport.Enabled = false;
+                radioButtonImport.Enabled = false;
                 importExport.CheckNo = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
                 importExport.Date = (DateTime)dataGridView1.SelectedRows[0].Cells[1].Value;
                 importExport.ImEx = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -246,6 +249,8 @@ namespace CocBook
                 if (rs)
                 {
                     MessageBox.Show("Đã lưu !");
+                    groupBoxDetail.Enabled = false;
+                    txtCheckNo.ReadOnly = true;
                     LoadAllData();
                 }
                 else

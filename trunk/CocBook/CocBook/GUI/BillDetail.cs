@@ -114,6 +114,7 @@ namespace CocBook
                 ieDetail.Discount = (int)dataGridView1.SelectedRows[0].Cells[5].Value;
                 ieDetail.Value = (int)dataGridView1.SelectedRows[0].Cells[6].Value;
 
+                btnChooseBook.Enabled = false;
                 txtBookName.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 txtQuantity.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 txtDiscount.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
@@ -132,7 +133,44 @@ namespace CocBook
             {
                 if (MessageBox.Show("Bạn có muốn xóa ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, ieDetail.ISBNBook);
+                    //Restore book's quantity in Store when Delete Row
+                    BookStore bookStore = new BookStore();
+                    BookStoreDAL bookStoreDAL = new BookStoreDAL();
+                    string ISBN = ieDetail.ISBNBook;
+                    int Quantity = ieDetail.Quantity;
+                    bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
+                    string error="";
+                    bool rs=true;
+                    if (String.Compare(importExport.ImEx, "Xuất", true) == 0)
+                    {
+                        bookStore.Quantity += Quantity;
+                    }
+                    else
+                    {
+                        if (bookStore.Quantity >= Quantity)
+                        {
+                            bookStore.Quantity -= Quantity;
+                        }
+                        else
+                        {
+                            rs = false;
+                            error = error+"Số lượng sách nhỏ hơn số sách cần xóa từ phiếu Nhập này";
+                        }
+                    }
+
+                    rs = bookStoreDAL.UpdateBookStore(bookStore);
+                    if (!rs)
+                    {
+                        error = error+"Không thể cập nhật sách.";
+                        MessageBox.Show(error);
+                    }
+                    else
+                    {
+                        // Delete Book in IEDetail
+                        ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, ieDetail.ISBNBook);
+                    }
+
+                    
                 }
                 ClearAll();
                 OrderLoadData();
@@ -485,6 +523,7 @@ namespace CocBook
                     if (ieDAL.GetIEDetailByCheckNoAndISBN(ieDetail.CheckNo, ieDetail.ISBNBook) == null)
                     {
                         rs = ieDAL.CreateIEDetail(ieDetail);
+                        
                     }
                     else
                     {
@@ -498,7 +537,9 @@ namespace CocBook
                 }
                 if (rs)
                 {
+                    isADD = false;
                     MessageBox.Show("Đã lưu !");
+                    groupBoxDetail.Enabled = false;
                     OrderLoadData();
                 }
                 else
