@@ -94,7 +94,7 @@ namespace CocBook
             txtQuantity.Text = "";
         }
 
-        
+
         void editrow_importRowEvent()
         {
             OrderLoadData();
@@ -104,6 +104,7 @@ namespace CocBook
         {
             try
             {
+                isADD = false;
                 groupBoxDetail.Enabled = true;
                 ieDetail.ISBNBook = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 book.ISBNBook = ieDetail.ISBNBook;
@@ -139,8 +140,8 @@ namespace CocBook
                     string ISBN = ieDetail.ISBNBook;
                     int Quantity = ieDetail.Quantity;
                     bookStore = bookStoreDAL.GetBookStorebyISBNBook(ISBN);
-                    string error="";
-                    bool rs=true;
+                    string error = "";
+                    bool rs = true;
                     if (String.Compare(importExport.ImEx, "Xuất", true) == 0)
                     {
                         bookStore.Quantity += Quantity;
@@ -154,14 +155,14 @@ namespace CocBook
                         else
                         {
                             rs = false;
-                            error = error+"Số lượng sách nhỏ hơn số sách cần xóa từ phiếu Nhập này";
+                            error = error + "Số lượng sách nhỏ hơn số sách cần xóa từ phiếu Nhập này";
                         }
                     }
 
                     rs = bookStoreDAL.UpdateBookStore(bookStore);
                     if (!rs)
                     {
-                        error = error+"Không thể cập nhật sách.";
+                        error = error + "Không thể cập nhật sách.";
                         MessageBox.Show(error);
                     }
                     else
@@ -170,7 +171,7 @@ namespace CocBook
                         ieDAL.DeleteOrderByCheckNoAndISBN(importExport.CheckNo, ieDetail.ISBNBook);
                     }
 
-                    
+
                 }
                 ClearAll();
                 OrderLoadData();
@@ -183,7 +184,7 @@ namespace CocBook
         }
 
 
-        private bool UpdateStore()
+        private bool UpdateStore(bool IsChangeQuantity)
         {
 
             try
@@ -207,7 +208,7 @@ namespace CocBook
                         rs = bookStoreDAL.CreateBookStore(bookStore1);
                         if (!rs)
                         {
-                            error = "Không thể thêm sách tại dòng ";
+                            error = "Không thể thêm sách vào kho.";
                         }
                     }
                     else
@@ -220,13 +221,27 @@ namespace CocBook
                 {
                     if (String.Compare(importExport.ImEx, "Nhập", true) == 0)
                     {
-                        bookStore.Quantity += Quantity;
+                        if (IsChangeQuantity)
+                        {
+                            bookStore.Quantity += Quantity;
+                        }
+                        else
+                        {
+                            bookStore.Quantity = Quantity;
+                        }
                     }
                     else
                     {
                         if (bookStore.Quantity >= Quantity)
                         {
-                            bookStore.Quantity -= Quantity;
+                            if (IsChangeQuantity)
+                            {
+                                bookStore.Quantity -= Quantity;
+                            }
+                            else
+                            {
+                                bookStore.Quantity = Quantity;
+                            }
                         }
                         else
                         {
@@ -275,174 +290,168 @@ namespace CocBook
 
             try
             {
+                saveFileDialog1.ShowDialog();
+                bool check = saveFileDialog1.CheckPathExists;
 
 
-                bool rs = UpdateStore();
-                if (rs)
+                if (check)
                 {
 
-                    saveFileDialog1.ShowDialog();
-                    bool check = saveFileDialog1.CheckPathExists;
+                    string filepath = saveFileDialog1.FileName;
 
 
-                    if (check)
+
+                    string title = "PHIẾU " + importExport.ImEx.ToUpper() + " KHO";
+
+
+                    //set thuoc tinh cho tieu de
+                    xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3").Merge(false);
+                    Excel.Range caption = xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3");
+                    caption.Select();
+                    caption.FormulaR1C1 = title;
+                    //căn lề cho tiêu đề
+                    caption.HorizontalAlignment = Excel.Constants.xlCenter;
+                    caption.Font.Bold = true;
+                    caption.VerticalAlignment = Excel.Constants.xlCenter;
+                    caption.Font.Size = 18;
+                    //màu nền cho tiêu đề
+                    //caption.Interior.ColorIndex = 21;
+                    //caption.RowHeight = 30;
+
+                    Excel.Range header = xlWorkSheet.get_Range("A14", Convert.ToChar(dataGridView1.ColumnCount + 64) + "14");
+                    header.Select();
+                    header.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+                    header.HorizontalAlignment = Excel.Constants.xlCenter;
+                    header.Font.Bold = true;
+                    header.Font.Italic = true;
+                    header.Font.Size = 10;
+
+                    string dates = "Ngày: " + (importExport.Date.ToString("dd/MM/yyyy"));
+
+                    xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4").Merge(false);
+                    Excel.Range date = xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4");
+                    date.Select();
+                    date.FormulaR1C1 = dates;
+
+                    date.HorizontalAlignment = Excel.Constants.xlCenter;
+                    date.Font.Bold = true;
+                    date.VerticalAlignment = Excel.Constants.xlCenter;
+                    date.Font.Size = 11;
+
+                    string websites = "    www.facebook.com/cocbook";
+
+
+                    xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5").Merge(false);
+                    Excel.Range website = xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5");
+                    website.Select();
+                    website.FormulaR1C1 = websites;
+
+                    website.Font.Bold = true;
+                    website.Font.Size = 11;
+
+                    int i = 0;
+
+                    int j = 0;
+
+                    for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                    {
+                        string s = this.dataGridView1.Columns[k].HeaderText;
+                        xlWorkSheet.Cells[14, k + 1] = s;
+                    }
+
+
+                    //Thiết lập vùng điền dữ liệu
+                    int rowStart = 15;
+                    int columnStart = 1;
+
+                    int rowEnd = rowStart + dataGridView1.Rows.Count - 1 + 6;
+                    int columnEnd = dataGridView1.Columns.Count;
+
+                    // Ô bắt đầu điền dữ liệu
+                    Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowStart, columnStart];
+                    // Ô kết thúc điền dữ liệu
+                    Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnEnd];
+                    // Lấy về vùng điền dữ liệu
+                    Microsoft.Office.Interop.Excel.Range range = xlWorkSheet.get_Range(c1, c2);
+
+                    // Kẻ viền
+                    range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
+
+                    // Căn lề các ô điền dữ liệu
+                    Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnStart];
+                    Microsoft.Office.Interop.Excel.Range c4 = xlWorkSheet.get_Range(c1, c2);
+                    xlWorkSheet.get_Range(c3, c4).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+
+                    string line1 = "Khách hàng";
+                    string line2 = "Địa chỉ";
+                    string line3 = "Điện thoại";
+                    string line4 = "MST";
+                    string line5 = "Xuất từ kho";
+                    string line6 = "Hình thức thanh toán";
+
+
+                    xlWorkSheet.Cells[7, 2] = line1;
+                    xlWorkSheet.Cells[8, 2] = line2;
+                    xlWorkSheet.Cells[9, 2] = line3;
+                    xlWorkSheet.Cells[10, 2] = line4;
+                    xlWorkSheet.Cells[11, 2] = line5;
+                    xlWorkSheet.Cells[12, 2] = line6;
+
+                    xlWorkSheet.Cells[7, 3] = ": " + customer.CustomerName;
+                    xlWorkSheet.Cells[8, 3] = ": " + customer.Address;
+                    xlWorkSheet.Cells[9, 3] = ": " + customer.Phone;
+                    xlWorkSheet.Cells[10, 3] = ": " + customer.TaxNo;
+                    xlWorkSheet.Cells[11, 3] = ": " + "Trụ sở 182/49 Lê Văn Sỹ";
+                    xlWorkSheet.Cells[12, 3] = ": " + importExport.Type;
+
+                    string rline1 = "Số phiếu";
+                    string rline2 = "Số chứng từ";
+                    string rline3 = "Ký hiệu HĐ";
+                    string rline4 = "Phương thức xuất";
+
+                    xlWorkSheet.Cells[1, 6] = rline1;
+                    xlWorkSheet.Cells[2, 6] = rline2;
+                    xlWorkSheet.Cells[3, 6] = rline3;
+                    xlWorkSheet.Cells[4, 6] = rline4;
+
+
+                    xlWorkSheet.Cells[1, 9] = ": " + importExport.CheckNo;
+                    xlWorkSheet.Cells[2, 9] = ": ";
+                    xlWorkSheet.Cells[3, 9] = ": ";
+                    xlWorkSheet.Cells[4, 9] = ": ";
+
+
+                    for (i = 0; i <= dataGridView1.RowCount - 1; i++)
                     {
 
-                        string filepath = saveFileDialog1.FileName;
-
-
-
-                        string title = "PHIẾU " + importExport.ImEx.ToUpper() + " KHO";
-
-
-                        //set thuoc tinh cho tieu de
-                        xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3").Merge(false);
-                        Excel.Range caption = xlWorkSheet.get_Range("C3", Convert.ToChar(4 + 65) + "3");
-                        caption.Select();
-                        caption.FormulaR1C1 = title;
-                        //căn lề cho tiêu đề
-                        caption.HorizontalAlignment = Excel.Constants.xlCenter;
-                        caption.Font.Bold = true;
-                        caption.VerticalAlignment = Excel.Constants.xlCenter;
-                        caption.Font.Size = 18;
-                        //màu nền cho tiêu đề
-                        //caption.Interior.ColorIndex = 21;
-                        //caption.RowHeight = 30;
-
-                        Excel.Range header = xlWorkSheet.get_Range("A14", Convert.ToChar(dataGridView1.ColumnCount + 64) + "14");
-                        header.Select();
-                        header.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-                        header.HorizontalAlignment = Excel.Constants.xlCenter;
-                        header.Font.Bold = true;
-                        header.Font.Italic = true;
-                        header.Font.Size = 10;
-
-                        string dates = "Ngày: " + (importExport.Date.ToString("dd/MM/yyyy"));
-
-                        xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4").Merge(false);
-                        Excel.Range date = xlWorkSheet.get_Range("C4", Convert.ToChar(4 + 65) + "4");
-                        date.Select();
-                        date.FormulaR1C1 = dates;
-
-                        date.HorizontalAlignment = Excel.Constants.xlCenter;
-                        date.Font.Bold = true;
-                        date.VerticalAlignment = Excel.Constants.xlCenter;
-                        date.Font.Size = 11;
-
-                        string websites = "    www.facebook.com/cocbook";
-
-
-                        xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5").Merge(false);
-                        Excel.Range website = xlWorkSheet.get_Range("A5", Convert.ToChar(2 + 65) + "5");
-                        website.Select();
-                        website.FormulaR1C1 = websites;
-
-                        website.Font.Bold = true;
-                        website.Font.Size = 11;
-
-                        int i = 0;
-
-                        int j = 0;
-
-                        for (int k = 0; k < dataGridView1.ColumnCount; k++)
+                        for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
                         {
-                            string s = this.dataGridView1.Columns[k].HeaderText;
-                            xlWorkSheet.Cells[14, k + 1] = s;
+
+                            DataGridViewCell cell = dataGridView1[j, i];
+
+                            xlWorkSheet.Cells[i + 15, j + 1] = cell.Value;
+
                         }
 
 
-                        //Thiết lập vùng điền dữ liệu
-                        int rowStart = 15;
-                        int columnStart = 1;
-
-                        int rowEnd = rowStart + dataGridView1.Rows.Count - 1 + 6;
-                        int columnEnd = dataGridView1.Columns.Count;
-
-                        // Ô bắt đầu điền dữ liệu
-                        Microsoft.Office.Interop.Excel.Range c1 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowStart, columnStart];
-                        // Ô kết thúc điền dữ liệu
-                        Microsoft.Office.Interop.Excel.Range c2 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnEnd];
-                        // Lấy về vùng điền dữ liệu
-                        Microsoft.Office.Interop.Excel.Range range = xlWorkSheet.get_Range(c1, c2);
-
-                        // Kẻ viền
-                        range.Borders.LineStyle = Microsoft.Office.Interop.Excel.Constants.xlSolid;
-
-                        // Căn lề các ô điền dữ liệu
-                        Microsoft.Office.Interop.Excel.Range c3 = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[rowEnd, columnStart];
-                        Microsoft.Office.Interop.Excel.Range c4 = xlWorkSheet.get_Range(c1, c2);
-                        xlWorkSheet.get_Range(c3, c4).HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-
-                        string line1 = "Khách hàng";
-                        string line2 = "Địa chỉ";
-                        string line3 = "Điện thoại";
-                        string line4 = "MST";
-                        string line5 = "Xuất từ kho";
-                        string line6 = "Hình thức thanh toán";
-
-
-                        xlWorkSheet.Cells[7, 2] = line1;
-                        xlWorkSheet.Cells[8, 2] = line2;
-                        xlWorkSheet.Cells[9, 2] = line3;
-                        xlWorkSheet.Cells[10, 2] = line4;
-                        xlWorkSheet.Cells[11, 2] = line5;
-                        xlWorkSheet.Cells[12, 2] = line6;
-
-                        xlWorkSheet.Cells[7, 3] = ": " + customer.CustomerName;
-                        xlWorkSheet.Cells[8, 3] = ": " + customer.Address;
-                        xlWorkSheet.Cells[9, 3] = ": " + customer.Phone;
-                        xlWorkSheet.Cells[10, 3] = ": " + customer.TaxNo;
-                        xlWorkSheet.Cells[11, 3] = ": " + "Trụ sở 182/49 Lê Văn Sỹ";
-                        xlWorkSheet.Cells[12, 3] = ": " + importExport.Type;
-
-                        string rline1 = "Số phiếu";
-                        string rline2 = "Số chứng từ";
-                        string rline3 = "Ký hiệu HĐ";
-                        string rline4 = "Phương thức xuất";
-
-                        xlWorkSheet.Cells[1, 6] = rline1;
-                        xlWorkSheet.Cells[2, 6] = rline2;
-                        xlWorkSheet.Cells[3, 6] = rline3;
-                        xlWorkSheet.Cells[4, 6] = rline4;
-
-
-                        xlWorkSheet.Cells[1, 9] = ": " + importExport.CheckNo;
-                        xlWorkSheet.Cells[2, 9] = ": ";
-                        xlWorkSheet.Cells[3, 9] = ": ";
-                        xlWorkSheet.Cells[4, 9] = ": ";
-
-
-                        for (i = 0; i <= dataGridView1.RowCount - 1; i++)
-                        {
-
-                            for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
-                            {
-
-                                DataGridViewCell cell = dataGridView1[j, i];
-
-                                xlWorkSheet.Cells[i + 15, j + 1] = cell.Value;
-
-                            }
-
-
-                        }
-
-                        for (i = 0; i < dataGridView1.RowCount + 1; i++)
-                        {
-                            for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
-                            {
-                                ((Excel.Range)xlWorkSheet.Cells[14, j + 1]).EntireColumn.AutoFit();
-                            }
-                        }
-
-
-
-                        xlWorkBook.SaveAs(filepath, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-
-
-                        MessageBox.Show("Đã xuất file. Bạn có thể tìm file ở " + filepath);
                     }
+
+                    for (i = 0; i < dataGridView1.RowCount + 1; i++)
+                    {
+                        for (j = 0; j <= dataGridView1.ColumnCount - 1; j++)
+                        {
+                            ((Excel.Range)xlWorkSheet.Cells[14, j + 1]).EntireColumn.AutoFit();
+                        }
+                    }
+
+
+
+                    xlWorkBook.SaveAs(filepath, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+
+                    MessageBox.Show("Đã xuất file. Bạn có thể tìm file ở " + filepath);
                 }
+
             }
             catch (Exception ex)
             {
@@ -493,19 +502,19 @@ namespace CocBook
         }
         private bool ValidateData()
         {
-            if (txtBookName == null)
+            if (txtBookName.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn sách !");
                 return false;
             }
-            if (txtDiscount == null)
-            {
-                MessageBox.Show("Vui lòng nhập chiết khấu !");
-                return false;
-            }
-            if (txtQuantity == null)
+            if (txtQuantity.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập số lượng !");
+                return false;
+            } 
+            if (txtDiscount.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập chiết khấu !");
                 return false;
             }
             return true;
@@ -515,38 +524,32 @@ namespace CocBook
             ieDetail.Quantity = int.Parse(txtQuantity.Text);
             ieDetail.Discount = int.Parse(txtDiscount.Text);
             ieDetail.Value = (book.Price * ieDetail.Quantity * (100 - ieDetail.Discount)) / 100;
-            if (UpdateStore())
+
+            if (isADD)
             {
-                bool rs;
-                if (isADD)
+                if (ieDAL.GetIEDetailByCheckNoAndISBN(ieDetail.CheckNo, ieDetail.ISBNBook) == null && UpdateStore(true) && ieDAL.CreateIEDetail(ieDetail))
                 {
-                    if (ieDAL.GetIEDetailByCheckNoAndISBN(ieDetail.CheckNo, ieDetail.ISBNBook) == null)
-                    {
-                        rs = ieDAL.CreateIEDetail(ieDetail);
-                        
-                    }
-                    else
-                    {
-                        rs = false;
-                        MessageBox.Show("Đã có sách trong phiếu. Vui lòng chỉnh sửa từ danh sách !");
-                    }
-                }
-                else
-                {
-                    rs = ieDAL.UpdateIEDetail(ieDetail);
-                }
-                if (rs)
-                {
-                    isADD = false;
                     MessageBox.Show("Đã lưu !");
                     groupBoxDetail.Enabled = false;
                     OrderLoadData();
                 }
                 else
                 {
-                    MessageBox.Show("Không thể lưu !");
+                    MessageBox.Show("Đã có sách trong phiếu. Vui lòng chỉnh sửa từ danh sách !");
                 }
             }
+            else if (UpdateStore(false) && ieDAL.UpdateIEDetail(ieDetail))
+            {
+                MessageBox.Show("Đã lưu !");
+                groupBoxDetail.Enabled = false;
+                OrderLoadData();
+            }
+            else
+            {
+                MessageBox.Show("Không thể lưu !");
+            }
+
+
         }
 
         private void btnChooseBook_Click(object sender, EventArgs e)

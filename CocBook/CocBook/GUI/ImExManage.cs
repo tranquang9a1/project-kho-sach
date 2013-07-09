@@ -77,6 +77,8 @@ namespace CocBook
         {
             try
             {
+                isAdd = false;
+
                 radioButtonExport.Enabled = false;
                 radioButtonImport.Enabled = false;
                 importExport.CheckNo = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
