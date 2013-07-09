@@ -90,3 +90,18 @@ D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
 D:\Working\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\bin\Debug\CocBook.exe.config
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.exe
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.pdb
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\bin\Debug\CocBook.exe
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\bin\Debug\CocBook.pdb
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.CustomerManage.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.ConnectDBForm.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.LoginForm.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.MainMenuForm.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.BookManage.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.ViewStore.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.ImExManage.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.BillDetail.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.Properties.Resources.resources
+C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Debug\CocBook.csproj.GenerateResource.Cache

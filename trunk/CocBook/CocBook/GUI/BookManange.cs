@@ -104,10 +104,17 @@ namespace CocBook
             {
                 try
                 {
-                    Close();
-                    if (chooseEvent != null)
+                    if (book.ISBNBook != null)
                     {
-                        chooseEvent();
+                        Close();
+                        if (chooseEvent != null)
+                        {
+                            chooseEvent();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn sách !");
                     }
                 }
                 catch (Exception ex)
@@ -250,6 +257,7 @@ namespace CocBook
                 book.BookName = txtBookName.Text;
                 book.PublisherName = txtPublisher.Text;
                 book.Unit = txtUnit.Text;
+                bool priceChange = (book.Price == int.Parse(txtPrice.Text));
                 book.Price = int.Parse(txtPrice.Text);
                 bool rs;
                 if (isAdd)
@@ -259,6 +267,20 @@ namespace CocBook
                 else
                 {
                     rs = bookDAL.UpdateBook(book);
+                    if (priceChange == false)
+                    {
+                        List<IEDetail> ieDetailList = new List<IEDetail>();
+                        IEDetailDAL ieDetailDAL = new IEDetailDAL();
+                        ieDetailList = ieDetailDAL.GetIEDetailByISBN(book.ISBNBook);
+                        if (ieDetailList != null)
+                        {
+                            foreach (var ieDetail in ieDetailList)
+                            {
+                                ieDetail.Value=(book.Price * ieDetail.Quantity * (100 - ieDetail.Discount)) / 100;
+                                ieDetailDAL.UpdateIEDetail(ieDetail);
+                            }
+                        }
+                    }
                 }
                 if (rs)
                 {
@@ -352,6 +374,11 @@ namespace CocBook
 
                 logger.MyLogFile(DateTime.Now.ToString(), "' Error '" + ex.Message + "'");
             }
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            LoadAllData();
         }
     }
 

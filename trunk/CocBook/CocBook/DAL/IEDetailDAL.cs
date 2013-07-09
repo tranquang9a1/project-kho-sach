@@ -16,7 +16,7 @@ namespace DataAccessLayer.cs.DAL
             {
                 string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
-               
+
 
                 //Insert Command
                 SqlCommand cmd = new SqlCommand("Insert into IEDetail values (@CheckNo,@ISBNBook,@Quantity,@Discount,@Value)", con);
@@ -71,8 +71,8 @@ namespace DataAccessLayer.cs.DAL
 
                 string cs = CocBook.Properties.Settings.Default.connectionString;
                 SqlConnection con = new SqlConnection(cs);
-                
-               // SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+
+                // SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
                 //
 
                 //Delete Command
@@ -96,7 +96,7 @@ namespace DataAccessLayer.cs.DAL
 
             string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
-            
+
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             // View all Command
@@ -153,13 +153,43 @@ namespace DataAccessLayer.cs.DAL
             con.Close();
             return list;
         }
-        public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
+        public List<IEDetail> GetIEDetailByISBN(string isbn)
         {
 
 
             string cs = CocBook.Properties.Settings.Default.connectionString;
             SqlConnection con = new SqlConnection(cs);
-            
+
+            //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
+            //
+            // View all Command
+            SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE ISBNBook = @isbn", con);
+            cmd.Parameters.AddWithValue("isbn", isbn);
+            //
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            List<IEDetail> list = new List<IEDetail>();
+
+            while (sdr.Read())
+            {
+
+                IEDetail iedetail = new IEDetail();
+                iedetail.CheckNo = (int)sdr["CheckNo"];
+                iedetail.ISBNBook = (string)sdr["ISBNBook"];
+                iedetail.Quantity = (int)sdr["Quantity"];
+                iedetail.Discount = (int)sdr["Discount"];
+                iedetail.Value = (int)sdr["Value"];
+                list.Add(iedetail);
+            }
+            con.Close();
+            return list;
+        }
+        public IEDetail GetIEDetailByCheckNoAndISBN(int no, string isbn)
+        {
+            string cs = CocBook.Properties.Settings.Default.connectionString;
+            SqlConnection con = new SqlConnection(cs);
+
             //SqlConnection con = new SqlConnection(@"Server=(local);Database = CocBook;uid=sa;pwd=123456789");
             //
             SqlCommand cmd = new SqlCommand("SELECT * FROM IEDetail WHERE CheckNo = @no AND ISBNBook = @isbn", con);

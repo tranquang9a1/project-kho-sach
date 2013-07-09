@@ -87,6 +87,8 @@ namespace CocBook
         {
             try
             {
+                isAdd = false;
+
                 customer.CustomerID = (int)CustomerDataGridView.SelectedRows[0].Cells[0].Value;
                 customer.CustomerName = CustomerDataGridView.SelectedRows[0].Cells[1].Value.ToString();
                 customer.Address = CustomerDataGridView.SelectedRows[0].Cells[2].Value.ToString();
