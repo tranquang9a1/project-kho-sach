@@ -13,6 +13,7 @@ F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Release\CocB
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Release\CocBook.csproj.GenerateResource.Cache
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Release\CocBook.exe
 F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Release\CocBook.pdb
+F:\FPT\Semester 4\C# & Dot Net\ProjectGroup\CocBook\CocBook\obj\x86\Release\CocBook.csprojResolveAssemblyReference.cache
 C:\Users\Giang\Desktop\Demo\CocBook\CocBook\bin\Release\CocBook.exe.config
 C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Release\CocBook.exe
 C:\Users\Giang\Desktop\Demo\CocBook\CocBook\obj\x86\Release\CocBook.pdb
