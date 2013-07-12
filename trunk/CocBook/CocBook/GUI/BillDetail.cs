@@ -249,8 +249,10 @@ namespace CocBook
                             error = "Số lượng sách lớn hơn số lượng có trong kho";
                         }
                     }
-
-                    rs = bookStoreDAL.UpdateBookStore(bookStore);
+                    if (rs)
+                    {
+                        rs = bookStoreDAL.UpdateBookStore(bookStore);
+                    }
                     if (!rs)
                     {
                         error = "Không thể cập nhật sách.";
